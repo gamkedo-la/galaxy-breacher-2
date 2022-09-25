@@ -24,13 +24,15 @@ public class TurretBehaviour : MonoBehaviour
             turretHeadingPoint = GameObject.Find("TurretHeadingPoint");
         }
         heading = Vector3.Normalize(turretHeadingPoint.transform.position - transform.position);
-        playerInRange = true;
+        playerInRange = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Player"); // not sure if this is the way to do it
+        turretHeadingPoint = GameObject.Find("TurretHeadingPoint");
+        player = GameObject.Find("Player"); // not sure if this is the fast/proper way to do it
+        heading = Vector3.Normalize(turretHeadingPoint.transform.position - transform.position); // this is probably unnecessary unless the turret is going to be moving around
         playerInRange = false;
         Vector3 playerPos = player.transform.position;
         Vector3 castToPlayer = playerPos - transform.position;
@@ -42,6 +44,7 @@ public class TurretBehaviour : MonoBehaviour
             Debug.Log("Can't hit shoot player");
         } else {
             // not taking into account actual visibility/occlusion yet
+            playerInRange = true;
             Debug.Log("Can hit player");
         }
     }
