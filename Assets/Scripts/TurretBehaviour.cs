@@ -41,11 +41,11 @@ public class TurretBehaviour : MonoBehaviour
         float angle =  Mathf.Rad2Deg * Mathf.Acos(innerProduct / (Vector3.Magnitude(heading) * Vector3.Magnitude(castToPlayer)));
         Debug.Log("angle between turrent and player is " + angle);
         if ((angle) > maxTurretAngle) {
-            Debug.Log("Can't hit shoot player");
+            // Debug.Log("Can't hit shoot player");
         } else {
             // not taking into account actual visibility/occlusion yet
             playerInRange = true;
-            Debug.Log("Can hit player");
+            // Debug.Log("Can hit player");
         }
     }
 }
