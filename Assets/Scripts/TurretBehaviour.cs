@@ -9,9 +9,7 @@ public class TurretBehaviour : MonoBehaviour
 
     public float maxTurretAngle = 90.0f;
 
-    private GameObject player = null;
-
-    private GameObject turretHeadingPoint = null;
+    
 
     public GameObject turretShotPrefab;
 
@@ -29,13 +27,9 @@ public class TurretBehaviour : MonoBehaviour
 
         
 
-        if (player == null) {
-            player = GameObject.Find("Player");
-        }
-        if (turretHeadingPoint == null) {
-            turretHeadingPoint = GameObject.Find("TurretHeadingPoint");
-        }
-        heading = Vector3.Normalize(turretHeadingPoint.transform.position - transform.position);
+        
+        // just take from the rotation
+        heading = transform.up;
         playerInRange = false;
     }
 
@@ -43,15 +37,12 @@ public class TurretBehaviour : MonoBehaviour
     void Update()
     {
         // do a bunch of work to a get a valid range for shooting
-        turretHeadingPoint = GameObject.Find("TurretHeadingPoint");
-        player = GameObject.Find("Player"); // not sure if this is the fast/proper way to do it
-        heading = Vector3.Normalize(turretHeadingPoint.transform.position - transform.position); // this is probably unnecessary unless the turret is going to be moving around
+        heading = transform.up;
         playerInRange = false;
-        Vector3 playerPos = player.transform.position;
+        Vector3 playerPos = PlayerControl.instance.transform.position;
         Vector3 castToPlayer = playerPos - transform.position;
         // Debug.Log("heading is " + heading.x + " x " + heading.y + " y " + heading.z + " z");
-        float innerProduct = Vector3.Dot(castToPlayer, heading);
-        float angle =  Mathf.Rad2Deg * Mathf.Acos(innerProduct / (Vector3.Magnitude(heading) * Vector3.Magnitude(castToPlayer)));
+        float angle = Vector3.Angle(castToPlayer, heading);
         Debug.Log("angle between turrent and player is " + angle);
         if ((angle) > maxTurretAngle) {
             // Debug.Log("Can't hit shoot player");
@@ -63,7 +54,7 @@ public class TurretBehaviour : MonoBehaviour
 
         if (playerInRange && canShoot) {
             // actually shoot
-            // gonna need a proper direction (that of the player) to pass as a Quaternion rotation
+            // gonna need a proper direction (that of the player) to pass as a Quaternion rotation?
             Debug.Log("launching shot");
             canShoot = false;
             GameObject shotGO = GameObject.Instantiate(turretShotPrefab, transform.position, transform.rotation);

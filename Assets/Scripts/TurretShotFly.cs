@@ -10,6 +10,7 @@ public class TurretShotFly : MonoBehaviour
     float shotSpeed = 25.0f;
     void Start()
     {
+        HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, maxLifetimeInSec);
     }
@@ -18,11 +19,13 @@ public class TurretShotFly : MonoBehaviour
     void Update()
     {
         // where does the position get updated?
-        rb.velocity = transform.forward * shotSpeed;
+        // rb.velocity = transform.forward * shotSpeed;
+        transform.position += transform.forward * shotSpeed * Time.deltaTime;
     }
 
     void OnCollisionEnter(Collision collision) {
         // presumably need to set some damage here if it hits the player?
+        // it's colliding with the turrent atm on launch
         //Destroy(gameObject);
     }
 }

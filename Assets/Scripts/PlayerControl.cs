@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
+    public static PlayerControl instance;
     public TextMeshProUGUI speedIndicator;
     public GameObject rocketPrefab;
     public Transform fireFrom;
@@ -16,6 +17,11 @@ public class PlayerControl : MonoBehaviour
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
     float maxForwardSpeed = 60.0f;
+
+    void Awake() 
+    {
+        instance = this; // singleton for AI to aim etc
+    }
 
     void Update()
     {
