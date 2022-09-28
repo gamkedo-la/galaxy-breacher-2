@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heading: {x: 0, y: 0, z: 0}
   maxTurretAngle: 90
+  turretShotPrefab: {fileID: 5220101905546762837, guid: 44b5f3a9d369441499834283af1e5c81, type: 3}
 --- !u!1 &6834842702114153905
 GameObject:
   m_ObjectHideFlags: 0

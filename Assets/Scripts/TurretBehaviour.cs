@@ -13,10 +13,22 @@ public class TurretBehaviour : MonoBehaviour
 
     private GameObject turretHeadingPoint = null;
 
+    public GameObject turretShotPrefab;
+
     private bool playerInRange;
+
+    float timeBetweenShots = 0.75f;
+    private float shotTimer;
+
+    private bool canShoot;
 
     void Start()
     {
+        canShoot = true;
+        shotTimer = 0.0f;
+
+        
+
         if (player == null) {
             player = GameObject.Find("Player");
         }
@@ -30,6 +42,7 @@ public class TurretBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // do a bunch of work to a get a valid range for shooting
         turretHeadingPoint = GameObject.Find("TurretHeadingPoint");
         player = GameObject.Find("Player"); // not sure if this is the fast/proper way to do it
         heading = Vector3.Normalize(turretHeadingPoint.transform.position - transform.position); // this is probably unnecessary unless the turret is going to be moving around
@@ -45,7 +58,25 @@ public class TurretBehaviour : MonoBehaviour
         } else {
             // not taking into account actual visibility/occlusion yet
             playerInRange = true;
-            // Debug.Log("Can hit player");
+            Debug.Log("Can hit player");
         }
+
+        if (playerInRange && canShoot) {
+            // actually shoot
+            // gonna need a proper direction (that of the player) to pass as a Quaternion rotation
+            Debug.Log("launching shot");
+            canShoot = false;
+            GameObject shotGO = GameObject.Instantiate(turretShotPrefab, transform.position, transform.rotation);
+        }
+
+        if (!canShoot) {
+            shotTimer += Time.deltaTime;
+            if (shotTimer >= timeBetweenShots) {
+                canShoot = true;
+                shotTimer = 0.0f;
+            }
+        }
+
+
     }
 }
