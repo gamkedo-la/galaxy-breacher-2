@@ -12,7 +12,7 @@ public class TurretBehaviour : MonoBehaviour
     
 
     public GameObject turretShotPrefab;
-
+    private Vector3 originalCenterOrientation;
     private bool playerInRange;
 
     float timeBetweenShots = 0.75f;
@@ -21,8 +21,11 @@ public class TurretBehaviour : MonoBehaviour
 
     private bool canShoot;
 
+
+
     void Start()
     {
+        originalCenterOrientation = transform.forward;
         canShoot = true;
         shotTimer = 0.0f;
     }
@@ -65,8 +68,13 @@ public class TurretBehaviour : MonoBehaviour
     void FixedUpdate() // slerp uses % so can't be in update which is framerate dependent
     {
         Vector3 dirToPlayer = PlayerControl.instance.transform.position - transform.position;
+        if (Vector3.Angle(dirToPlayer, originalCenterOrientation) > 85.0f) {
+            Debug.Log("outside shootable range");
+            return;
+        }
         Quaternion targetAng = Quaternion.LookRotation(dirToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetAng, aimSpeed);
+
     }
 }
 
