@@ -6992,6 +6992,7 @@ MonoBehaviour:
   inactiveTargetColor: {r: 0, g: 1, b: 0.0408051, a: 0.5882353}
   activeTargetColor: {r: 1, g: 0, b: 0, a: 0.5882353}
   playerGO: {fileID: 2736260131773347455}
+  targetHudSizeRange: {x: 0.1, y: 0.7}
 --- !u!1 &9077965378232459042
 GameObject:
   m_ObjectHideFlags: 0

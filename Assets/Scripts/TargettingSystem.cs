@@ -13,6 +13,7 @@ public class TargettingSystem : MonoBehaviour
     void Start()
     {
         GetComponent<SphereCollider>().radius = range;
+        targettingHud.TargettingSystemRange = range;
     }
 
     private void OnValidate() {
