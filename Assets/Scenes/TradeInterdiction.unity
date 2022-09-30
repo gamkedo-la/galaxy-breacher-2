@@ -712,10 +712,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 972740656863262086, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: range
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 2736260131050975636, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Name
       value: EveryLevelCoreStuff
@@ -764,9 +760,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3989900659538490446, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: m_Radius
-      value: 300
+    - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7167d83941222425fa4151b7033023c4, type: 3}
