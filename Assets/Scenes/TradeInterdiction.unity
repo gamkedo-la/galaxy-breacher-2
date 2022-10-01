@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b64c69a4f05ba4c15b48e734b58e35df, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -705,6 +705,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c803aaac7e7904c8c0b6515c2b6662, type: 3}
+--- !u!1001 &5337297539189277515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 95.71328
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399281, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337297539161399282, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
+      propertyPath: m_Name
+      value: SpaceEnvironment
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ed79961ab408bbe0bdf201919587ea8, type: 3}
 --- !u!1001 &5444891241871291480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -712,6 +769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1434580563, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260131050975636, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Name
       value: EveryLevelCoreStuff
@@ -763,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_ClearFlags
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: far clip plane
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_BackGroundColor.b
