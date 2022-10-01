@@ -7,17 +7,18 @@ public class BarometerImageDrawer : MonoBehaviour {
 	public float signalGain = 1000f;
 
 	private Texture2D image;
-	private int res = 64;
+	[SerializeField]private int hRes = 128;
+	[SerializeField] private int vRes = 64;
 	private int line = 0;
 
 	private float nextDrawTime = 0f;
 
 	void Start() {
-		image = new Texture2D(res, res, TextureFormat.ARGB32, false);
+		image = new Texture2D(hRes, vRes, TextureFormat.ARGB32, false);
 		GetComponent<Renderer>().material.SetTexture("_BaseMap", image);
 
-		for (int x = 0; x < res; x++) {
-			for (int y = 0; y < res; y++) {
+		for (int x = 0; x < hRes; x++) {
+			for (int y = 0; y < hRes; y++) {
 				image.SetPixel(x, y, Color.black);
 			}
 		}
@@ -34,8 +35,10 @@ public class BarometerImageDrawer : MonoBehaviour {
 
 	private void DrawMeter() {
 
-		int nextLine = (line + 1) % res;
-		for (int i = 0; i < res; i++) {
+		int nextLine = (line + 1) % vRes;
+		int lastLine = (line + hRes - 1) % vRes;
+
+		for (int i = 0; i < hRes; i++) {
 			image.SetPixel(i, line, Color.black);
 			image.SetPixel(i, nextLine, Color.green);
 		}
@@ -46,9 +49,17 @@ public class BarometerImageDrawer : MonoBehaviour {
 
 			Vector3 targetDir = target.transform.position - transform.position;
 			float angle = Vector3.SignedAngle(targetDir, transform.forward, transform.up) + 180f;
-			int x = (int)(angle/360f * res);
+			int x = (int)(angle/360f * hRes);
+			int x1 = (x + 1) % hRes;
+			int x2 = (x + hRes - 1) % hRes;
 
-			image.SetPixel(x, line, Color.HSVToRGB(target.colorHueValue, 1f, dist) + image.GetPixel(x, line));
+			Color drawColor = Color.HSVToRGB(target.colorHueValue, 1f, dist) + image.GetPixel(x, line);
+
+			image.SetPixel(x, line, drawColor);
+			image.SetPixel(x1, line, drawColor);
+			image.SetPixel(x2, line, drawColor);
+			image.SetPixel(x, lastLine, drawColor);
+			image.SetPixel(x, nextLine, drawColor);
 		}
 
 		image.Apply();
