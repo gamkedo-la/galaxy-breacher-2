@@ -721,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorHueValue: 0
+  size: 10
 --- !u!1 &4632781698476046216
 GameObject:
   m_ObjectHideFlags: 0

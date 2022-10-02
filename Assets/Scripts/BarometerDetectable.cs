@@ -7,6 +7,8 @@ public class BarometerDetectable : MonoBehaviour {
 
 	[Range(0f, 1f)]
 	public float colorHueValue = 0f;
+	[Range(0f, 20f)]
+	public float size = 1f;
 
 	void OnEnable() {
 		masterList.Add(this);

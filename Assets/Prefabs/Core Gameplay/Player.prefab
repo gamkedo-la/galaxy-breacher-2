@@ -1047,9 +1047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f83b4bea2c15f84bb8259de817912f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referanceObject: {fileID: 2201563382071773652}
   updateInterval: 0.1
   signalGain: 1000
-  hRes: 128
+  hRes: 180
   vRes: 64
 --- !u!1 &7107430705679602697
 GameObject:

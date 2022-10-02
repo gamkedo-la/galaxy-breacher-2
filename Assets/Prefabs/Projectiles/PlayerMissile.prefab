@@ -5090,3 +5090,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorHueValue: 0.5
+  size: 2
