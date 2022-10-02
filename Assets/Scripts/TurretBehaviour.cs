@@ -69,7 +69,7 @@ public class TurretBehaviour : MonoBehaviour
     {
         Vector3 dirToPlayer = PlayerControl.instance.transform.position - transform.position;
         if (Vector3.Angle(dirToPlayer, originalCenterOrientation) > 85.0f) {
-            Debug.Log("outside shootable range");
+            // Debug.Log("outside shootable range");
             return;
         }
         Quaternion targetAng = Quaternion.LookRotation(dirToPlayer);
