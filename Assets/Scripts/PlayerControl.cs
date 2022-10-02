@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject rocketPrefab;
     public Transform fireFrom;
 
+    public AudioSource engineLoopWeak;
+    public AudioSource engineLoopStrong;
+
     float rollSpeed = 60.0f;
     float pitchSpeed = 40.0f;
     float strafeSpeed = 20.0f;
@@ -21,10 +24,27 @@ public class PlayerControl : MonoBehaviour
     void Awake() 
     {
         instance = this; // singleton for AI to aim etc
+        engineLoopStrong.volume = 0.0f;
+    }
+
+    void RefreshEngineVolume() {
+        float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
+
+        float strafeEngineEffect = 0.55f * (
+            Mathf.Abs(Input.GetAxis("Horizontal")) +
+            Mathf.Abs(Input.GetAxis("Vertical")));
+
+        float forwardOrStrafeEngineBalance = 0.6f;
+        enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
+
+        engineLoopWeak.volume = 1.0f - enginePowerFade;
+        engineLoopStrong.volume = enginePowerFade;
     }
 
     void Update()
     {
+        RefreshEngineVolume();
+
         speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
         speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
