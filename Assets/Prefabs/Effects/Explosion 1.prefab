@@ -4900,6 +4900,7 @@ GameObject:
   - component: {fileID: 1869737886960690484}
   - component: {fileID: 1869737886960690485}
   - component: {fileID: 5615212735892997323}
+  - component: {fileID: 3360408272701286707}
   m_Layer: 3
   m_Name: RadarDot
   m_TagString: Untagged
@@ -4984,6 +4985,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f7fcec1290943758713bc0a34fe15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3360408272701286707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869737886960690491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d7175b24b84f44aba96a29dc04568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorHueValue: 0.111
+  size: 5
 --- !u!1 &1869737888101048513
 GameObject:
   m_ObjectHideFlags: 0
