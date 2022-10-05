@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMissileFly : MonoBehaviour
@@ -25,6 +23,7 @@ public class PlayerMissileFly : MonoBehaviour
         GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
         Debug.Log("rocket hit " + collision.gameObject.name);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
+        effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
         Destroy(gameObject);
     }
 }
