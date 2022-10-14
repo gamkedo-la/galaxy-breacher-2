@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour {
     public AudioSource engineLoopWeak;
     public AudioSource engineLoopStrong;
 
+    public Animator damageLighting;
+
     float rollSpeed = 60.0f;
     float pitchSpeed = 40.0f;
     float strafeSpeed = 20.0f;
@@ -73,6 +75,12 @@ public class PlayerControl : MonoBehaviour {
         }
         if (Input.GetButtonDown("Engine-Max")) {
             throttleTarget = maxForwardSpeed * 1.0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            print("Take Damage Lights: Eventually move this to where player loses health");
+            damageLighting.SetTrigger("Damage");
         }
     }
 
