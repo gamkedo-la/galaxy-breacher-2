@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour {
     public AudioSource engineLoopStrong;
 
     public Animator damageLighting;
+    public AudioSource damageSound;
 
     float rollSpeed = 60.0f;
     float pitchSpeed = 40.0f;
@@ -81,6 +82,7 @@ public class PlayerControl : MonoBehaviour {
         {
             print("Take Damage Lights: Eventually move this to where player loses health");
             damageLighting.SetTrigger("Damage");
+            damageSound.Play();
         }
     }
 
