@@ -26,7 +26,6 @@ public class PlayerControl : MonoBehaviour {
     float forwardAccel = 9.0f; // affects Q/E manual adjustment
     float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
     float throttleTarget = 0.0f;
-
     void Awake() {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
@@ -53,6 +52,7 @@ public class PlayerControl : MonoBehaviour {
             speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
             throttleTarget = speedNow;
         }
+
         speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
         transform.Rotate(Vector3.right, Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);

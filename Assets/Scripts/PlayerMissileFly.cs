@@ -5,18 +5,20 @@ public class PlayerMissileFly : MonoBehaviour
     public GameObject explosionToSpawn;
     public Transform effectTrailToRelease;
     Rigidbody rb;
-    float rocketSpeed = 50.0f;
+    public float rocketSpeed = 50.0f;
     float maxLifetimeInSec = 15.0f;
+    PlayerControl control;
 
     private void Start() {
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, maxLifetimeInSec);
+        control = FindObjectOfType<PlayerControl>();
     }
 
     void Update()
-    {
-        rb.velocity = transform.forward * rocketSpeed;        
+    {   
+        rb.velocity = control.transform.forward * rocketSpeed;
     }
 
     void OnCollisionEnter(Collision collision) {
