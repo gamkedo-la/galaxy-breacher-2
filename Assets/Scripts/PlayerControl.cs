@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour {
     public Animator damageLighting;
     public AudioSource damageSound;
 
+    private Rigidbody rb;
+
     float rollSpeed = 60.0f;
     float pitchSpeed = 40.0f;
     float strafeSpeed = 20.0f;
@@ -29,6 +31,7 @@ public class PlayerControl : MonoBehaviour {
     void Awake() {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
+        rb = GetComponent<Rigidbody>();
     }
 
     void RefreshEngineVolume() {
@@ -56,9 +59,12 @@ public class PlayerControl : MonoBehaviour {
         speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
         transform.Rotate(Vector3.right, Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
-        transform.position += transform.right * Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime;
-        transform.position += transform.up * Input.GetAxis("Vertical") * strafeSpeed * Time.deltaTime;
-        transform.position += transform.forward * speedNow * Time.deltaTime;
+        Vector3 moveVec = Vector3.zero;
+        // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
+        moveVec += transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
+        moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
+        moveVec += transform.forward * speedNow;
+        rb.velocity = moveVec;
         speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 10.0f);
 
         if (Input.GetButtonDown("Fire1")) {
