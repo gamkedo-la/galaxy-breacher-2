@@ -14,12 +14,14 @@ public class PlayerControl : MonoBehaviour {
 
     public Animator damageLighting;
     public AudioSource damageSound;
+    public float range = 5f;
 
     private Rigidbody rb;
+    [SerializeField] List<GameObject> targets = new List<GameObject>();
 
-    float rollSpeed = 60.0f;
-    float pitchSpeed = 40.0f;
-    float strafeSpeed = 20.0f;
+    [SerializeField] float rollSpeed = 60.0f;
+    [SerializeField] float pitchSpeed = 40.0f;
+    [SerializeField] float strafeSpeed = 20.0f;
 
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
@@ -65,10 +67,11 @@ public class PlayerControl : MonoBehaviour {
         moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
         moveVec += transform.forward * speedNow;
         rb.velocity = moveVec;
-        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 10.0f);
+        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 50.0f);
 
         if (Input.GetButtonDown("Fire1")) {
-            GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+
+            Shoot();
         }
 
         if (Input.GetButtonDown("Engine-Off")) {
@@ -94,5 +97,28 @@ public class PlayerControl : MonoBehaviour {
 
     void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
         speedNow = speedNow* throttleKeptFromPrevFrame + throttleTarget * (1.0f- throttleKeptFromPrevFrame);
+    }
+
+    void Shoot()
+    {
+        GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+
+        foreach (var target in targets)
+        {
+            float distance = Vector3.Distance(target.transform.position, this.transform.position);
+            Debug.Log(distance);
+
+            if (distance < 100 && Physics.Raycast(fireFrom.transform.position, target.transform.forward, out RaycastHit hit, range))
+            {
+                Debug.Log(hit.transform.name);
+                Vector3.Lerp(fireFrom.position, target.transform.position, Time.deltaTime);
+            }
+
+            else
+            {
+                return;
+            }
+
+        }
     }
 }
