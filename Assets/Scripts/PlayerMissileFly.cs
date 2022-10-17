@@ -19,6 +19,7 @@ public class PlayerMissileFly : MonoBehaviour
     void Update()
     {   
         rb.velocity = control.transform.forward * rocketSpeed;
+
     }
 
     void OnCollisionEnter(Collision collision) {

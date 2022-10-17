@@ -6,6 +6,7 @@ public class ConstantForwardMovement : MonoBehaviour
 {
 
     Rigidbody rb;
+    PlayerControl playerControl;
 
     [SerializeField] float speed = 5f;
     
@@ -14,6 +15,7 @@ public class ConstantForwardMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        rb.MovePosition(transform.position + (transform.forward * speed * Time.fixedDeltaTime));
+
+        rb.MovePosition(transform.position + ( -transform.forward * speed * Time.fixedDeltaTime));
     }
 }
