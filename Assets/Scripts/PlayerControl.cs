@@ -8,18 +8,25 @@ public class PlayerControl : MonoBehaviour {
     public TextMeshProUGUI speedIndicator;
     public GameObject rocketPrefab;
     public Transform fireFrom;
+    public float range;
 
     public AudioSource engineLoopWeak;
     public AudioSource engineLoopStrong;
 
     public Animator damageLighting;
     public AudioSource damageSound;
+    public GameObject cursor;
 
+    public Camera fpsCamera;
     private Rigidbody rb;
 
-    float rollSpeed = 60.0f;
-    float pitchSpeed = 40.0f;
-    float strafeSpeed = 20.0f;
+    Color color;
+
+    [SerializeField] List<GameObject> targets = new List<GameObject>();
+
+    [SerializeField] float rollSpeed = 60.0f;
+    [SerializeField] float pitchSpeed = 40.0f;
+    [SerializeField] float strafeSpeed = 20.0f;
 
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
@@ -32,6 +39,7 @@ public class PlayerControl : MonoBehaviour {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
         rb = GetComponent<Rigidbody>();
+        color = Color.red;
     }
 
     void RefreshEngineVolume() {
@@ -65,10 +73,11 @@ public class PlayerControl : MonoBehaviour {
         moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
         moveVec += transform.forward * speedNow;
         rb.velocity = moveVec;
-        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 10.0f);
+        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
 
         if (Input.GetButtonDown("Fire1")) {
-            GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+
+           Shoot();
         }
 
         if (Input.GetButtonDown("Engine-Off")) {
@@ -90,9 +99,31 @@ public class PlayerControl : MonoBehaviour {
             damageLighting.SetTrigger("Damage");
             damageSound.Play();
         }
+
+        Debug.DrawRay(fpsCamera.transform.position, this.transform.forward * range, color,5f); ;
+
     }
 
     void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
         speedNow = speedNow* throttleKeptFromPrevFrame + throttleTarget * (1.0f- throttleKeptFromPrevFrame);
+    }
+
+    void Shoot()
+    {
+        GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+        
+
+        foreach (var target in targets)
+        {
+            float distance = Vector3.Distance(target.transform.position, this.transform.position);
+            Debug.Log(distance);
+
+            if (distance < 2000 && Physics.Raycast(cursor.transform.position, fireFrom.transform.forward, out RaycastHit hit, range))
+            {
+                Debug.Log(hit.transform.name);
+                Vector3.MoveTowards(fireFrom.transform.position, target.transform.position, Time.deltaTime);
+            }
+
+        }
     }
 }
