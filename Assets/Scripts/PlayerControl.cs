@@ -8,13 +8,25 @@ public class PlayerControl : MonoBehaviour {
     public TextMeshProUGUI speedIndicator;
     public GameObject rocketPrefab;
     public Transform fireFrom;
+    public float range;
 
     public AudioSource engineLoopWeak;
     public AudioSource engineLoopStrong;
 
-    float rollSpeed = 60.0f;
-    float pitchSpeed = 40.0f;
-    float strafeSpeed = 20.0f;
+    public Animator damageLighting;
+    public AudioSource damageSound;
+    public GameObject cursor;
+
+    public Camera fpsCamera;
+    private Rigidbody rb;
+
+    Color color;
+
+    [SerializeField] List<GameObject> targets = new List<GameObject>();
+
+    [SerializeField] float rollSpeed = 60.0f;
+    [SerializeField] float pitchSpeed = 40.0f;
+    [SerializeField] float strafeSpeed = 20.0f;
 
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
@@ -23,10 +35,11 @@ public class PlayerControl : MonoBehaviour {
     float forwardAccel = 9.0f; // affects Q/E manual adjustment
     float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
     float throttleTarget = 0.0f;
-
     void Awake() {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
+        rb = GetComponent<Rigidbody>();
+        color = Color.red;
     }
 
     void RefreshEngineVolume() {
@@ -50,16 +63,21 @@ public class PlayerControl : MonoBehaviour {
             speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
             throttleTarget = speedNow;
         }
+
         speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
         transform.Rotate(Vector3.right, Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
-        transform.position += transform.right * Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime;
-        transform.position += transform.up * Input.GetAxis("Vertical") * strafeSpeed * Time.deltaTime;
-        transform.position += transform.forward * speedNow * Time.deltaTime;
-        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 10.0f);
+        Vector3 moveVec = Vector3.zero;
+        // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
+        moveVec += transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
+        moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
+        moveVec += transform.forward * speedNow;
+        rb.velocity = moveVec;
+        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
 
         if (Input.GetButtonDown("Fire1")) {
-            GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+
+           Shoot();
         }
 
         if (Input.GetButtonDown("Engine-Off")) {
@@ -74,9 +92,38 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonDown("Engine-Max")) {
             throttleTarget = maxForwardSpeed * 1.0f;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            print("Take Damage Lights: Eventually move this to where player loses health");
+            damageLighting.SetTrigger("Damage");
+            damageSound.Play();
+        }
+
+        Debug.DrawRay(fpsCamera.transform.position, this.transform.forward * range, color,5f); ;
+
     }
 
     void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
         speedNow = speedNow* throttleKeptFromPrevFrame + throttleTarget * (1.0f- throttleKeptFromPrevFrame);
+    }
+
+    void Shoot()
+    {
+        GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+        
+
+        foreach (var target in targets)
+        {
+            float distance = Vector3.Distance(target.transform.position, this.transform.position);
+            Debug.Log(distance);
+
+            if (distance < 2000 && Physics.Raycast(cursor.transform.position, fireFrom.transform.forward, out RaycastHit hit, range))
+            {
+                Debug.Log(hit.transform.name);
+                Vector3.MoveTowards(fireFrom.transform.position, target.transform.position, Time.deltaTime);
+            }
+
+        }
     }
 }
