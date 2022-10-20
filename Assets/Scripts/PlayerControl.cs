@@ -111,19 +111,11 @@ public class PlayerControl : MonoBehaviour {
     void Shoot()
     {
         GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
-        
 
-        foreach (var target in targets)
-        {
-            float distance = Vector3.Distance(target.transform.position, this.transform.position);
-            Debug.Log(distance);
-
-            if (distance < 2000 && Physics.Raycast(cursor.transform.position, fireFrom.transform.forward, out RaycastHit hit, range))
-            {
-                Debug.Log(hit.transform.name);
-                Vector3.MoveTowards(fireFrom.transform.position, target.transform.position, Time.deltaTime);
-            }
-
+        if (Physics.Raycast(fireFrom.transform.position, fireFrom.transform.forward, out RaycastHit hit, range))
+        { 
+            Debug.Log(hit.transform.name);
         }
-    }
+
+    }  
 }
