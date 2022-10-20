@@ -6,7 +6,7 @@ public class PlayerMissileFly : MonoBehaviour
     public Transform effectTrailToRelease;
     Rigidbody rb;
     public float rocketSpeed = 50.0f;
-    float maxLifetimeInSec = 15.0f;
+    float maxLifetimeInSec = 30.0f;
     PlayerControl control;
 
     private void Start() {

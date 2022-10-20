@@ -114,6 +114,7 @@ public class PlayerControl : MonoBehaviour {
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
         { 
             Debug.Log(hit.transform.name);
+            rocketPrefab.transform.Translate(hit.transform.position * Time.deltaTime);
         }
 
     }  

@@ -97,8 +97,8 @@ MonoBehaviour:
       y: 21
       width: 549.19995
       height: 250
-    m_Scale: {x: 1.0748721, y: 1.0748721}
-    m_Translation: {x: 295.15985, y: 122.82872}
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 274.59998, y: 125}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -274.59998
-      y: -114.272865
-      width: 510.94446
-      height: 232.5858
+      y: -125
+      width: 549.19995
+      height: 250
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 686.49994, y: 338.75}
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 120.399994}
+      scrollPos: {x: 0, y: 184.4}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 1c6dffff526dffff22eaffff9eeaffffa2eaffffaeeaffff36fbffffc2680000
