@@ -15,7 +15,6 @@ public class PlayerControl : MonoBehaviour {
 
     public Animator damageLighting;
     public AudioSource damageSound;
-    public GameObject cursor;
 
     public Camera fpsCamera;
     private Rigidbody rb;
@@ -112,7 +111,7 @@ public class PlayerControl : MonoBehaviour {
     {
         GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
 
-        if (Physics.Raycast(fireFrom.transform.position, fireFrom.transform.forward, out RaycastHit hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
         { 
             Debug.Log(hit.transform.name);
         }
