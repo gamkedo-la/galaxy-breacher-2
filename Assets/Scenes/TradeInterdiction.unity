@@ -238,11 +238,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!20 &127057017 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-  m_PrefabInstance: {fileID: 5444891241871291480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235496759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,17 +6190,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7051567648400423938, guid: 525a040f924764de6855425e5852ddda, type: 3}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: range
-      value: 50000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1581614529}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: fpsCamera
-      value: 
-      objectReference: {fileID: 127057017}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: damageSound
       value: 
@@ -6215,17 +6202,9 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: strafeSpeed
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: damageLighting
       value: 
       objectReference: {fileID: 283856381}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: targets.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: targets.Array.data[0]
       value: 

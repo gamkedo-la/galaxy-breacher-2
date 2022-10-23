@@ -356,10 +356,22 @@ MonoBehaviour:
   speedIndicator: {fileID: 0}
   rocketPrefab: {fileID: 1869737888101048513, guid: 525a040f924764de6855425e5852ddda, type: 3}
   fireFrom: {fileID: 5145694048929036283}
+  range: 50000
   engineLoopWeak: {fileID: 6301583218144241523}
   engineLoopStrong: {fileID: 4869345801817380815}
   damageLighting: {fileID: 0}
   damageSound: {fileID: 0}
+  fpsCamera: {fileID: 2201563382071773654}
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rollSpeed: 60
+  pitchSpeed: 40
+  strafeSpeed: 200
 --- !u!82 &6301583218144241523
 AudioSource:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class PlayerControl : MonoBehaviour {
     public Animator damageLighting;
     public AudioSource damageSound;
 
-    public Camera fpsCamera;
     private Rigidbody rb;
+    private Camera fpsCamera;
 
     Color color;
 
@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour {
         engineLoopStrong.volume = 0.0f;
         rb = GetComponent<Rigidbody>();
         color = Color.red;
+        fpsCamera = Camera.main;
     }
 
     void RefreshEngineVolume() {
