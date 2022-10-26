@@ -56,6 +56,8 @@ public class PlayerHullAndShield : MonoBehaviour
         {
             hull = 0;
         }
+
+        
         
     }
 
@@ -72,6 +74,14 @@ public class PlayerHullAndShield : MonoBehaviour
 
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "HullPickUp" && hull < 1)
+        {
+            hull = 8;
+        } 
     }
 
 
