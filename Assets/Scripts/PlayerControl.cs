@@ -7,7 +7,11 @@ public class PlayerControl : MonoBehaviour {
     public static PlayerControl instance;
     public TextMeshProUGUI speedIndicator;
     public GameObject rocketPrefab;
-    public Transform fireFrom;
+    public GameObject blastPrefab;
+    public Transform fireFromRocket;
+    public Transform fireFromMachine1;
+    public Transform fireFromMachine2;
+
     public float range;
 
     public AudioSource engineLoopWeak;
@@ -75,9 +79,9 @@ public class PlayerControl : MonoBehaviour {
         rb.velocity = moveVec;
         speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
 
-           Shoot();
+           ShootRocket();
         }
 
         if (Input.GetButtonDown("Engine-Off")) {
@@ -100,7 +104,11 @@ public class PlayerControl : MonoBehaviour {
             damageSound.Play();
         }
 
-        Debug.DrawRay(fpsCamera.transform.position, this.transform.forward * range, color,5f); ;
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShootBlast();
+        }
+
 
     }
 
@@ -108,9 +116,9 @@ public class PlayerControl : MonoBehaviour {
         speedNow = speedNow* throttleKeptFromPrevFrame + throttleTarget * (1.0f- throttleKeptFromPrevFrame);
     }
 
-    void Shoot()
+    void ShootRocket()
     {
-        GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFrom.position, transform.rotation);
+        GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFromRocket.position, transform.rotation);
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
         { 
@@ -119,4 +127,16 @@ public class PlayerControl : MonoBehaviour {
         }
 
     }  
+
+    void ShootBlast()
+    {
+        GameObject shotGO1 = GameObject.Instantiate(blastPrefab, fireFromMachine1.position, transform.rotation);
+        GameObject shotGO2 = GameObject.Instantiate(blastPrefab, fireFromMachine2.position, transform.rotation);
+
+
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
+        {
+            Debug.Log(hit.transform.name);
+        }
+    }
 }
