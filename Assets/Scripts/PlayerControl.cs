@@ -11,8 +11,11 @@ public class PlayerControl : MonoBehaviour {
     public Transform fireFromRocket;
     public Transform fireFromMachine1;
     public Transform fireFromMachine2;
+    public GameObject explosionToSpawn;
 
-    public float range;
+
+    [SerializeField] float Rocketrange;
+    [SerializeField] float machineRange;
 
     public AudioSource engineLoopWeak;
     public AudioSource engineLoopStrong;
@@ -109,7 +112,6 @@ public class PlayerControl : MonoBehaviour {
             ShootBlast();
         }
 
-
     }
 
     void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
@@ -117,10 +119,10 @@ public class PlayerControl : MonoBehaviour {
     }
 
     void ShootRocket()
-    {
+    { 
         GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFromRocket.position, transform.rotation);
 
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, Rocketrange))
         { 
             Debug.Log(hit.transform.name);
             rocketPrefab.transform.Translate(hit.transform.position * Time.deltaTime);
@@ -134,9 +136,10 @@ public class PlayerControl : MonoBehaviour {
         GameObject shotGO2 = GameObject.Instantiate(blastPrefab, fireFromMachine2.position, transform.rotation);
 
 
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, machineRange))
         {
             Debug.Log(hit.transform.name);
+            GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.transform.position, hit.transform.rotation);
         }
     }
 }
