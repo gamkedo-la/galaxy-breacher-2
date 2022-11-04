@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MachineGunBlast : MonoBehaviour
 {
-    [SerializeField]float maxLifetimeInSec = 2.0f;
+    [SerializeField]float maxLifetimeInSec = 2f;
     [SerializeField] float blastSpeed = 2.0f;
 
 

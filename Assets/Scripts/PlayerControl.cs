@@ -28,7 +28,6 @@ public class PlayerControl : MonoBehaviour {
 
     Color color;
 
-    [SerializeField] List<GameObject> targets = new List<GameObject>();
 
     [SerializeField] float rollSpeed = 60.0f;
     [SerializeField] float pitchSpeed = 40.0f;
