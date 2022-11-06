@@ -9,7 +9,9 @@ public class TurretBehaviour : MonoBehaviour
 
     public float maxTurretAngle = 90.0f;
 
-    
+    public bool firesLaser = false;
+    private LineRenderer myLaserLine;
+    private float firingLaserTimer = 0.0f;
 
     public GameObject turretShotPrefab;
     private Vector3 originalCenterOrientation;
@@ -28,6 +30,9 @@ public class TurretBehaviour : MonoBehaviour
         originalCenterOrientation = transform.forward;
         canShoot = true;
         shotTimer = 0.0f;
+        if(firesLaser) {
+            myLaserLine = gameObject.GetComponentInChildren<LineRenderer>();
+        }
     }
 
     // Update is called once per frame
@@ -53,7 +58,21 @@ public class TurretBehaviour : MonoBehaviour
             // gonna need a proper direction (that of the player) to pass as a Quaternion rotation?
             // Debug.Log("launching shot");
             canShoot = false;
-            GameObject shotGO = GameObject.Instantiate(turretShotPrefab, transform.position, transform.rotation);
+            if(firesLaser) {
+                firingLaserTimer = 0.4f;
+            } else {
+                GameObject shotGO = GameObject.Instantiate(turretShotPrefab, transform.position, transform.rotation);
+            }
+        }
+
+        if(firesLaser) {
+            myLaserLine.SetPosition(0, myLaserLine.transform.position);
+            if (firingLaserTimer > 0.0f) {
+                firingLaserTimer -= Time.deltaTime;
+                myLaserLine.SetPosition(1, myLaserLine.transform.position + myLaserLine.transform.forward * 3000.0f);
+            } else {
+                myLaserLine.SetPosition(1, myLaserLine.transform.position);
+            }
         }
 
         if (!canShoot) {
