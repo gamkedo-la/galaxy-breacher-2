@@ -974,6 +974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4092082328736161660, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
+      propertyPath: m_TagString
+      value: BossPart
+      objectReference: {fileID: 0}
     - target: {fileID: 4632781698340740466, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1156,6 +1160,10 @@ PrefabInstance:
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: far clip plane
       value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3635599712510992547, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4213498500764481606, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Enabled

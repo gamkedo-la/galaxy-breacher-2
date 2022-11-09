@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Astroid
   - HullPickUp
+  - BossPart
   layers:
   - Default
   - TransparentFX
