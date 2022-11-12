@@ -824,11 +824,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c803aaac7e7904c8c0b6515c2b6662, type: 3}
---- !u!4 &1409240500 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8943459834811019962, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-  m_PrefabInstance: {fileID: 5444891241871291480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1520906189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1350,14 +1345,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1581614529}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: Rocketrange
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: blastPrefab
-      value: 
-      objectReference: {fileID: 4180353045435785592, guid: efbfa8753afca534bb0ad05c6e1db92b, type: 3}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: damageSound
       value: 
       objectReference: {fileID: 1218085986}
@@ -1366,21 +1353,9 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: machineRange
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: damageLighting
       value: 
       objectReference: {fileID: 283856381}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: fireFromRocket
-      value: 
-      objectReference: {fileID: 1409240500}
-    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
-      propertyPath: explosionToSpawn
-      value: 
-      objectReference: {fileID: 4377795673932119582, guid: fa7c7bd8be25b3242a96bbf05a339942, type: 3}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: fireFromMachine1
       value: 

@@ -749,15 +749,15 @@ MonoBehaviour:
   rocketPrefab: {fileID: 1869737888101048513, guid: 525a040f924764de6855425e5852ddda, type: 3}
   blastPrefab: {fileID: 4180353045435785592, guid: efbfa8753afca534bb0ad05c6e1db92b, type: 3}
   fireFromRocket: {fileID: 5145694048929036283}
-  fireFromMachine1: {fileID: 8816904807486141931}
-  fireFromMachine2: {fileID: 2575828424703220735}
+  fireFromMachine1: {fileID: 0}
+  fireFromMachine2: {fileID: 0}
   explosionToSpawn: {fileID: 4377795673932119582, guid: fa7c7bd8be25b3242a96bbf05a339942, type: 3}
   Rocketrange: 2000
   machineRange: 2000
   engineLoopWeak: {fileID: 6301583218144241523}
   engineLoopStrong: {fileID: 4869345801817380815}
-  damageLighting: {fileID: 4059004150183700276}
-  damageSound: {fileID: 9045304419223200159}
+  damageLighting: {fileID: 0}
+  damageSound: {fileID: 0}
   rollSpeed: 60
   pitchSpeed: 40
   strafeSpeed: 200
@@ -769,7 +769,9 @@ MonoBehaviour:
   laserMaxHeat: 100
   heatGainRate: 40
   heatLossRate: 50
-  laserSFX: {fileID: 0}
+  laserSFX: {fileID: 8300000, guid: 04bd742323f7289479ff510afb0b4072, type: 3}
+  laserOverheatSFX: {fileID: 8300000, guid: 50a8ccea16a0ba54ca3f2443f1e7054b, type: 3}
+  laserCooldownSFX: {fileID: 8300000, guid: e22b8747d64847a4da148ddfbf84811e, type: 3}
 --- !u!82 &6301583218144241523
 AudioSource:
   m_ObjectHideFlags: 0

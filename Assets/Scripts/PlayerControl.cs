@@ -44,6 +44,9 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float heatGainRate = 40f;
     [SerializeField] float heatLossRate = 50f;
     [SerializeField] AudioClip laserSFX;
+    [SerializeField] AudioClip laserOverheatSFX;
+    [SerializeField] AudioClip laserCooldownSFX;
+    
     private bool laserOverHeated = false;
     private float laserHeat = 0f;
     private bool leftLaserFiresNext = true;
@@ -172,6 +175,20 @@ public class PlayerControl : MonoBehaviour {
         //if input and not over heated fire a laser
         if (Input.GetButton("Fire2") && !laserOverHeated)
         {
+            //When first starting firing reset laser variables and play first sfx
+            if (Input.GetButtonDown("Fire2"))
+            {
+                lastLaserSwitchTime = 0;
+                leftLaserFiresNext = !leftLaserFiresNext;
+                if (leftLaserFiresNext)
+                {
+                    AudioSource.PlayClipAtPoint(laserSFX, laserLineRendererLeft.transform.position);
+                }
+                else
+                {
+                    AudioSource.PlayClipAtPoint(laserSFX,laserLineRendererRight.transform.position);
+                }
+            }
             //setup raycast
             Ray ray = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
             Vector3 laserEndPosition;
@@ -193,6 +210,7 @@ public class PlayerControl : MonoBehaviour {
             {
                 laserLineRendererLeft.SetPosition(1, laserEndPosition);
                 laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
+                
             }
             else
             {
@@ -206,6 +224,14 @@ public class PlayerControl : MonoBehaviour {
             {
                 lastLaserSwitchTime -= laserFrameTime;
                 leftLaserFiresNext = !leftLaserFiresNext;
+                if (leftLaserFiresNext)
+                {
+                    AudioSource.PlayClipAtPoint(laserSFX, laserLineRendererLeft.transform.position);
+                }
+                else
+                {
+                    AudioSource.PlayClipAtPoint(laserSFX,laserLineRendererRight.transform.position);
+                }
             }
             
             //add laser heat and check overheated
@@ -213,6 +239,7 @@ public class PlayerControl : MonoBehaviour {
             if (laserHeat > laserMaxHeat)
             {
                 laserOverHeated = true;
+                AudioSource.PlayClipAtPoint(laserOverheatSFX, transform.position);
             }
         }
         else //Don't fire a laser
@@ -222,18 +249,15 @@ public class PlayerControl : MonoBehaviour {
             if (laserHeat < 0)
             {
                 laserHeat = 0;
-                laserOverHeated = false;
+                if (laserOverHeated)
+                {
+                    laserOverHeated = false;
+                    AudioSource.PlayClipAtPoint(laserCooldownSFX, transform.position);
+                }
             }
             //set laser end positions
             laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
             laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
-        }
-        
-        //reset laser variables when releasing input
-        if (Input.GetButtonUp("Fire2"))
-        {
-            lastLaserSwitchTime = 0;
-            leftLaserFiresNext = !leftLaserFiresNext;
         }
         //TODO: Replace logging with UI
         Debug.Log("LaserHeat: " + laserHeat + " Overheated: " + laserOverHeated);
