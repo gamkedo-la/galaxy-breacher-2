@@ -32,6 +32,16 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float rollSpeed = 60.0f;
     [SerializeField] float pitchSpeed = 40.0f;
     [SerializeField] float strafeSpeed = 20.0f;
+    
+    [SerializeField] LineRenderer laserLineRendererLeft;
+    [SerializeField] LineRenderer laserLineRendererRight;
+    [SerializeField] float laserFrameTime = .15f;
+    [SerializeField] private float laserDamagePerSecond = 1f;
+    private bool left = true;
+    private float lastLaserSwitchTime = 0f;
+
+
+    
 
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
@@ -111,6 +121,9 @@ public class PlayerControl : MonoBehaviour {
             ShootBlast();
         }
 
+        ShootLaser();
+        updateLaserHeat();
+
     }
 
     void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
@@ -140,5 +153,43 @@ public class PlayerControl : MonoBehaviour {
             Debug.Log(hit.transform.name);
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.transform.position, hit.transform.rotation);
         }
+    }
+
+    void ShootLaser()
+    {
+        //update laser start positions
+        laserLineRendererLeft.SetPosition(0, laserLineRendererLeft.transform.position);
+        laserLineRendererRight.SetPosition(0, laserLineRendererRight.transform.position);
+
+        //set laser end positions
+        if (Input.GetButton("Fire2"))
+        {
+            if (left)
+            {
+                laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position + laserLineRendererLeft.transform.forward * 3000.0f);
+                laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
+            }
+            else
+            {
+                laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
+                laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position + laserLineRendererRight.transform.forward * 3000.0f);
+            }
+
+            lastLaserSwitchTime += Time.deltaTime;
+            if (lastLaserSwitchTime > laserFrameTime)
+            {
+                lastLaserSwitchTime -= laserFrameTime;
+                left = !left;
+            }
+        }
+        else
+        {
+            laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
+            laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
+        }
+    }
+    private void updateLaserHeat()
+    {
+        
     }
 }

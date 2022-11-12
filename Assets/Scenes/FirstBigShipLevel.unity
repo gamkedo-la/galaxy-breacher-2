@@ -1030,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBossShip-Fueler
       objectReference: {fileID: 0}
+    - target: {fileID: 6429499022411526886, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4632781698340740467, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
