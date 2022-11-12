@@ -1285,6 +1285,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1786678231716978366, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329273829450212662, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260131050975636, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Name
       value: EveryLevelCoreStuff
@@ -1424,6 +1432,18 @@ PrefabInstance:
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281946409566776561, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697061008920211626, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5343609023405232193, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5735409388933843362, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_AnchoredPosition.y

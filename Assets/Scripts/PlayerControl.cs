@@ -33,11 +33,20 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float pitchSpeed = 40.0f;
     [SerializeField] float strafeSpeed = 20.0f;
     
+    [Space(10)]
+    [Header("Laser Properties")]
     [SerializeField] LineRenderer laserLineRendererLeft;
     [SerializeField] LineRenderer laserLineRendererRight;
     [SerializeField] float laserFrameTime = .15f;
-    [SerializeField] private float laserDamagePerSecond = 1f;
-    private bool left = true;
+    [SerializeField] float laserRange = 2000f;
+    [SerializeField] float laserDamagePerSecond = 1f;
+    [SerializeField] float laserMaxHeat = 100f;
+    [SerializeField] float heatGainRate = 40f;
+    [SerializeField] float heatLossRate = 50f;
+    [SerializeField] AudioClip laserSFX;
+    private bool laserOverHeated = false;
+    private float laserHeat = 0f;
+    private bool leftLaserFiresNext = true;
     private float lastLaserSwitchTime = 0f;
 
 
@@ -121,8 +130,7 @@ public class PlayerControl : MonoBehaviour {
             ShootBlast();
         }
 
-        ShootLaser();
-        updateLaserHeat();
+        UpdateLaser();
 
     }
 
@@ -155,41 +163,79 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    void ShootLaser()
+    void UpdateLaser()
     {
         //update laser start positions
         laserLineRendererLeft.SetPosition(0, laserLineRendererLeft.transform.position);
         laserLineRendererRight.SetPosition(0, laserLineRendererRight.transform.position);
-
-        //set laser end positions
-        if (Input.GetButton("Fire2"))
+        
+        //if input and not over heated fire a laser
+        if (Input.GetButton("Fire2") && !laserOverHeated)
         {
-            if (left)
+            //setup raycast
+            Ray ray = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
+            Vector3 laserEndPosition;
+            
+            //TODO: Probably add a layer mask here so we only hit the things we want
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, laserRange))
             {
-                laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position + laserLineRendererLeft.transform.forward * 3000.0f);
+                laserEndPosition = hitInfo.point;
+                //TODO: Deal damage to object
+                //hitobject.TakeDamage(laserDamagePerSecond*Time.deltaTime);
+            }
+            else
+            {
+                laserEndPosition = fpsCamera.transform.position + fpsCamera.transform.forward * laserRange;
+            }
+            
+            //set laser end positions based on which laser is firing
+            if (leftLaserFiresNext)
+            {
+                laserLineRendererLeft.SetPosition(1, laserEndPosition);
                 laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
             }
             else
             {
                 laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
-                laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position + laserLineRendererRight.transform.forward * 3000.0f);
+                laserLineRendererRight.SetPosition(1, laserEndPosition);
             }
-
+            
+            //switch which laser is firing based on time
             lastLaserSwitchTime += Time.deltaTime;
             if (lastLaserSwitchTime > laserFrameTime)
             {
                 lastLaserSwitchTime -= laserFrameTime;
-                left = !left;
+                leftLaserFiresNext = !leftLaserFiresNext;
+            }
+            
+            //add laser heat and check overheated
+            laserHeat += heatGainRate * Time.deltaTime;
+            if (laserHeat > laserMaxHeat)
+            {
+                laserOverHeated = true;
             }
         }
-        else
+        else //Don't fire a laser
         {
+            //reduce laser heat and check overheated
+            laserHeat -= heatLossRate * Time.deltaTime;
+            if (laserHeat < 0)
+            {
+                laserHeat = 0;
+                laserOverHeated = false;
+            }
+            //set laser end positions
             laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
             laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
         }
-    }
-    private void updateLaserHeat()
-    {
         
+        //reset laser variables when releasing input
+        if (Input.GetButtonUp("Fire2"))
+        {
+            lastLaserSwitchTime = 0;
+            leftLaserFiresNext = !leftLaserFiresNext;
+        }
+        //TODO: Replace logging with UI
+        Debug.Log("LaserHeat: " + laserHeat + " Overheated: " + laserOverHeated);
     }
 }

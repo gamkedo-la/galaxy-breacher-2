@@ -764,7 +764,12 @@ MonoBehaviour:
   laserLineRendererLeft: {fileID: 208666378843794823}
   laserLineRendererRight: {fileID: 8128561839045326821}
   laserFrameTime: 0.15
+  laserRange: 2000
   laserDamagePerSecond: 1
+  laserMaxHeat: 100
+  heatGainRate: 40
+  heatLossRate: 50
+  laserSFX: {fileID: 0}
 --- !u!82 &6301583218144241523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1573,7 +1578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4999630807730940132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1841,7 +1846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7340238437384889364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
