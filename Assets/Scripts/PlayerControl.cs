@@ -46,6 +46,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserOverheatSFX;
     [SerializeField] AudioClip laserCooldownSFX;
+    [SerializeField] LaserHeatUI laserUI;
     
     private bool laserOverHeated = false;
     private float laserHeat = 0f;
@@ -259,7 +260,6 @@ public class PlayerControl : MonoBehaviour {
             laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
             laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
         }
-        //TODO: Replace logging with UI
-        Debug.Log("LaserHeat: " + laserHeat + " Overheated: " + laserOverHeated);
+        laserUI.SetHeatPercentage(laserHeat/laserMaxHeat);
     }
 }
