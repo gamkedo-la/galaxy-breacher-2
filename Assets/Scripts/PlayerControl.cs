@@ -48,11 +48,10 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] AudioClip laserCooldownSFX;
     [SerializeField] AudioSource laserAudioSource;
     [SerializeField] LaserHeatUI laserUI;
-    
     private bool laserOverHeated = false;
     private float laserHeat = 0f;
     private bool leftLaserFiresNext = true;
-    private float lastLaserSwitchTime = 0f;
+    private float lastLaserFireTime = 0f;
 
 
     
@@ -170,18 +169,35 @@ public class PlayerControl : MonoBehaviour {
 
     void UpdateLaser()
     {
+        //update last fired time
+        lastLaserFireTime += Time.deltaTime;
+        
         //update laser start positions
         laserLineRendererLeft.SetPosition(0, laserLineRendererLeft.transform.position);
         laserLineRendererRight.SetPosition(0, laserLineRendererRight.transform.position);
-        
-        //if input and not over heated fire a laser
+
         if (Input.GetButton("Fire2") && !laserOverHeated)
         {
-            //When first starting firing reset laser variables and play first sfx
-            if (Input.GetButtonDown("Fire2"))
+            //Check if we hit something
+            Ray ray = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
+            //TODO: Probably add a layer mask here so we only hit the things we want
+            bool laserHit = Physics.Raycast(ray, out RaycastHit hitInfo, laserRange);
+
+            //if it's time to fire another laser
+            if (lastLaserFireTime > (1/laserFireRate))
             {
-                lastLaserSwitchTime = 0;
+                lastLaserFireTime = 0;
+                //switch which laser to fire
                 leftLaserFiresNext = !leftLaserFiresNext;
+                
+                //Deal Damage
+                if (laserHit)
+                {
+                    //TODO: Figure out how to deal damage. Something like this?
+                    //hitInfo.collider.gameObject.dealDamage(laserDamagePerSecond/laserFireRate);
+                }
+
+                //play sfx on correct side
                 if (leftLaserFiresNext)
                 {
                     laserAudioSource.panStereo = -.5f;
@@ -192,22 +208,19 @@ public class PlayerControl : MonoBehaviour {
                     laserAudioSource.panStereo = .5f;
                     laserAudioSource.PlayOneShot(laserSFX);
                 }
+                //increase laser heat
+                laserHeat += heatGainRate / laserFireRate;
+                if (laserHeat > laserMaxHeat)
+                {
+                    laserOverHeated = true;
+                    laserAudioSource.panStereo = 0f;
+                    laserAudioSource.PlayOneShot(laserOverheatSFX);
+                }
             }
-            //setup raycast
-            Ray ray = new Ray(fpsCamera.transform.position, fpsCamera.transform.forward);
-            Vector3 laserEndPosition;
-            
-            //TODO: Probably add a layer mask here so we only hit the things we want
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, laserRange))
-            {
-                laserEndPosition = hitInfo.point;
-                //TODO: Deal damage to object
-                //hitobject.TakeDamage(laserDamagePerSecond*Time.deltaTime);
-            }
-            else
-            {
-                laserEndPosition = fpsCamera.transform.position + fpsCamera.transform.forward * laserRange;
-            }
+            //set laser end to hit target or max range
+            Vector3 laserEndPosition = laserHit
+                ? hitInfo.point
+                : fpsCamera.transform.position + fpsCamera.transform.forward * laserRange;
             
             //set laser end positions based on which laser is firing
             if (leftLaserFiresNext)
@@ -221,51 +234,23 @@ public class PlayerControl : MonoBehaviour {
                 laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
                 laserLineRendererRight.SetPosition(1, laserEndPosition);
             }
-            
-            //switch which laser is firing based on time
-            lastLaserSwitchTime += Time.deltaTime;
-            if (lastLaserSwitchTime > 1/laserFireRate)
-            {
-                lastLaserSwitchTime -= 1/laserFireRate;
-                leftLaserFiresNext = !leftLaserFiresNext;
-                if (leftLaserFiresNext)
-                {
-                    laserAudioSource.panStereo = -.5f;
-                    laserAudioSource.PlayOneShot(laserSFX);
-                }
-                else
-                {
-                    laserAudioSource.panStereo = .5f;
-                    laserAudioSource.PlayOneShot(laserSFX);
-                }
-            }
-            
-            //add laser heat and check overheated
-            laserHeat += heatGainRate * Time.deltaTime;
-            if (laserHeat > laserMaxHeat)
-            {
-                laserOverHeated = true;
-                laserAudioSource.panStereo = 0f;
-                laserAudioSource.PlayOneShot(laserOverheatSFX);
-            }
-        }
-        else //Don't fire a laser
+        }else //Don't fire a laser
         {
-            //reduce laser heat and check overheated
-            laserHeat -= heatLossRate * Time.deltaTime;
-            if (laserHeat < 0)
-            {
-                laserHeat = 0;
-                if (laserOverHeated)
-                {
-                    laserOverHeated = false;
-                    laserAudioSource.panStereo = 0f;
-                    laserAudioSource.PlayOneShot(laserCooldownSFX);
-                }
-            }
             //set laser end positions
             laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
             laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
+        }
+        //reduce laser heat and check overheated
+        laserHeat -= heatLossRate * Time.deltaTime;
+        if (laserHeat < 0)
+        {
+            laserHeat = 0;
+            if (laserOverHeated)
+            {
+                laserOverHeated = false;
+                laserAudioSource.panStereo = 0f;
+                laserAudioSource.PlayOneShot(laserCooldownSFX);
+            }
         }
         laserUI.SetHeatPercentage(laserHeat/laserMaxHeat);
     }
