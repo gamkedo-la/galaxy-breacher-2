@@ -6,6 +6,7 @@ public class PlayerMissileFly : MonoBehaviour
     public Transform effectTrailToRelease;
     Rigidbody rb;
     public float rocketSpeed = 50.0f;
+    public float damage = 100f;
     float maxLifetimeInSec = 30.0f;
     PlayerControl control;
 
@@ -27,6 +28,7 @@ public class PlayerMissileFly : MonoBehaviour
         Debug.Log("rocket hit " + collision.gameObject.name);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
         effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
+        collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         Destroy(gameObject);
     }
 }
