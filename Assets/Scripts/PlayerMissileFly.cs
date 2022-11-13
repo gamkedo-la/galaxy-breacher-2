@@ -28,7 +28,11 @@ public class PlayerMissileFly : MonoBehaviour
         Debug.Log("rocket hit " + collision.gameObject.name);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
         effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
-        collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 }
