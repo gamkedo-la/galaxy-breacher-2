@@ -1091,7 +1091,7 @@ MonoBehaviour:
   laserRange: 2000
   laserDamagePerSecond: 1
   laserMaxHeat: 100
-  heatGainRate: 40
+  heatGainRate: 100
   heatLossRate: 50
   laserSFX: {fileID: 8300000, guid: 04bd742323f7289479ff510afb0b4072, type: 3}
   laserOverheatSFX: {fileID: 8300000, guid: 50a8ccea16a0ba54ca3f2443f1e7054b, type: 3}

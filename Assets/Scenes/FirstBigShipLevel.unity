@@ -1161,6 +1161,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: heatGainRate
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: far clip plane
       value: 20000
