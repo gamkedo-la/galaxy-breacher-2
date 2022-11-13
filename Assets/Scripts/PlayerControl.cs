@@ -193,10 +193,10 @@ public class PlayerControl : MonoBehaviour {
                 //Deal Damage
                 if (laserHit)
                 {
-                    IDamagable damagableObject = hitInfo.collider.GetComponent<IDamagable>();
-                    if (damagableObject != null)
+                    IDamageable damageableObject = hitInfo.collider.GetComponent<IDamageable>();
+                    if (damageableObject != null)
                     {
-                        damagableObject.TakeDamage(laserDamagePerSecond/laserFireRate);
+                        damageableObject.TakeDamage(laserDamagePerSecond/laserFireRate);
                     }
                 }
 
