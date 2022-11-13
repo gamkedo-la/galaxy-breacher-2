@@ -933,6 +933,37 @@ Transform:
   m_Father: {fileID: 2201563381063365433}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1487290825569235995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880020215058220393}
+  m_Layer: 0
+  m_Name: MachinegGunBlastLeftPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880020215058220393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487290825569235995}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -3, y: 0.51, z: 1.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2201563381063365433}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2149950116085801799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1085,7 @@ Transform:
   - {fileID: 2575828424703220735}
   - {fileID: 1956706390464372855}
   - {fileID: 8168667934483797248}
+  - {fileID: 1880020215058220393}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1073,8 +1105,8 @@ MonoBehaviour:
   rocketPrefab: {fileID: 1869737888101048513, guid: 525a040f924764de6855425e5852ddda, type: 3}
   blastPrefab: {fileID: 4180353045435785592, guid: efbfa8753afca534bb0ad05c6e1db92b, type: 3}
   fireFromRocket: {fileID: 5145694048929036283}
-  fireFromMachine1: {fileID: 0}
-  fireFromMachine2: {fileID: 0}
+  fireFromMachine1: {fileID: 8816904807486141931}
+  fireFromMachine2: {fileID: 2575828424703220735}
   explosionToSpawn: {fileID: 4377795673932119582, guid: fa7c7bd8be25b3242a96bbf05a339942, type: 3}
   Rocketrange: 2000
   machineRange: 2000

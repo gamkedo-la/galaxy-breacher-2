@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private GameObject deathExplosion;
     private float health;
 
     private void Start()
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        Instantiate(deathExplosion,transform.position,Quaternion.identity);
         Destroy(gameObject);
     }
 }
