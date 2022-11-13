@@ -46,6 +46,7 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserOverheatSFX;
     [SerializeField] AudioClip laserCooldownSFX;
+    [SerializeField] AudioSource laserAudioSource;
     [SerializeField] LaserHeatUI laserUI;
     
     private bool laserOverHeated = false;
@@ -183,11 +184,13 @@ public class PlayerControl : MonoBehaviour {
                 leftLaserFiresNext = !leftLaserFiresNext;
                 if (leftLaserFiresNext)
                 {
-                    AudioSource.PlayClipAtPoint(laserSFX, laserLineRendererLeft.transform.position);
+                    laserAudioSource.panStereo = -.5f;
+                    laserAudioSource.PlayOneShot(laserSFX);
                 }
                 else
                 {
-                    AudioSource.PlayClipAtPoint(laserSFX,laserLineRendererRight.transform.position);
+                    laserAudioSource.panStereo = .5f;
+                    laserAudioSource.PlayOneShot(laserSFX);
                 }
             }
             //setup raycast
@@ -227,11 +230,13 @@ public class PlayerControl : MonoBehaviour {
                 leftLaserFiresNext = !leftLaserFiresNext;
                 if (leftLaserFiresNext)
                 {
-                    AudioSource.PlayClipAtPoint(laserSFX, laserLineRendererLeft.transform.position);
+                    laserAudioSource.panStereo = -.5f;
+                    laserAudioSource.PlayOneShot(laserSFX);
                 }
                 else
                 {
-                    AudioSource.PlayClipAtPoint(laserSFX,laserLineRendererRight.transform.position);
+                    laserAudioSource.panStereo = .5f;
+                    laserAudioSource.PlayOneShot(laserSFX);
                 }
             }
             
@@ -240,7 +245,8 @@ public class PlayerControl : MonoBehaviour {
             if (laserHeat > laserMaxHeat)
             {
                 laserOverHeated = true;
-                AudioSource.PlayClipAtPoint(laserOverheatSFX, transform.position);
+                laserAudioSource.panStereo = 0f;
+                laserAudioSource.PlayOneShot(laserOverheatSFX);
             }
         }
         else //Don't fire a laser
@@ -253,7 +259,8 @@ public class PlayerControl : MonoBehaviour {
                 if (laserOverHeated)
                 {
                     laserOverHeated = false;
-                    AudioSource.PlayClipAtPoint(laserCooldownSFX, transform.position);
+                    laserAudioSource.panStereo = 0f;
+                    laserAudioSource.PlayOneShot(laserCooldownSFX);
                 }
             }
             //set laser end positions

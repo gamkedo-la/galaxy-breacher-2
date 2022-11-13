@@ -1357,6 +1357,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 283856381}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: laserFrameTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: fireFromMachine1
       value: 
       objectReference: {fileID: 6985220863243357803}
@@ -1364,6 +1368,14 @@ PrefabInstance:
       propertyPath: fireFromMachine2
       value: 
       objectReference: {fileID: 1128893048}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: leftLaserAudioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: rightLaserAudioSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: targets.Array.data[0]
       value: 
@@ -1411,6 +1423,14 @@ PrefabInstance:
     - target: {fileID: 3281946409566776561, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968854053252927320, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968854053252927320, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697061008920211626, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_RootOrder
