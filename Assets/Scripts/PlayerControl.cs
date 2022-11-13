@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour {
     [Header("Laser Properties")]
     [SerializeField] LineRenderer laserLineRendererLeft;
     [SerializeField] LineRenderer laserLineRendererRight;
-    [SerializeField] float laserFrameTime = .15f;
+    [SerializeField] float laserFireRate = 7f;
     [SerializeField] float laserRange = 2000f;
     [SerializeField] float laserDamagePerSecond = 1f;
     [SerializeField] float laserMaxHeat = 100f;
@@ -221,9 +221,9 @@ public class PlayerControl : MonoBehaviour {
             
             //switch which laser is firing based on time
             lastLaserSwitchTime += Time.deltaTime;
-            if (lastLaserSwitchTime > laserFrameTime)
+            if (lastLaserSwitchTime > 1/laserFireRate)
             {
-                lastLaserSwitchTime -= laserFrameTime;
+                lastLaserSwitchTime -= 1/laserFireRate;
                 leftLaserFiresNext = !leftLaserFiresNext;
                 if (leftLaserFiresNext)
                 {
