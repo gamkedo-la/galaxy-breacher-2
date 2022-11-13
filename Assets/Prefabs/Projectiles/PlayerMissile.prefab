@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1869737886375078003}
   - component: {fileID: 1869737886375077996}
   - component: {fileID: 1869737886375077997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1869737886729286553}
   - component: {fileID: 1869737886729286555}
   - component: {fileID: 1869737886729286552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RocketTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4924,7 +4924,7 @@ GameObject:
   - component: {fileID: 1869737886960690490}
   - component: {fileID: 1869737886960690484}
   - component: {fileID: 1869737886960690485}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: RadarDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5009,7 +5009,7 @@ GameObject:
   - component: {fileID: 1708459651841833543}
   - component: {fileID: -1337955583706827117}
   - component: {fileID: 3075804514973669619}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
