@@ -193,8 +193,11 @@ public class PlayerControl : MonoBehaviour {
                 //Deal Damage
                 if (laserHit)
                 {
-                    //TODO: Figure out how to deal damage. Something like this?
-                    //hitInfo.collider.gameObject.dealDamage(laserDamagePerSecond/laserFireRate);
+                    IDamagable damagableObject = hitInfo.collider.GetComponent<IDamagable>();
+                    if (damagableObject != null)
+                    {
+                        damagableObject.TakeDamage(laserDamagePerSecond/laserFireRate);
+                    }
                 }
 
                 //play sfx on correct side

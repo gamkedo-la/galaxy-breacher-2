@@ -1089,7 +1089,7 @@ MonoBehaviour:
   laserLineRendererRight: {fileID: 8128561839045326821}
   laserFireRate: 7
   laserRange: 2000
-  laserDamagePerSecond: 1
+  laserDamagePerSecond: 50
   laserMaxHeat: 100
   heatGainRate: 100
   heatLossRate: 50
