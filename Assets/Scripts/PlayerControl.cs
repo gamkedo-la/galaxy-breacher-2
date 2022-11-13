@@ -5,33 +5,36 @@ using TMPro;
 
 public class PlayerControl : MonoBehaviour {
     public static PlayerControl instance;
-    public TextMeshProUGUI speedIndicator;
-    public GameObject rocketPrefab;
-    public GameObject blastPrefab;
-    public Transform fireFromRocket;
-    public Transform fireFromMachine1;
-    public Transform fireFromMachine2;
-    public GameObject explosionToSpawn;
-
-
-    [SerializeField] float Rocketrange;
-    [SerializeField] float machineRange;
-
-    public AudioSource engineLoopWeak;
-    public AudioSource engineLoopStrong;
-
+    
+    [Space(10)]
+    [Header("Health Properties")]
     public Animator damageLighting;
-    public AudioSource damageSound;
-
-    private Rigidbody rb;
-    private Camera fpsCamera;
-
-    Color color;
-
-
+    
+    [Space(10)]
+    [Header("Movement Properties")]
     [SerializeField] float rollSpeed = 60.0f;
     [SerializeField] float pitchSpeed = 40.0f;
     [SerializeField] float strafeSpeed = 20.0f;
+    float speedNow = 0.0f;
+    float maxNegativeSpeed = -20.0f;
+    float maxForwardSpeed = 60.0f;
+    float forwardAccel = 9.0f; // affects Q/E manual adjustment
+    float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
+    float throttleTarget = 0.0f;
+    
+    [Space(10)]
+    [Header("Rocket Properties")]
+    [SerializeField] float Rocketrange;
+    public Transform fireFromRocket;
+    public GameObject rocketPrefab;
+    
+    [Space(10)]
+    [Header("Machine Gun Properties")]
+    public Transform fireFromMachine1;
+    public Transform fireFromMachine2;
+    public GameObject explosionToSpawn;
+    [SerializeField] float machineRange;
+    public GameObject blastPrefab;
     
     [Space(10)]
     [Header("Laser Properties")]
@@ -43,26 +46,31 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float laserMaxHeat = 100f;
     [SerializeField] float heatGainRate = 40f;
     [SerializeField] float heatLossRate = 50f;
-    [SerializeField] AudioClip laserSFX;
-    [SerializeField] AudioClip laserOverheatSFX;
-    [SerializeField] AudioClip laserCooldownSFX;
-    [SerializeField] AudioSource laserAudioSource;
-    [SerializeField] LaserHeatUI laserUI;
+
     private bool laserOverHeated = false;
     private float laserHeat = 0f;
     private bool leftLaserFiresNext = true;
     private float lastLaserFireTime = 0f;
-
-
     
-
-    float speedNow = 0.0f;
-    float maxNegativeSpeed = -20.0f;
-    float maxForwardSpeed = 60.0f;
-
-    float forwardAccel = 9.0f; // affects Q/E manual adjustment
-    float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
-    float throttleTarget = 0.0f;
+    [Space(10)]
+    [Header("Audio Properties")]
+    public AudioSource engineLoopWeak;
+    public AudioSource engineLoopStrong;
+    public AudioSource damageSound;
+    [SerializeField] AudioClip laserSFX;
+    [SerializeField] AudioClip laserOverheatSFX;
+    [SerializeField] AudioClip laserCooldownSFX;
+    [SerializeField] AudioSource laserAudioSource;
+    
+    [Space(10)]
+    [Header("UI Properties")]
+    [SerializeField] LaserHeatUI laserUI;
+    public TextMeshProUGUI speedIndicator;
+    
+    private Rigidbody rb;
+    private Camera fpsCamera;
+    Color color;
+    
     void Awake() {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
