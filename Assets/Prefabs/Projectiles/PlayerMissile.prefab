@@ -5024,7 +5024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869737888101048513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.2172341, y: 0.06691551, z: 11.461124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5049,6 +5049,7 @@ MonoBehaviour:
   explosionToSpawn: {fileID: 1869737888101048513, guid: 0afafe5ca2b6449dc931c0b3cb373bd8, type: 3}
   effectTrailToRelease: {fileID: 1869737886729286553}
   rocketSpeed: 100
+  damage: 100
 --- !u!65 &1708459651841833543
 BoxCollider:
   m_ObjectHideFlags: 0
