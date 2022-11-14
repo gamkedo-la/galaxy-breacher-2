@@ -15,6 +15,11 @@ public class ButtonAnimator : MonoBehaviour
         StartCoroutine(ChangeButtonTiling());
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator ChangeButtonTiling()
     {
         while (true)
