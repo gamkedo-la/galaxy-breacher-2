@@ -1,8 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NavigationTestController : MonoBehaviour
 {
+
     [SerializeField] Ship[] ships;
+
+    List<Vector3> points = new List<Vector3>();
 
     void Start()
     {
@@ -21,15 +25,12 @@ public class NavigationTestController : MonoBehaviour
             float angle = Mathf.Deg2Rad * i;
             Vector3 p = new Vector3(0, 0, 200f) + new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * 100f;
             Debug.DrawLine(lastP, p, Color.red, 10f);
-            Debug.Log("Point " + p);
             leaderMovement.AddTask(new NavigateToTask(leader, p, Quaternion.AngleAxis(-i, Vector3.up), leaderSpeed));
+
+            points.Add(p);
 
             lastP = p;
         }
-        // leaderMovement.AddTask(new NavigateToTask(leader, new Vector3(0, 0, 200f), Quaternion.AngleAxis(-45, Vector3.up), leaderSpeed));
-        // leaderMovement.AddTask(new NavigateToTask(leader, new Vector3(-200, 0, 200f), Quaternion.AngleAxis(-135, Vector3.up), leaderSpeed));
-        // leaderMovement.AddTask(new NavigateToTask(leader, new Vector3(-200, 0, 0f), Quaternion.AngleAxis(-225, Vector3.up), leaderSpeed));
-        // leaderMovement.AddTask(new NavigateToTask(leader, new Vector3(0, 0, 0f), Quaternion.AngleAxis(-315, Vector3.up), leaderSpeed));
         RepeatTask repeat = new RepeatTask(leaderMovement);
         TaskManager.instance.AddTask(repeat);
 
@@ -39,5 +40,18 @@ public class NavigationTestController : MonoBehaviour
             followTask.AddFollower(ships[i]);
         }
         TaskManager.instance.AddTask(followTask);
+    }
+
+    void OnDrawGizmos()
+    {
+        if (points.Count > 0)
+        {
+            Gizmos.color = Color.red;
+            for (int i=1; i < points.Count; i++)
+            {
+                Gizmos.DrawLine(points[i-1], points[i]);
+            }
+            Gizmos.DrawLine(points[points.Count-1], points[0]);
+        }
     }
 }
