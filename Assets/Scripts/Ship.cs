@@ -32,10 +32,14 @@ class FloatLowPassFilter
 [RequireComponent(typeof(Rigidbody))]
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private float headingP;
-    [SerializeField] private float headingD;
+    [SerializeField] private float headingP = 1f;
+    [SerializeField] private float headingD = 1f;
+
+    [SerializeField] private float speedP = 1f;
+    [SerializeField] private float speedD = 1f;
 
     [SerializeField] public float maxSpeed = 40f;
+    [SerializeField] public float maxAcceleration = 40f;
     [SerializeField] public float maxTurnSpeed = 40f;
 
     [SerializeField] private LayerMask collisionLayers;
@@ -48,7 +52,8 @@ public class Ship : MonoBehaviour
 
     private Navigation.State prevState;
 
-    private PIDControl headingControl;
+    private PIDControl headingController;
+    private PIDControl speedController;
     private FloatLowPassFilter headingYawFilter = new FloatLowPassFilter(3);
 
     void Awake()
@@ -75,20 +80,27 @@ public class Ship : MonoBehaviour
 
         currentMaxSpeed = maxSpeed;
 
-        headingControl = new PIDControl();
-        headingControl.Setup(headingP, 0f, headingD);
+        headingController = new PIDControl();
+        headingController.Setup(headingP, 0f, headingD);
+        speedController = new PIDControl();
+        speedController.Setup(speedP, 0f, speedD);
     }
 
     void OnValidate()
     {
-        if (headingControl != null)
+        if (headingController != null)
         {
-            headingControl.Setup(headingP, 0f, headingD);
+            headingController.Setup(headingP, 0f, headingD);
+        }
+        if (speedController != null)
+        {
+            speedController.Setup(speedP, 0f, speedD);
         }
     }
 
     void FixedUpdate()
     {
+        float currentSpeed = rigidbody.velocity.magnitude;
         Navigation.State nextState = null;
         float progress = 0f;
         while (path.Count > 0)
@@ -105,23 +117,29 @@ public class Ship : MonoBehaviour
 
         if (path.Count == 0)
         {
+            rigidbody.angularVelocity = Vector3.zero;
+            currentSpeed = Mathf.Max(0f, currentSpeed - maxAcceleration * Time.fixedDeltaTime);
+            rigidbody.velocity = transform.forward * currentSpeed;
             return;
         }
 
-        Vector3 desiredPosition = Vector3.Lerp(prevState.position, nextState.position, Mathf.Min(progress + 0.1f, 1f));
+        Vector3 desiredPosition = Vector3.Lerp(prevState.position, nextState.position, Mathf.Min(progress, 1f));
         Quaternion desiredRotation = Quaternion.LookRotation(nextState.position - prevState.position);
 
         float error = Vector3.Distance(transform.position, desiredPosition);
-
-        float control = headingControl.GetControl(Time.time, error);
+        float headingControl = headingController.GetControl(Time.time, error);
 
         Vector3 n = (desiredPosition - transform.position).normalized;
         Vector3 up = Vector3.Cross(n, transform.forward);
-        desiredRotation = Quaternion.AngleAxis(control, up) * desiredRotation;
+        desiredRotation = Quaternion.AngleAxis(headingControl, -up) * desiredRotation;
+
+        float speedControl = speedController.GetControl(Time.time, error);
+        float desiredSpeed = Mathf.Max(currentMaxSpeed * 0.1f, currentMaxSpeed - speedControl * currentMaxSpeed);
 
         Vector3 inward = Vector3.Cross(desiredRotation * Vector3.forward, up);
 
         Debug.DrawLine(transform.position, desiredPosition, Color.blue);
+        Debug.DrawLine(transform.position, transform.position + desiredRotation * Vector3.forward * 5f, Color.yellow);
         Debug.DrawLine(transform.position, transform.position + up * 5f, Color.green);
 
         Quaternion q = Quaternion.RotateTowards(transform.rotation, desiredRotation, maxTurnSpeed * Time.fixedDeltaTime);
@@ -139,7 +157,16 @@ public class Ship : MonoBehaviour
 
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.MoveRotation(q);
-        rigidbody.velocity = transform.forward * currentMaxSpeed;
+
+        if (currentSpeed < desiredSpeed)
+        {
+            currentSpeed = Mathf.Min(desiredSpeed, currentSpeed + maxAcceleration * Time.fixedDeltaTime);
+        }
+        else
+        {
+            currentSpeed = Mathf.Max(desiredSpeed, currentSpeed - maxAcceleration * Time.fixedDeltaTime);
+        }
+        rigidbody.velocity = transform.forward * currentSpeed;
     }
 
     public void NavigateTo(Vector3 targetPosition, Quaternion targetRotation, float speed)
