@@ -7,7 +7,7 @@ public class TurretShotFly : MonoBehaviour
     Rigidbody rb;
     float maxLifetimeInSec = 15.0f;
 
-    float shotSpeed = 25.0f;
+    float shotSpeed = 150.0f;
     void Start()
     {
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
