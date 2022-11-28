@@ -834,6 +834,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1621814459879741571, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
+      propertyPath: firesLaser
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4092082328736161660, guid: 8f94a27bdbfad4949b4a1e7f3c57d048, type: 3}
       propertyPath: m_TagString
       value: BossPart
