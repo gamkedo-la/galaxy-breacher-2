@@ -1124,6 +1124,7 @@ MonoBehaviour:
   engineLoopWeak: {fileID: 6301583218144241523}
   engineLoopStrong: {fileID: 4869345801817380815}
   damageSound: {fileID: 0}
+  machinegunLoopSound: {fileID: 7407397093904099725}
   laserSFX: {fileID: 8300000, guid: 04bd742323f7289479ff510afb0b4072, type: 3}
   laserOverheatSFX: {fileID: 8300000, guid: 50a8ccea16a0ba54ca3f2443f1e7054b, type: 3}
   laserCooldownSFX: {fileID: 8300000, guid: e22b8747d64847a4da148ddfbf84811e, type: 3}
@@ -1361,11 +1362,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 01c5f030ed42f44ff8677860f6351019, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

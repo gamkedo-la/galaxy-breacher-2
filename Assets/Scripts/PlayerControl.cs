@@ -35,7 +35,8 @@ public class PlayerControl : MonoBehaviour {
     public GameObject explosionToSpawn;
     [SerializeField] float machineRange;
     public GameObject blastPrefab;
-    
+    private bool firingMG;
+
     [Space(10)]
     [Header("Laser Properties")]
     [SerializeField] LineRenderer laserLineRendererLeft;
@@ -57,6 +58,8 @@ public class PlayerControl : MonoBehaviour {
     public AudioSource engineLoopWeak;
     public AudioSource engineLoopStrong;
     public AudioSource damageSound;
+    public AudioSource machinegunLoopSound;
+
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserOverheatSFX;
     [SerializeField] AudioClip laserCooldownSFX;
@@ -74,9 +77,11 @@ public class PlayerControl : MonoBehaviour {
     void Awake() {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
+        machinegunLoopSound.volume = 0.0f;
         rb = GetComponent<Rigidbody>();
         color = Color.red;
         fpsCamera = Camera.main;
+        StartCoroutine(MGFireCheck());
     }
 
     void RefreshEngineVolume() {
@@ -91,6 +96,19 @@ public class PlayerControl : MonoBehaviour {
 
         engineLoopWeak.volume = 1.0f - enginePowerFade;
         engineLoopStrong.volume = enginePowerFade;
+    }
+
+    IEnumerator MGFireCheck () {
+        while(true) {
+            if (firingMG) {
+                ShootBlast();
+            } else {
+                if (machinegunLoopSound.volume > 0.0f) {
+                    machinegunLoopSound.volume = 0.0f;
+                }
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 
     void Update() {
@@ -137,9 +155,11 @@ public class PlayerControl : MonoBehaviour {
             damageSound.Play();
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            ShootBlast();
+        bool wasFiring = firingMG;
+        firingMG = Input.GetMouseButton(0); // no ammo etc check at this time
+        if(firingMG && wasFiring == false) {
+            ShootBlast(); // instant extra shot on click, separate from rate limited coroutine loop
+            machinegunLoopSound.volume = 1.0f; // start the sound loop
         }
 
         UpdateLaser();
