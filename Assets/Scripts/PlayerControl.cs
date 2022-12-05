@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : MonoBehaviour
+{
     public static PlayerControl instance;
-    
+
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
-    
+
     [Space(10)]
     [Header("Movement Properties")]
     [SerializeField] float rollSpeed = 60.0f;
@@ -21,13 +22,13 @@ public class PlayerControl : MonoBehaviour {
     float forwardAccel = 9.0f; // affects Q/E manual adjustment
     float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
     float throttleTarget = 0.0f;
-    
+
     [Space(10)]
     [Header("Rocket Properties")]
     [SerializeField] float Rocketrange;
     public Transform fireFromRocket;
     public GameObject rocketPrefab;
-    
+
     [Space(10)]
     [Header("Machine Gun Properties")]
     public Transform fireFromMachine1;
@@ -36,6 +37,15 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] float machineRange;
     public GameObject blastPrefab;
     private bool firingMG;
+
+    [Space(10)]
+    [Header("Small Ship Explosion Properties")]
+    public Transform explosionEffectPosition;
+    public GameObject explosionVFX;
+    public LayerMask layer;
+    public float maximumDistance;
+    public float radius;
+
 
     [Space(10)]
     [Header("Laser Properties")]
@@ -52,7 +62,7 @@ public class PlayerControl : MonoBehaviour {
     private float laserHeat = 0f;
     private bool leftLaserFiresNext = true;
     private float lastLaserFireTime = 0f;
-    
+
     [Space(10)]
     [Header("Audio Properties")]
     public AudioSource engineLoopWeak;
@@ -64,17 +74,18 @@ public class PlayerControl : MonoBehaviour {
     [SerializeField] AudioClip laserOverheatSFX;
     [SerializeField] AudioClip laserCooldownSFX;
     [SerializeField] AudioSource laserAudioSource;
-    
+
     [Space(10)]
     [Header("UI Properties")]
     [SerializeField] LaserHeatUI laserUI;
     public TextMeshProUGUI speedIndicator;
-    
+
     private Rigidbody rb;
     private Camera fpsCamera;
     Color color;
-    
-    void Awake() {
+
+    void Awake()
+    {
         instance = this; // singleton for AI to aim etc
         engineLoopStrong.volume = 0.0f;
         machinegunLoopSound.volume = 0.0f;
@@ -84,7 +95,8 @@ public class PlayerControl : MonoBehaviour {
         StartCoroutine(MGFireCheck());
     }
 
-    void RefreshEngineVolume() {
+    void RefreshEngineVolume()
+    {
         float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
 
         float strafeEngineEffect = 0.55f * (
@@ -98,12 +110,18 @@ public class PlayerControl : MonoBehaviour {
         engineLoopStrong.volume = enginePowerFade;
     }
 
-    IEnumerator MGFireCheck () {
-        while(true) {
-            if (firingMG) {
+    IEnumerator MGFireCheck()
+    {
+        while (true)
+        {
+            if (firingMG)
+            {
                 ShootBlast();
-            } else {
-                if (machinegunLoopSound.volume > 0.0f) {
+            }
+            else
+            {
+                if (machinegunLoopSound.volume > 0.0f)
+                {
                     machinegunLoopSound.volume = 0.0f;
                 }
             }
@@ -111,10 +129,12 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    void Update() {
+    void Update()
+    {
         RefreshEngineVolume();
 
-        if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f) { // manual throttle overrides 1-4 presets
+        if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f)
+        { // manual throttle overrides 1-4 presets
             speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
             throttleTarget = speedNow;
         }
@@ -130,21 +150,26 @@ public class PlayerControl : MonoBehaviour {
         rb.velocity = moveVec;
         speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
-           ShootRocket();
+            ShootRocket();
         }
 
-        if (Input.GetButtonDown("Engine-Off")) {
+        if (Input.GetButtonDown("Engine-Off"))
+        {
             throttleTarget = 0.0f;
         }
-        if (Input.GetButtonDown("Engine-Low")) {
+        if (Input.GetButtonDown("Engine-Low"))
+        {
             throttleTarget = maxForwardSpeed * 0.3f;
         }
-        if (Input.GetButtonDown("Engine-Mid")) {
+        if (Input.GetButtonDown("Engine-Mid"))
+        {
             throttleTarget = maxForwardSpeed * 0.6f;
         }
-        if (Input.GetButtonDown("Engine-Max")) {
+        if (Input.GetButtonDown("Engine-Max"))
+        {
             throttleTarget = maxForwardSpeed * 1.0f;
         }
 
@@ -157,30 +182,39 @@ public class PlayerControl : MonoBehaviour {
 
         bool wasFiring = firingMG;
         firingMG = Input.GetMouseButton(0); // no ammo etc check at this time
-        if(firingMG && wasFiring == false) {
+        if (firingMG && wasFiring == false)
+        {
             ShootBlast(); // instant extra shot on click, separate from rate limited coroutine loop
             machinegunLoopSound.volume = 1.0f; // start the sound loop
         }
+
 
         UpdateLaser();
 
     }
 
-    void FixedUpdate() { // using % per frame would be unsafe in variable framerate Update
-        speedNow = speedNow* throttleKeptFromPrevFrame + throttleTarget * (1.0f- throttleKeptFromPrevFrame);
+    void FixedUpdate()
+    { // using % per frame would be unsafe in variable framerate Update
+        speedNow = speedNow * throttleKeptFromPrevFrame + throttleTarget * (1.0f - throttleKeptFromPrevFrame);
     }
 
     void ShootRocket()
-    { 
+    {
         GameObject shotGO = GameObject.Instantiate(rocketPrefab, fireFromRocket.position, transform.rotation);
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, Rocketrange))
-        { 
+        {
             Debug.Log(hit.transform.name);
             rocketPrefab.transform.Translate(hit.transform.position * Time.deltaTime);
+
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Destroyable"))
+            {
+                hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
+                Debug.Log("Remove");
+            }
         }
 
-    }  
+    }
 
     void ShootBlast()
     {
@@ -199,7 +233,7 @@ public class PlayerControl : MonoBehaviour {
     {
         //update last fired time
         lastLaserFireTime += Time.deltaTime;
-        
+
         //update laser start positions
         laserLineRendererLeft.SetPosition(0, laserLineRendererLeft.transform.position);
         laserLineRendererRight.SetPosition(0, laserLineRendererRight.transform.position);
@@ -212,19 +246,19 @@ public class PlayerControl : MonoBehaviour {
             bool laserHit = Physics.Raycast(ray, out RaycastHit hitInfo, laserRange);
 
             //if it's time to fire another laser
-            if (lastLaserFireTime > (1/laserFireRate))
+            if (lastLaserFireTime > (1 / laserFireRate))
             {
                 lastLaserFireTime = 0;
                 //switch which laser to fire
                 leftLaserFiresNext = !leftLaserFiresNext;
-                
+
                 //Deal Damage
                 if (laserHit)
                 {
                     IDamageable damageableObject = hitInfo.collider.GetComponent<IDamageable>();
                     if (damageableObject != null)
                     {
-                        damageableObject.TakeDamage(laserDamagePerSecond/laserFireRate);
+                        damageableObject.TakeDamage(laserDamagePerSecond / laserFireRate);
                     }
                 }
 
@@ -252,20 +286,21 @@ public class PlayerControl : MonoBehaviour {
             Vector3 laserEndPosition = laserHit
                 ? hitInfo.point
                 : fpsCamera.transform.position + fpsCamera.transform.forward * laserRange;
-            
+
             //set laser end positions based on which laser is firing
             if (leftLaserFiresNext)
             {
                 laserLineRendererLeft.SetPosition(1, laserEndPosition);
                 laserLineRendererRight.SetPosition(1, laserLineRendererRight.transform.position);
-                
+
             }
             else
             {
                 laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
                 laserLineRendererRight.SetPosition(1, laserEndPosition);
             }
-        }else //Don't fire a laser
+        }
+        else //Don't fire a laser
         {
             //set laser end positions
             laserLineRendererLeft.SetPosition(1, laserLineRendererLeft.transform.position);
@@ -283,6 +318,17 @@ public class PlayerControl : MonoBehaviour {
                 laserAudioSource.PlayOneShot(laserCooldownSFX);
             }
         }
-        laserUI.SetHeatPercentage(laserHeat/laserMaxHeat);
+        laserUI.SetHeatPercentage(laserHeat / laserMaxHeat);
+    }
+
+    private void ExplosionProcess()
+    {
+        RaycastHit hit;
+
+        if (Physics.SphereCast(fpsCamera.transform.position, radius, fpsCamera.transform.forward, out hit, maximumDistance))
+        {
+
+        }
+
     }
 }
