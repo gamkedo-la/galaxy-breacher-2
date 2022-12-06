@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4377795673932119583}
   - component: {fileID: 2284849058872774575}
   m_Layer: 0
-  m_Name: 'Machine Gun Explosion '
+  m_Name: MachineGunExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

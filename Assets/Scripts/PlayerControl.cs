@@ -40,9 +40,6 @@ public class PlayerControl : MonoBehaviour
 
     [Space(10)]
     [Header("Small Ship Explosion Properties")]
-    public Transform explosionEffectPosition;
-    public GameObject explosionVFX;
-    public LayerMask layer;
     public float maximumDistance;
     public float radius;
 
@@ -154,6 +151,7 @@ public class PlayerControl : MonoBehaviour
         {
 
             ShootRocket();
+            smallShipExplosionProcess();
         }
 
         if (Input.GetButtonDown("Engine-Off"))
@@ -206,14 +204,7 @@ public class PlayerControl : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             rocketPrefab.transform.Translate(hit.transform.position * Time.deltaTime);
-
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Destroyable"))
-            {
-                hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
-                Debug.Log("Remove");
-            }
         }
-
     }
 
     void ShootBlast()
@@ -321,13 +312,16 @@ public class PlayerControl : MonoBehaviour
         laserUI.SetHeatPercentage(laserHeat / laserMaxHeat);
     }
 
-    private void ExplosionProcess()
+    private void smallShipExplosionProcess()
     {
         RaycastHit hit;
 
         if (Physics.SphereCast(fpsCamera.transform.position, radius, fpsCamera.transform.forward, out hit, maximumDistance))
         {
-
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Destroyable"))
+            {
+                hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
+            }
         }
 
     }

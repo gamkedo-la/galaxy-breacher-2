@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1187061740538469889}
   - component: {fileID: 6354128564813450412}
   - component: {fileID: 7748733023516748270}
+  - component: {fileID: 492978293}
   m_Layer: 8
   m_Name: PolySphere2_1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &492978293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208670413692622781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.040503893, y: 0.056075297, z: 0.07865893}
+  m_Center: {x: 0, y: -0.0003392901, z: -0.0034274643}
 --- !u!1 &4618264569373222288
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,9 +120,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4618264569373222288}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.13589999, y: 0, z: -0.0946}
-  m_LocalScale: {x: 0.33333328, y: 0.33333334, z: 0.33333334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0319, y: 0.0174, z: -0.0101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5160534001106886360}
@@ -140,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 5536673237288436834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -81.9, y: 11.28, z: -16.2}
-  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_LocalScale: {x: 300, y: 299.99994, z: 299.99994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5505267549867973563}
@@ -162,6 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b02dac4c5fba49e6b5f912c50f06704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTimer: 2
+  ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
+  ExplosionPosition: {fileID: 4618264569373222289}
 --- !u!1 &7046923301033065432
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +190,7 @@ GameObject:
   - component: {fileID: 3401638759630338255}
   - component: {fileID: 1758280971995251777}
   - component: {fileID: 8311365461493910686}
+  - component: {fileID: 1482999693}
   m_Layer: 8
   m_Name: PolySphere2
   m_TagString: Untagged
@@ -245,6 +263,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1482999693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046923301033065432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.032710623, y: 0.028058266, z: 0.052079875}
+  m_Center: {x: 9.313225e-10, y: 0.012374177, z: -0.0008135996}
 --- !u!1 &8840063331630122867
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +287,7 @@ GameObject:
   - component: {fileID: 5505267549867973563}
   - component: {fileID: 2148980206989595089}
   - component: {fileID: 6499310747573222939}
+  - component: {fileID: 2003397844}
   m_Layer: 8
   m_Name: PolySphere1
   m_TagString: Untagged
@@ -328,3 +360,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2003397844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840063331630122867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0870218, y: 0.016730392, z: 0.06541463}
+  m_Center: {x: 0, y: -0.006248568, z: 0.0116723515}

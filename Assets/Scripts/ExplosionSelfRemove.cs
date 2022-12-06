@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class ExplosionSelfRemove : MonoBehaviour
 {
-    float destroyTimer = 2.0f;
-
-    void Start()
-    {
-        //  HierarchyTrashSingleton.instance.GroupTempJunk(transform);
-    }
+    [SerializeField] float destroyTimer = 2.0f;
+    [SerializeField] GameObject ExplosionVFX;
+    [SerializeField] Transform ExplosionPosition;
 
     public void Remove()
     {
+        GameObject explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
         Destroy(gameObject, destroyTimer);
-        Debug.Log("Destroy");
-
     }
-
-
 }

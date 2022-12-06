@@ -1113,6 +1113,8 @@ MonoBehaviour:
   explosionToSpawn: {fileID: 4377795673932119582, guid: fa7c7bd8be25b3242a96bbf05a339942, type: 3}
   machineRange: 2000
   blastPrefab: {fileID: 4180353045435785592, guid: efbfa8753afca534bb0ad05c6e1db92b, type: 3}
+  maximumDistance: 2000
+  radius: 5
   laserLineRendererLeft: {fileID: 208666378843794823}
   laserLineRendererRight: {fileID: 8128561839045326821}
   laserFireRate: 7
@@ -1549,7 +1551,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
