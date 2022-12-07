@@ -29,11 +29,14 @@ class FloatLowPassFilter
     }
 }
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(NavigationAgent))]
 public class Ship : MonoBehaviour
 {
+    [SerializeField] private int lookaheadFrames = 20;
+
     [SerializeField] private float headingP = 1f;
     [SerializeField] private float headingD = 1f;
+    [SerializeField] private float headingI = 1f;
 
     [SerializeField] private float speedP = 1f;
     [SerializeField] private float speedD = 1f;
@@ -44,116 +47,153 @@ public class Ship : MonoBehaviour
 
     [SerializeField] private LayerMask collisionLayers;
 
-    public Navigation.Agent agent;
     private new Rigidbody rigidbody;
+    private Navigation.Agent agent;
 
-    private Queue<Navigation.State> path;
+    private List<Navigation.Position> path;
     private float currentMaxSpeed;
 
-    private Navigation.State prevState;
+    private Navigation.Position prevPosition;
 
     private PIDControl headingController;
     private PIDControl speedController;
     private FloatLowPassFilter headingYawFilter = new FloatLowPassFilter(3);
 
+    private float nextOptimizePathTime = 0f;
+
     void Awake()
     {
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-        if (colliders.Length == 0) {
-            Debug.LogError("No colliders for ship " + name);
-            return;
-        }
-
-        Bounds bounds = colliders[0].bounds;
-        for (int i=1; i < colliders.Length; i++)
-        {
-            bounds.Encapsulate(colliders[i].bounds);
-        }
-
-        agent = new Navigation.Agent();
-        agent.offset = bounds.center - transform.position;
-        agent.size = bounds.size;
-        agent.collisionLayers = collisionLayers;
+        agent = GetComponent<NavigationAgent>()?.agent;
 
         rigidbody = GetComponent<Rigidbody>();
-        path = new Queue<Navigation.State>();
+        path = new List<Navigation.Position>();
 
         currentMaxSpeed = maxSpeed;
 
         headingController = new PIDControl();
-        headingController.Setup(headingP, 0f, headingD);
+        headingController.Setup(headingP, headingI, headingD, 45f / Time.fixedDeltaTime);
         speedController = new PIDControl();
-        speedController.Setup(speedP, 0f, speedD);
+        speedController.Setup(speedP, 0f, speedD, 1f);
     }
 
     void OnValidate()
     {
         if (headingController != null)
         {
-            headingController.Setup(headingP, 0f, headingD);
+            headingController.Setup(headingP, headingI, headingD, 45f / Time.fixedDeltaTime);
         }
         if (speedController != null)
         {
-            speedController.Setup(speedP, 0f, speedD);
+            speedController.Setup(speedP, 0f, speedD, 1f);
+        }
+    }
+
+    void Update()
+    {
+        if (path.Count > 1 && Time.time > nextOptimizePathTime)
+        {
+            OptimizePath();
+            nextOptimizePathTime = Time.time + 1f;
+        }
+    }
+
+    void OptimizePath()
+    {
+        while (path.Count > 1 && Navigation.Utils.IsCollisionFree(NavigationManager.instance.world, agent, prevPosition, path[1]))
+        {
+            path.RemoveAt(0);
         }
     }
 
     void FixedUpdate()
     {
         float currentSpeed = rigidbody.velocity.magnitude;
-        Navigation.State nextState = null;
+        Navigation.Position nextPosition = null;
         float progress = 0f;
         while (path.Count > 0)
         {
-            nextState = path.Peek();
-            progress = Mathf.Max(0f, Vector3.Dot((nextState.position - prevState.position).normalized, transform.position - prevState.position) / Vector3.Distance(prevState.position, nextState.position));
+            nextPosition = path[0];
+            progress = Mathf.Max(0f, Vector3.Dot((nextPosition.position - prevPosition.position).normalized, transform.position - prevPosition.position) / Vector3.Distance(prevPosition.position, nextPosition.position));
             if (progress < 1f)
             {
                 break;
             }
 
-            prevState = path.Dequeue();
+            prevPosition = nextPosition;
+            path.RemoveAt(0);
         }
 
         if (path.Count == 0)
         {
-            rigidbody.angularVelocity = Vector3.zero;
+            // Path is done, stop
             currentSpeed = Mathf.Max(0f, currentSpeed - maxAcceleration * Time.fixedDeltaTime);
             rigidbody.velocity = transform.forward * currentSpeed;
+            rigidbody.angularVelocity = Vector3.zero;
             return;
         }
 
-        Vector3 desiredPosition = Vector3.Lerp(prevState.position, nextState.position, Mathf.Min(progress, 1f));
-        Quaternion desiredRotation = Quaternion.LookRotation(nextState.position - prevState.position);
+        Vector3 currentDesiredPosition = Vector3.Lerp(prevPosition.position, nextPosition.position, progress);
 
-        float error = Vector3.Distance(transform.position, desiredPosition);
+        float distanceToCover = currentMaxSpeed * Time.fixedDeltaTime * lookaheadFrames;
+        while (path.Count > 0 && distanceToCover > 0)
+        {
+            nextPosition = path[0];
+            if (Mathf.Approximately(distanceToCover, 0f))
+            {
+                break;
+            }
+            float segmentDistance = Vector3.Distance(prevPosition.position, nextPosition.position);
+            float nextPositionDistance = segmentDistance * (1f - progress);
+            if (distanceToCover < nextPositionDistance)
+            {
+                progress += distanceToCover / segmentDistance;
+                break;
+            }
+
+            distanceToCover -= nextPositionDistance;
+            prevPosition = nextPosition;;
+            path.RemoveAt(0);
+        }
+
+        Vector3 desiredPosition;
+        Quaternion desiredRotation;
+
+        if (path.Count == 0)
+        {
+            desiredPosition = prevPosition.position;
+            desiredRotation = prevPosition.rotation;
+        }
+        else
+        {
+            desiredPosition = Vector3.Lerp(prevPosition.position, nextPosition.position, progress);
+
+            desiredRotation = Quaternion.Slerp(prevPosition.rotation, nextPosition.rotation, progress);
+            desiredRotation = Quaternion.LookRotation(nextPosition.position - prevPosition.position, desiredRotation * Vector3.up);
+        }
+
+        Vector3 lookAheadPosition = transform.position + transform.forward * currentMaxSpeed * Time.fixedDeltaTime * lookaheadFrames;
+
+        float error = Vector3.Distance(lookAheadPosition, desiredPosition);
         float headingControl = headingController.GetControl(Time.time, error);
 
-        Vector3 n = (desiredPosition - transform.position).normalized;
-        Vector3 up = Vector3.Cross(n, transform.forward);
-        desiredRotation = Quaternion.AngleAxis(headingControl, -up) * desiredRotation;
-
-        float speedControl = speedController.GetControl(Time.time, error);
-        float desiredSpeed = Mathf.Max(currentMaxSpeed * 0.1f, currentMaxSpeed - speedControl * currentMaxSpeed);
-
-        Vector3 inward = Vector3.Cross(desiredRotation * Vector3.forward, up);
-
-        Debug.DrawLine(transform.position, desiredPosition, Color.blue);
-        Debug.DrawLine(transform.position, transform.position + desiredRotation * Vector3.forward * 5f, Color.yellow);
-        Debug.DrawLine(transform.position, transform.position + up * 5f, Color.green);
+        if (currentDesiredPosition != transform.position)
+        {
+            desiredRotation = Quaternion.RotateTowards(
+                desiredRotation,
+                Quaternion.LookRotation(currentDesiredPosition - transform.position, desiredRotation * Vector3.up),
+                headingControl * Time.fixedDeltaTime
+            );
+        }
 
         Quaternion q = Quaternion.RotateTowards(transform.rotation, desiredRotation, maxTurnSpeed * Time.fixedDeltaTime);
-        Quaternion diff = Quaternion.Inverse(transform.rotation) * q;
 
-        float turnAngle = diff.eulerAngles.y;
-        while (turnAngle > 180f)
-        {
-            turnAngle -= 360f;
-        }
-        headingYawFilter.Add(turnAngle);
-        turnAngle = headingYawFilter.GetValue();
+        float speedControl = Mathf.Max(0f, speedController.GetControl(Time.time, error));  // Speed control can only slow down, can't be negative
+        float desiredSpeed = Mathf.Max(currentMaxSpeed * 0.3f, currentMaxSpeed - speedControl * currentMaxSpeed);
 
-        q = q * Quaternion.AngleAxis(Mathf.Clamp(turnAngle, -90f, 90f), -Vector3.forward);
+        // Debug.Log("Position error = " + error);
+        // Debug.Log("Heading control = " + headingControl);
+        // Debug.Log("Speed control = " + speedControl);
+        // Debug.DrawLine(lookAheadPosition, desiredPosition, Color.blue);
 
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.MoveRotation(q);
@@ -173,19 +213,17 @@ public class Ship : MonoBehaviour
     {
         currentMaxSpeed = speed;
 
-        Navigation.State initial = Navigation.State.FromTransform(transform);
-        Navigation.State final = new Navigation.State(targetPosition, targetRotation);
+        Navigation.Position initial = new Navigation.Position(transform);
+        Navigation.Position final = new Navigation.Position(targetPosition, targetRotation);
 
-        Navigation.State[] new_path = NavigationManager.instance.GetPath(agent, initial, final);
+        Navigation.Position[] new_path = NavigationManager.instance.GetPath(agent, initial, final);
 
         path.Clear();
         if (new_path != null && new_path.Length >= 2)
         {
-            foreach (var state in new_path)
-            {
-                path.Enqueue(state);
-            }
-            prevState = path.Dequeue();
+            path.AddRange(new_path);
+            prevPosition = path[0];
+            path.RemoveAt(0);
         }
     }
 
@@ -199,17 +237,16 @@ public class Ship : MonoBehaviour
         if (path != null && path.Count > 0)
         {
             Vector3 prevPosition = transform.position;
-            foreach (Navigation.State state in path)
+            foreach (Navigation.Position position in path)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawLine(prevPosition, state.position);
-                Gizmos.DrawSphere(state.position, 2f);
+                Gizmos.DrawLine(prevPosition, position.position);
+                Gizmos.DrawSphere(position.position, 2f);
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawLine(state.position, state.position + state.orientation * Vector3.forward * 5f);
+                Gizmos.DrawLine(position.position, position.position + position.rotation * Vector3.forward * 5f);
 
-                prevPosition = state.position;
+                prevPosition = position.position;
             }
-
         }
     }
 }
