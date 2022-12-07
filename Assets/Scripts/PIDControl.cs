@@ -16,6 +16,8 @@ public class PIDControl
     [Tooltip("Derivative gain")]
     [SerializeField] float D;
 
+    [SerializeField] float maxSteadyControl;
+
     private float lastTime = 0f;
     private float lastError = 0f;
     private float cumulativeError = 0f;
@@ -27,11 +29,12 @@ public class PIDControl
         cumulativeError = 0f;
     }
 
-    public void Setup(float p, float i, float d)
+    public void Setup(float p, float i, float d, float maxSteadyControl)
     {
         this.P = p;
         this.I = i;
         this.D = d;
+        this.maxSteadyControl = maxSteadyControl;
     }
 
     public float GetControl(float time, float currentError)
@@ -45,6 +48,13 @@ public class PIDControl
         {
             float deltaTime = time - lastTime;
             control = currentError * P + (currentError - lastError) / deltaTime * D + cumulativeError * I;
+
+            if ((Mathf.Abs(control) >= maxSteadyControl) || (lastError * currentError < 0f))
+            {
+                // error crossed zero, reset steady state error
+                cumulativeError = 0f;
+            }
+
             cumulativeError += currentError * deltaTime;
         }
 
