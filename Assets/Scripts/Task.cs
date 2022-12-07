@@ -7,12 +7,10 @@ public class Task
 
     public virtual void Start()
     {
-        // TaskManager.instance.AddTask(this);
     }
 
     public virtual void Cancel()
     {
-        // TaskManager.instance.RemoveTask(this);
     }
 
     public virtual void Update()
