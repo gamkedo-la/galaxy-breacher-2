@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class TaskManager : MonoBehaviour
     public static TaskManager instance { get { return _instance; } }
 
     private List<Task> tasks = new List<Task>();
+    private Dictionary<Task, Action> taskCompleteHandlers = new Dictionary<Task, Action>();
 
     void Awake()
     {
@@ -23,18 +25,27 @@ public class TaskManager : MonoBehaviour
 
     public void AddTask(Task task)
     {
+        Action onComplete = delegate() { OnTaskComplete(task); };
+        task.OnComplete += onComplete;
+        taskCompleteHandlers[task] = onComplete;
+
         tasks.Add(task);
-        task.OnComplete += () => {
-            Debug.Log("Task completed: " + task);
-            tasks.Remove(task);
-        };
         task.Start();
     }
 
     public void RemoveTask(Task task)
     {
-        // TODO: remove all subscriptions to task.OnComplete from this task
+        if (taskCompleteHandlers.ContainsKey(task))
+        {
+            task.OnComplete -= taskCompleteHandlers[task];
+            taskCompleteHandlers.Remove(task);
+        }
         tasks.Remove(task);
+    }
+
+    private void OnTaskComplete(Task task)
+    {
+        RemoveTask(task);
     }
 
     void Update()
