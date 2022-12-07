@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3619294735401875008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4632781697597163248}
   - component: {fileID: 4632781697597163263}
   - component: {fileID: 4632781697597163262}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: RadarDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 4632781697713641720}
   - component: {fileID: 4632781697713641723}
   - component: {fileID: 4632781697713641722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4632781697912321176}
   - component: {fileID: 4632781697912321179}
   - component: {fileID: 4632781697912321178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 4632781697955928958}
   - component: {fileID: 4632781697955928945}
   - component: {fileID: 4632781697955928944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4632781698014216677}
   - component: {fileID: 4632781698014216676}
   - component: {fileID: 4632781698014216679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 4632781698049088597}
   - component: {fileID: 4632781698049088596}
   - component: {fileID: 4632781698049088599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 4632781698312469553}
   - component: {fileID: 4632781698312469552}
   - component: {fileID: 4632781698312469555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 4632781698340740466}
   - component: {fileID: 4632781698340740469}
   - component: {fileID: 4632781698340740467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBossShip-Fueler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 4632781698476046228}
   - component: {fileID: 4632781698476046231}
   - component: {fileID: 4632781698476046230}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632781698892418722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 4632781698994034084}
   - component: {fileID: 4632781698994034087}
   - component: {fileID: 4632781698994034086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,9 +1043,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1910089550651181713, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584930826904843851, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2926952704039944314, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926952704039944314, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834842702114153905, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648840215105046928, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293868688697209992, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459346703328982480, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
