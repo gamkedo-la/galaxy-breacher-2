@@ -5,7 +5,6 @@ using UnityEngine;
 public class NavigateToTask : Task
 {
     private const float THRESHOLD_DISTANCE = 5f;
-    private const float THRESHOLD_ANGLE = 5;
 
     private Ship ship;
     private Vector3 targetPosition;
@@ -39,8 +38,6 @@ public class NavigateToTask : Task
 
     public override void Update()
     {
-        // if ((Vector3.Distance(ship.transform.position, targetPosition) < THRESHOLD_DISTANCE) &&
-        //     (Quaternion.Angle(ship.transform.rotation, targetOrientation) < THRESHOLD_ANGLE))
         if ((Vector3.Distance(ship.transform.position, targetPosition) < THRESHOLD_DISTANCE))
         {
             Completed();
