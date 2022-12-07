@@ -1,90 +1,69 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Navigation
 {
 
-public class State {
-    public Vector3 position;
-    public Quaternion orientation;
-
-    public State(Vector3 position)
-    {
-        this.position = position;
-        this.orientation = Quaternion.identity;
-    }
-
-    public State(Vector3 position, Quaternion orientation)
-    {
-        this.position = position;
-        this.orientation = orientation;
-    }
-
-    public static State FromTransform(Transform transform)
-    {
-        return new State(transform.position, transform.rotation);
-    }
-}
-
-public abstract class World
-{
-    public abstract bool BoxCollides(Vector3 center, Vector3 size, Quaternion orientation, int layerMask);
-}
-
-public class PhysicsWorld : World
-{
-    public override bool BoxCollides(Vector3 center, Vector3 size, Quaternion orientation, int layerMask)
-    {
-        return Physics.OverlapBox(center, size, orientation, layerMask).Length > 0;
-    }
-}
-
-public class Agent
-{
-    // Offset of center of collision box
-    public Vector3 offset;
-    // Size of collision box
-    public Vector3 size;
-    public LayerMask collisionLayers;
-}
-
 public class Navigation3D
 {
-    World world;
+    public World world;
+    public NavMap map;
 
-    public Navigation3D(World world)
+    public Navigation3D(World world, NavMap map)
     {
         this.world = world;
+        this.map = map;
     }
 
-    private bool IsSegmentCollisionFree(Agent agent, State start, State end)
+    public Position[] GetPath(Agent agent, Position start, Position end)
     {
-        float step = Vector3.Distance(start.position, end.position) * 2 / agent.size.z;
-        float progress = step;
-        while (progress < 1.0)
+        if (Navigation.Utils.IsCollisionFree(world, agent, start, end))
         {
-            Vector3 position = Vector3.Lerp(start.position, end.position, progress);
-            Quaternion orientation = Quaternion.Slerp(start.orientation, end.orientation, progress);
-
-            if (world.BoxCollides(position + agent.offset, agent.size, orientation, agent.collisionLayers))
-            {
-                return false;
-            }
-
-            progress += step;
-        }
-        return true;
-    }
-
-    public State[] GetPath(Agent agent, State start, State end)
-    {
-        if (IsSegmentCollisionFree(agent, start, end))
-        {
-            return new State[] { start, end };
+            return new Position[] { start, end };
         }
 
-        // ??? More complex navigation
+        int startPointId = map.GetClosestNavPoint(start.position);
+        int endPointId = map.GetClosestNavPoint(end.position);
+        if (startPointId == -1 || endPointId == -1)
+            return null;
 
-        return null;  // unreachable
+        List<int> pathPointIds = map.GetPath(startPointId, endPointId);
+        if (pathPointIds is null)
+            return null;
+
+        List<Position> path = new List<Position>();
+        path.Add(start);
+
+        Position prevPosition = start;
+        for (int i=0; i < pathPointIds.Count; i++)
+        {
+            Vector3 nextPosition = (i < pathPointIds.Count - 1)
+                ? map.GetNavPoint(pathPointIds[i+1]).position : end.position;
+
+            // Eliminate unnecessary steps
+            // if (Navigation.Utils.IsCollisionFree(world, agent, prevPosition, new Position(nextPosition)))
+            // {
+            //     continue;
+            // }
+
+            NavPoint point = map.GetNavPoint(pathPointIds[i]);
+
+            Vector3 prevDirection = (point.position - prevPosition.position).normalized;
+            Vector3 nextDirection = (nextPosition - point.position).normalized;
+            Vector3 direction = (prevDirection + nextDirection) * 0.5f;
+
+            Vector3 up = Quaternion.AngleAxis(90f, Vector3.Cross(prevDirection, nextDirection)) * direction;
+
+            Position position = new Position(point.position, Quaternion.LookRotation(direction, up));
+            path.Add(position);
+
+            prevPosition = position;
+        }
+
+        path.Add(end);
+
+        return path.ToArray();
     }
 }
 
