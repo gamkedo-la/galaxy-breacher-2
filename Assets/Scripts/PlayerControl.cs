@@ -43,6 +43,17 @@ public class PlayerControl : MonoBehaviour
     public float maximumDistance;
     public float radius;
 
+    [Space(10)]
+    [Header("Big Ship Explosion Properties")]
+
+    [SerializeField] GameObject bigShip;
+    [SerializeField] GameObject turretExplosion;
+    [SerializeField] GameObject bigShipExplosion;
+    [SerializeField]
+    GameObject bigShipExplosionPosition;
+    [SerializeField] List<GameObject> turrets = new List<GameObject>();
+    int turretCount;
+
 
     [Space(10)]
     [Header("Laser Properties")]
@@ -152,6 +163,7 @@ public class PlayerControl : MonoBehaviour
 
             ShootRocket();
             smallShipExplosionProcess();
+            bigShipExplosionProcess();
         }
 
         if (Input.GetButtonDown("Engine-Off"))
@@ -322,7 +334,29 @@ public class PlayerControl : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
             }
-        }
 
+
+        }
+    }
+
+    private void bigShipExplosionProcess()
+    {
+        RaycastHit hit;
+
+        if (Physics.SphereCast(fpsCamera.transform.position, radius, fpsCamera.transform.forward, out hit, maximumDistance))
+        {
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Turret"))
+            {
+                turretCount++;
+                Instantiate(turretExplosion, transform.position, Quaternion.identity);
+                Destroy(hit.transform.parent.gameObject, 2f);
+            }
+
+            if (turretCount >= turrets.Count)
+            {
+                Instantiate(bigShipExplosion, bigShipExplosion.transform.position, Quaternion.identity);
+                Destroy(bigShip, 2f);
+            }
+        }
     }
 }
