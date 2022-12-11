@@ -45,7 +45,12 @@ public class Ship : MonoBehaviour
     [SerializeField] public float maxAcceleration = 40f;
     [SerializeField] public float maxTurnSpeed = 40f;
 
-    [SerializeField] private LayerMask collisionLayers;
+    [SerializeField] public float yawAngleRange = 80;
+    [SerializeField] public float pitchAngleRange = 80;
+    [SerializeField] public float yawDeviationCost = 0.2f;
+    [SerializeField] public float pitchDeviationCost = 0.4f;
+    [SerializeField] public float avoidanceDistance = 50f;
+    private float minTurnRadius;
 
     private new Rigidbody rigidbody;
     private Navigation.Agent agent;
@@ -69,6 +74,7 @@ public class Ship : MonoBehaviour
         path = new List<Navigation.Position>();
 
         currentMaxSpeed = maxSpeed;
+        UpdateMinTurnRadius();
 
         headingController = new PIDControl();
         headingController.Setup(headingP, headingI, headingD, 45f / Time.fixedDeltaTime);
@@ -86,6 +92,13 @@ public class Ship : MonoBehaviour
         {
             speedController.Setup(speedP, 0f, speedD, 1f);
         }
+
+        UpdateMinTurnRadius();
+    }
+
+    void UpdateMinTurnRadius()
+    {
+        minTurnRadius = 360 / maxTurnSpeed * maxSpeed / 2 / Mathf.PI;
     }
 
     void Update()
@@ -185,15 +198,121 @@ public class Ship : MonoBehaviour
             );
         }
 
-        Quaternion q = Quaternion.RotateTowards(transform.rotation, desiredRotation, maxTurnSpeed * Time.fixedDeltaTime);
+        float desiredSpeed = currentMaxSpeed;
 
-        float speedControl = Mathf.Max(0f, speedController.GetControl(Time.time, error));  // Speed control can only slow down, can't be negative
-        float desiredSpeed = Mathf.Max(currentMaxSpeed * 0.3f, currentMaxSpeed - speedControl * currentMaxSpeed);
+        Vector3 currentVelocity = transform.forward * currentSpeed;
+
+        // Collect obstacles that on our course
+        float timeToAvoidance = float.PositiveInfinity;
+
+        // Debug.Log("Obstacle avoidance start");
+        List<Rigidbody> obstacles = new List<Rigidbody>();
+        foreach (Rigidbody body in GameObject.FindObjectsOfType<Rigidbody>())
+        {
+            // Debug.Log("Checking rigidbody " + body.transform.name);
+            if (body == rigidbody)
+                continue;
+
+            Vector3 relativePosition = body.transform.position - transform.position;
+            // Debug.Log("Obstacle relative position: " + relativePosition);
+            Vector3 relativeVelocity = currentVelocity - body.velocity;
+            // Debug.Log("Obstacle relative velocity: " + relativeVelocity);
+            float angle = Vector3.Angle(relativePosition, relativeVelocity);
+            // Debug.Log("Angle bias: " + angle);
+            if (Mathf.Abs(angle) > 90f)
+                continue;
+
+            float closestDistance = relativePosition.magnitude * Mathf.Sin(angle * Mathf.Deg2Rad);
+            // Debug.Log("Obstacle closest distance: " + closestDistance);
+            if (closestDistance > avoidanceDistance)
+                continue;
+
+            float d = relativePosition.magnitude;
+            float t = (d * Mathf.Cos(angle * Mathf.Deg2Rad) - minTurnRadius - avoidanceDistance + d * Mathf.Sin(angle * Mathf.Deg2Rad)) / currentSpeed;
+            // Debug.Log("Obstacle time to avoidance: " + t);
+            if (t < timeToAvoidance)
+            {
+                timeToAvoidance = t;
+            }
+
+            obstacles.Add(body);
+        }
+        // Debug.Log("Found " + obstacles.Count + " obstacles");
+
+        // Debug.Log("Time to avoidance: " + timeToAvoidance);
+        if (timeToAvoidance <= 0f)
+        {
+            for (int attempt=0; attempt < 3; attempt++)
+            {
+                float bestCost = float.PositiveInfinity;
+                float bestYawAngle = 0f;
+                float bestPitchAngle = 0f;
+
+                for (int i=0; i < 10; i++)
+                {
+                    float yawAngle = -yawAngleRange + 2 * yawAngleRange * i / 10;
+                    for (int j=0; j < 10; j++)
+                    {
+                        float pitchAngle = -pitchAngleRange + 2 * pitchAngleRange * j / 10;
+
+                        Vector3 newVelocity = Quaternion.Euler(pitchAngle, yawAngle, 0f) * currentVelocity;
+
+                        // Vector3 avoidancePosition = transform.position + newVelocity * timeToAvoidance;
+                        Vector3 avoidancePosition = transform.position;
+
+                        float minD = float.PositiveInfinity;
+                        foreach (Rigidbody obstacle in obstacles)
+                        {
+                            // Vector3 avoidanceRelativePosition = obstacle.transform.position + obstacle.velocity * timeToAvoidance - avoidancePosition;
+                            Vector3 avoidanceRelativePosition = obstacle.transform.position - avoidancePosition;
+                            float d = Vector3.Cross(newVelocity, avoidanceRelativePosition).magnitude / avoidanceRelativePosition.magnitude;
+                            if (d < minD)
+                            {
+                                minD = d;
+                            }
+                        }
+
+                        if (minD >= avoidanceDistance)
+                        {
+                            Vector3 desiredAngles = (Quaternion.Inverse(transform.rotation) * desiredRotation).eulerAngles;
+                            float cost = Mathf.Abs(yawAngle - desiredAngles.y) * yawDeviationCost + Mathf.Abs(pitchAngle - desiredAngles.x) * pitchDeviationCost;
+                            if (cost < bestCost)
+                            {
+                                bestCost = cost;
+                                bestYawAngle = yawAngle;
+                                bestPitchAngle = pitchAngle;
+                                headingController.ResetIntegral();
+                            }
+                        }
+                    }
+                }
+
+                if (float.IsPositiveInfinity(bestCost))
+                {
+                    // Debug.Log("Couldn't find avoidance maneuer");
+                    currentVelocity *= 0.7f;
+                    desiredSpeed *= 0.7f;
+                }
+                else
+                {
+                    // Debug.Log("Avoidance yaw = " + bestYawAngle + ", pitch = " + bestPitchAngle);
+                    desiredRotation = transform.rotation * Quaternion.Euler(bestPitchAngle, bestYawAngle, 0f);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            // float speedControl = Mathf.Max(0f, speedController.GetControl(Time.time, error));  // Speed control can only slow down, can't be negative
+            // desiredSpeed = Mathf.Max(currentMaxSpeed * 0.3f, currentMaxSpeed - speedControl * currentMaxSpeed);
+        }
 
         // Debug.Log("Position error = " + error);
         // Debug.Log("Heading control = " + headingControl);
         // Debug.Log("Speed control = " + speedControl);
         // Debug.DrawLine(lookAheadPosition, desiredPosition, Color.blue);
+
+        Quaternion q = Quaternion.RotateTowards(transform.rotation, desiredRotation, maxTurnSpeed * Time.fixedDeltaTime);
 
         rigidbody.angularVelocity = Vector3.zero;
         rigidbody.MoveRotation(q);
@@ -212,6 +331,7 @@ public class Ship : MonoBehaviour
     public void NavigateTo(Vector3 targetPosition, Quaternion targetRotation, float speed)
     {
         currentMaxSpeed = speed;
+        UpdateMinTurnRadius();
 
         Navigation.Position initial = new Navigation.Position(transform);
         Navigation.Position final = new Navigation.Position(targetPosition, targetRotation);
