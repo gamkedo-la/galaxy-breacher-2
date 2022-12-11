@@ -32,9 +32,11 @@ public class NavigationAgentEditor : Editor
 
     public void OnSceneGUI()
     {
-        Navigation.Agent agent = ((NavigationAgent)target)?.agent;
+        NavigationAgent agentComponent = (NavigationAgent)target;
+        Navigation.Agent agent = agentComponent?.agent;
 
-        Handles.color = Color.green;
+        Handles.color = Color.blue;
+        Handles.matrix = Matrix4x4.Translate(agentComponent.transform.position) * Matrix4x4.Rotate(agentComponent.transform.rotation);
         Handles.DrawWireCube(agent.offset, agent.size);
     }
 }
