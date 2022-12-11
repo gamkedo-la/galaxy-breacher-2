@@ -111,8 +111,9 @@ GameObject:
   - component: {fileID: 1062375554387330025}
   - component: {fileID: 1655127124757476075}
   - component: {fileID: 703635127182010983}
-  - component: {fileID: 1634549512}
-  m_Layer: 8
+  - component: {fileID: 1505860693399542595}
+  - component: {fileID: 1505860693399542596}
+  m_Layer: 7
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,9 +188,11 @@ MonoBehaviour:
   maxSpeed: 100
   maxAcceleration: 50
   maxTurnSpeed: 80
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 192
+  yawAngleRange: 80
+  pitchAngleRange: 80
+  yawDeviationCost: 0.2
+  pitchDeviationCost: 0.2
+  avoidanceDistance: 30
 --- !u!114 &1505860693399542595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3829779331442743941}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: ExplodePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
