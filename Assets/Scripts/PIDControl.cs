@@ -29,6 +29,11 @@ public class PIDControl
         cumulativeError = 0f;
     }
 
+    public void ResetIntegral()
+    {
+        cumulativeError = 0f;
+    }
+
     public void Setup(float p, float i, float d, float maxSteadyControl)
     {
         this.P = p;
