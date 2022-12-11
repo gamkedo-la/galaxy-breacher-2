@@ -15,9 +15,29 @@ public class FormationFollowTask : Task
     public override void Update()
     {
         formation.UpdateLeader(ships[0].transform.position, ships[0].transform.rotation);
+
+        List<Ship> shipsToAssign = new List<Ship>();
+        for (int i=1; i < ships.Count; i++)
+            shipsToAssign.Add(ships[i]);
+
         for (int i=1; i < ships.Count; i++)
         {
-            ships[i].NavigateTo(formation.GetPosition(i), formation.GetOrientation(i), ships[i].maxSpeed);
+            Vector3 position = formation.GetPosition(i);
+
+            float closestDistance = float.PositiveInfinity;
+            Ship closestShip = null;
+            foreach (Ship ship in shipsToAssign)
+            {
+                float distance = Vector3.Distance(ship.transform.position, position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestShip = ship;
+                }
+            }
+
+            shipsToAssign.Remove(closestShip);
+            closestShip.NavigateTo(position, formation.GetOrientation(i), closestShip.maxSpeed);
         }
     }
 
