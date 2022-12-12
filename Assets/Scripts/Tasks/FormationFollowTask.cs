@@ -15,6 +15,8 @@ public class FormationFollowTask : Task
     public override void Update()
     {
         formation.UpdateLeader(ships[0].transform.position, ships[0].transform.rotation);
+        if (Mathf.Approximately(ships[0].GetComponent<Rigidbody>().velocity.magnitude, 0f))
+            return;
 
         List<Ship> shipsToAssign = new List<Ship>();
         for (int i=1; i < ships.Count; i++)
