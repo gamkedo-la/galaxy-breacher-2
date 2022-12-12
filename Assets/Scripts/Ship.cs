@@ -245,12 +245,18 @@ public class Ship : MonoBehaviour
         if (debug) Debug.Log("Time to avoidance: " + timeToAvoidance);
         if (timeToAvoidance <= 0f)
         {
+            Vector3 desiredAngles = (Quaternion.Inverse(transform.rotation) * desiredRotation).eulerAngles;
+
+            float bestCost = float.PositiveInfinity;
+            float bestYawAngle = 0f;
+            float bestPitchAngle = 0f;
+
+            float farthestD = 0f;
+            float farthestYawAngle = 0f;
+            float farthestPitchAngle = 0f;
+
             for (int attempt=0; attempt < 3; attempt++)
             {
-                float bestCost = float.PositiveInfinity;
-                float bestYawAngle = 0f;
-                float bestPitchAngle = 0f;
-
                 for (int i=0; i < 10; i++)
                 {
                     float yawAngle = -yawAngleRange + 2 * yawAngleRange * i / 10;
@@ -260,13 +266,11 @@ public class Ship : MonoBehaviour
 
                         Vector3 newVelocity = Quaternion.Euler(pitchAngle, yawAngle, 0f) * currentVelocity;
 
-                        // Vector3 avoidancePosition = transform.position + newVelocity * timeToAvoidance;
                         Vector3 avoidancePosition = transform.position;
 
                         float minD = float.PositiveInfinity;
                         foreach (Rigidbody obstacle in obstacles)
                         {
-                            // Vector3 avoidanceRelativePosition = obstacle.transform.position + obstacle.velocity * timeToAvoidance - avoidancePosition;
                             Vector3 avoidanceRelativePosition = obstacle.transform.position - avoidancePosition;
                             float d = Vector3.Cross(newVelocity, avoidanceRelativePosition).magnitude / avoidanceRelativePosition.magnitude;
                             if (d < minD)
@@ -277,7 +281,6 @@ public class Ship : MonoBehaviour
 
                         if (minD >= avoidanceDistance)
                         {
-                            Vector3 desiredAngles = (Quaternion.Inverse(transform.rotation) * desiredRotation).eulerAngles;
                             float cost = Mathf.Abs(yawAngle - desiredAngles.y) * yawDeviationCost + Mathf.Abs(pitchAngle - desiredAngles.x) * pitchDeviationCost;
                             if (cost < bestCost)
                             {
@@ -287,21 +290,30 @@ public class Ship : MonoBehaviour
                                 headingController.ResetIntegral();
                             }
                         }
+                        else if (minD > farthestD)
+                        {
+                            farthestD = minD;
+                            farthestYawAngle = yawAngle;
+                            farthestPitchAngle = pitchAngle;
+                        }
                     }
                 }
 
-                if (float.IsPositiveInfinity(bestCost))
-                {
-                    // Debug.Log("Couldn't find avoidance maneuer");
-                    currentVelocity *= 0.7f;
-                    desiredSpeed *= 0.7f;
-                }
-                else
+                if (!float.IsPositiveInfinity(bestCost))
                 {
                     if (debug) Debug.Log("Avoidance yaw = " + bestYawAngle + ", pitch = " + bestPitchAngle);
                     desiredRotation = transform.rotation * Quaternion.Euler(bestPitchAngle, bestYawAngle, 0f);
                     break;
                 }
+
+                currentVelocity *= 0.7f;
+                desiredSpeed *= 0.7f;
+            }
+
+            if (float.IsPositiveInfinity(bestCost))
+            {
+                if (debug) Debug.Log("Avoidance (best effort) yaw = " + farthestYawAngle + ", pitch = " + farthestPitchAngle);
+                desiredRotation = transform.rotation * Quaternion.Euler(farthestPitchAngle, farthestYawAngle, 0f);
             }
         }
         else
