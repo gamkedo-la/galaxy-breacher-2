@@ -52,6 +52,8 @@ public class Ship : MonoBehaviour
     [SerializeField] public float avoidanceDistance = 50f;
     private float minTurnRadius;
 
+    [SerializeField] private bool debug = false;
+
     private new Rigidbody rigidbody;
     private Navigation.Agent agent;
 
@@ -138,6 +140,7 @@ public class Ship : MonoBehaviour
 
         if (path.Count == 0)
         {
+            if (debug) Debug.Log("Stopping");
             // Path is done, stop
             currentSpeed = Mathf.Max(0f, currentSpeed - maxAcceleration * Time.fixedDeltaTime);
             rigidbody.velocity = transform.forward * currentSpeed;
@@ -205,31 +208,31 @@ public class Ship : MonoBehaviour
         // Collect obstacles that on our course
         float timeToAvoidance = float.PositiveInfinity;
 
-        // Debug.Log("Obstacle avoidance start");
+        if (debug) Debug.Log("Obstacle avoidance start");
         List<Rigidbody> obstacles = new List<Rigidbody>();
         foreach (Rigidbody body in GameObject.FindObjectsOfType<Rigidbody>())
         {
-            // Debug.Log("Checking rigidbody " + body.transform.name);
+            if (debug) Debug.Log("Checking rigidbody " + body.transform.name);
             if (body == rigidbody)
                 continue;
 
             Vector3 relativePosition = body.transform.position - transform.position;
-            // Debug.Log("Obstacle relative position: " + relativePosition);
+            if (debug) Debug.Log("Obstacle relative position: " + relativePosition);
             Vector3 relativeVelocity = currentVelocity - body.velocity;
-            // Debug.Log("Obstacle relative velocity: " + relativeVelocity);
+            if (debug) Debug.Log("Obstacle relative velocity: " + relativeVelocity);
             float angle = Vector3.Angle(relativePosition, relativeVelocity);
-            // Debug.Log("Angle bias: " + angle);
+            if (debug) Debug.Log("Angle bias: " + angle);
             if (Mathf.Abs(angle) > 90f)
                 continue;
 
             float closestDistance = relativePosition.magnitude * Mathf.Sin(angle * Mathf.Deg2Rad);
-            // Debug.Log("Obstacle closest distance: " + closestDistance);
+            if (debug) Debug.Log("Obstacle closest distance: " + closestDistance);
             if (closestDistance > avoidanceDistance)
                 continue;
 
             float d = relativePosition.magnitude;
             float t = (d * Mathf.Cos(angle * Mathf.Deg2Rad) - minTurnRadius - avoidanceDistance + d * Mathf.Sin(angle * Mathf.Deg2Rad)) / currentSpeed;
-            // Debug.Log("Obstacle time to avoidance: " + t);
+            if (debug) Debug.Log("Obstacle time to avoidance: " + t);
             if (t < timeToAvoidance)
             {
                 timeToAvoidance = t;
@@ -237,9 +240,9 @@ public class Ship : MonoBehaviour
 
             obstacles.Add(body);
         }
-        // Debug.Log("Found " + obstacles.Count + " obstacles");
 
-        // Debug.Log("Time to avoidance: " + timeToAvoidance);
+        if (debug) Debug.Log("Found " + obstacles.Count + " obstacles");
+        if (debug) Debug.Log("Time to avoidance: " + timeToAvoidance);
         if (timeToAvoidance <= 0f)
         {
             for (int attempt=0; attempt < 3; attempt++)
@@ -295,7 +298,7 @@ public class Ship : MonoBehaviour
                 }
                 else
                 {
-                    // Debug.Log("Avoidance yaw = " + bestYawAngle + ", pitch = " + bestPitchAngle);
+                    if (debug) Debug.Log("Avoidance yaw = " + bestYawAngle + ", pitch = " + bestPitchAngle);
                     desiredRotation = transform.rotation * Quaternion.Euler(bestPitchAngle, bestYawAngle, 0f);
                     break;
                 }
