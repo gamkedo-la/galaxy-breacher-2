@@ -100,6 +100,7 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         color = Color.red;
         fpsCamera = Camera.main;
+        turretCount = -1;
         StartCoroutine(MGFireCheck());
     }
 
@@ -160,7 +161,6 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             ShootRocket();
             smallShipExplosionProcess();
             bigShipExplosionProcess();
@@ -334,8 +334,6 @@ public class PlayerControl : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
             }
-
-
         }
     }
 
@@ -347,15 +345,15 @@ public class PlayerControl : MonoBehaviour
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Turret"))
             {
+                Destroy(hit.transform.parent.gameObject, 6f);
                 turretCount++;
-                Instantiate(turretExplosion, transform.position, Quaternion.identity);
-                Destroy(hit.transform.parent.gameObject, 2f);
+                Debug.Log(turretCount);
             }
 
             if (turretCount >= turrets.Count)
             {
                 Instantiate(bigShipExplosion, bigShipExplosion.transform.position, Quaternion.identity);
-                Destroy(bigShip, 2f);
+                Destroy(bigShip, 3f);
             }
         }
     }
