@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 2500231978275249122}
   - component: {fileID: 7846791267450222305}
   - component: {fileID: 7407397093904099725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,6 +1115,11 @@ MonoBehaviour:
   blastPrefab: {fileID: 4180353045435785592, guid: efbfa8753afca534bb0ad05c6e1db92b, type: 3}
   maximumDistance: 2000
   radius: 5
+  bigShip: {fileID: 0}
+  turretExplosion: {fileID: 0}
+  bigShipExplosion: {fileID: 0}
+  bigShipExplosionPosition: {fileID: 0}
+  turrets: []
   laserLineRendererLeft: {fileID: 208666378843794823}
   laserLineRendererRight: {fileID: 8128561839045326821}
   laserFireRate: 7
@@ -1551,7 +1556,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 2039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
