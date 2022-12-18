@@ -102,6 +102,7 @@ public class PlayerControl : MonoBehaviour
         fpsCamera = Camera.main;
         turretCount = -1;
         StartCoroutine(MGFireCheck());
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void RefreshEngineVolume()
