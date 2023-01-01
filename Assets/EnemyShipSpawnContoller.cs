@@ -26,7 +26,7 @@ public class EnemyShipSpawnContoller : MonoBehaviour
 
     private void CheckForSpawnShip()
     {
-        if (timePassedAfterPreviousSpawn == secondsBetweenEverySpawn && currentNumberOfShips <= maximumNumberOfShips)
+        if (timePassedAfterPreviousSpawn == secondsBetweenEverySpawn && currentNumberOfShips < maximumNumberOfShips)
         {
             SpawnShip();
         }
