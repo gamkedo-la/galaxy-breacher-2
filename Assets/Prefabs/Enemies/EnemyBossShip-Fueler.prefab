@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4632781697597163248}
   - component: {fileID: 4632781697597163263}
   - component: {fileID: 4632781697597163262}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: RadarDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
