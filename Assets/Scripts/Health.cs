@@ -26,7 +26,15 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        Instantiate(deathExplosion,transform.position,Quaternion.identity);
+        if (deathExplosion)
+        {
+            Instantiate(deathExplosion, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("No VFX for death of object: " + this.name);
+        }
+
         Destroy(gameObject);
     }
 }
