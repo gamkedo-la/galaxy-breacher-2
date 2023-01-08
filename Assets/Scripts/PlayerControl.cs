@@ -7,6 +7,10 @@ public class PlayerControl : MonoBehaviour
 {
     public static PlayerControl instance;
 
+    // for special stage where player controls turret instead of ship
+    // can't strafe, no throttle, and angles are more pivot driven
+    public bool turretControlMode = false; // NOT YET IMPLEMENTED/USED!
+
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
