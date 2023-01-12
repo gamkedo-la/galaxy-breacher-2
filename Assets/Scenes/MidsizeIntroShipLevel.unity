@@ -226,6 +226,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!114 &77081313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +242,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!1001 &201828363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -885,6 +887,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!1 &487040188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2926952704039944314, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
@@ -2006,6 +2009,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!1 &1050230566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,6 +2632,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!114 &1659492457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2648,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!1001 &1659556184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3256,6 +3262,7 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
 --- !u!1 &2138736124
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
 
     [Space(10)]
     [Header("Movement Properties")]
+    public bool invertPitchAxis = false;
     [SerializeField] float rollSpeed = 60.0f;
     [SerializeField] float pitchSpeed = 40.0f;
     [SerializeField] float strafeSpeed = 20.0f;
@@ -155,7 +156,7 @@ public class PlayerControl : MonoBehaviour
 
         speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.right, Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f ) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
         Vector3 moveVec = Vector3.zero;
         // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
         moveVec += transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
