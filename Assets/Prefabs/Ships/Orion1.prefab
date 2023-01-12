@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   chasingRange: 50
-  rotationSpeed: 0
+  rotationSpeed: 20
 --- !u!114 &2145203896
 MonoBehaviour:
   m_ObjectHideFlags: 0

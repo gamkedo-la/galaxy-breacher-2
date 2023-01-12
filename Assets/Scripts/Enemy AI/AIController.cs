@@ -26,6 +26,7 @@ public class AIController : MonoBehaviour
             GetComponent<Movement>().Cancel();
         }
 
+
         LookAtPlayer();
     }
 
