@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour
 
     // for special stage where player controls turret instead of ship
     // can't strafe, no throttle, and angles are more pivot driven
-    public bool turretControlMode = false; // NOT YET IMPLEMENTED/USED!
+    public bool turretControlMode = false;
 
     [Space(10)]
     [Header("Health Properties")]
@@ -112,17 +112,24 @@ public class PlayerControl : MonoBehaviour
 
     void RefreshEngineVolume()
     {
-        float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
 
-        float strafeEngineEffect = 0.55f * (
-            Mathf.Abs(Input.GetAxis("Horizontal")) +
-            Mathf.Abs(Input.GetAxis("Vertical")));
+        if(turretControlMode) {
+            engineLoopWeak.volume = 1.0f;
+            engineLoopStrong.volume = 0f;
+        } else {
+            float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
 
-        float forwardOrStrafeEngineBalance = 0.6f;
-        enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
+            float strafeEngineEffect = 0.55f * (
+                Mathf.Abs(Input.GetAxis("Horizontal")) +
+                Mathf.Abs(Input.GetAxis("Vertical")));
 
-        engineLoopWeak.volume = 1.0f - enginePowerFade;
-        engineLoopStrong.volume = enginePowerFade;
+            float forwardOrStrafeEngineBalance = 0.6f;
+            enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
+
+            engineLoopWeak.volume = 1.0f - enginePowerFade;
+            engineLoopStrong.volume = enginePowerFade;
+
+        }
     }
 
     IEnumerator MGFireCheck()
@@ -148,22 +155,29 @@ public class PlayerControl : MonoBehaviour
     {
         RefreshEngineVolume();
 
-        if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f)
-        { // manual throttle overrides 1-4 presets
-            speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
-            throttleTarget = speedNow;
-        }
-
-        speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
         transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
         transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f ) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
-        Vector3 moveVec = Vector3.zero;
-        // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
-        moveVec += transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
-        moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
-        moveVec += transform.forward * speedNow;
-        rb.velocity = moveVec;
-        speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
+        if(turretControlMode == false) {
+            if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f)
+            { // manual throttle overrides 1-4 presets
+                speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
+                throttleTarget = speedNow;
+            }
+
+            speedNow = Mathf.Clamp(speedNow, maxNegativeSpeed, maxForwardSpeed);
+
+            Vector3 moveVec = Vector3.zero;
+
+            moveVec += transform.right * Input.GetAxis("Horizontal") * strafeSpeed;
+            moveVec += transform.up * Input.GetAxis("Vertical") * strafeSpeed;
+            moveVec += transform.forward * speedNow;
+            // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
+            rb.velocity = moveVec;
+
+            speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
+        } else {
+            speedIndicator.text = "TURRET";
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
