@@ -8,16 +8,20 @@ public class AIController : MonoBehaviour
     [SerializeField] float chasingRange;
 
     [SerializeField] float rotationSpeed;
-    void Start()
-    {
 
-    }
 
     void Update()
     {
+        MoveWhenOutOfRange();
+        LookAtPlayer();
+    }
+
+    private void MoveWhenOutOfRange()
+    {
+
         if (!GetIsInRange())
         {
-            GetComponent<Movement>().MoveTo(target.position);
+            GetComponent<Movement>().StartMoveAction(target.position);
         }
 
         else
@@ -26,8 +30,6 @@ public class AIController : MonoBehaviour
             GetComponent<Movement>().Cancel();
         }
 
-
-        LookAtPlayer();
     }
 
     private bool GetIsInRange()
