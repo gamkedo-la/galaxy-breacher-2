@@ -10,11 +10,18 @@ public class PlayerMissileFly : MonoBehaviour
     float maxLifetimeInSec = 30.0f;
     PlayerControl control;
 
+    private bool spawnedInShield = false;
+
     private void Start() {
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, maxLifetimeInSec);
         control = FindObjectOfType<PlayerControl>();
+
+        if (Physics.CheckSphere(transform.position, 1.0f, LayerMask.GetMask("ShieldWontBlockShips")))
+        {
+            spawnedInShield = true;
+        }
     }
 
     void Update()
@@ -24,6 +31,10 @@ public class PlayerMissileFly : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Shield" && spawnedInShield)
+        {
+            return;
+        }
         GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
         Debug.Log("rocket hit " + collision.gameObject.name);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
