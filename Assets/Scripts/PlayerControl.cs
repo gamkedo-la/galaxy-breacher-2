@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour
     // for special stage where player controls turret instead of ship
     // can't strafe, no throttle, and angles are more pivot driven
     public bool turretControlMode = false;
+    public float turretYaw = 0.0f;
+    public float turretPitch = 45.0f;
+    private Vector3 turretUpward;
 
     [Space(10)]
     [Header("Health Properties")]
@@ -100,6 +103,11 @@ public class PlayerControl : MonoBehaviour
     void Awake()
     {
         instance = this; // singleton for AI to aim etc
+
+        if(turretControlMode) {
+            turretUpward = transform.forward;
+        }
+
         engineLoopStrong.volume = 0.0f;
         machinegunLoopSound.volume = 0.0f;
         rb = GetComponent<Rigidbody>();
@@ -151,13 +159,12 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void Update()
-    {
+    void Update() {
         RefreshEngineVolume();
 
-        transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f ) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
-        if(turretControlMode == false) {
+        if (turretControlMode == false) {
+            transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
             if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f)
             { // manual throttle overrides 1-4 presets
                 speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
@@ -176,6 +183,13 @@ public class PlayerControl : MonoBehaviour
 
             speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
         } else {
+            turretYaw += Input.GetAxis("Roll");
+            turretYaw = Mathf.Clamp(turretYaw,-90f,90f);
+            turretPitch += Input.GetAxis("Pitch") * (invertPitchAxis ? 1.0f : -1.0f);
+            turretPitch = Mathf.Clamp(turretPitch, -90f, 90f);
+            transform.rotation = Quaternion.LookRotation(turretUpward)
+                                 * Quaternion.AngleAxis(turretYaw,Vector3.up)
+                                 * Quaternion.AngleAxis(turretPitch, Vector3.right);
             speedIndicator.text = "TURRET";
         }
 

@@ -12,6 +12,9 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        if(target == null) {
+            return; // prevennting error spam
+        }
         MoveWhenOutOfRange();
         LookAtPlayer();
     }
@@ -34,6 +37,9 @@ public class AIController : MonoBehaviour
 
     private bool GetIsInRange()
     {
+        if(target == null) {
+            return false; // to avoid error spam
+        }
         return Vector3.Distance(transform.position, target.position) < chasingRange;
     }
 
