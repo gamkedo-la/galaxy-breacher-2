@@ -59,6 +59,8 @@ public class PlayerShipUI : MonoBehaviour
             hull = 0;
         }
 
+
+
         //Player Weapon Select
         if (Input.GetKeyDown(KeyCode.M) && !on)
         {
@@ -91,5 +93,14 @@ public class PlayerShipUI : MonoBehaviour
         {
             hull = 8;
         }
+        if (collision.gameObject.tag == "Astroid")
+        {
+            shield -= 1;
+        }
+        if (collision.gameObject.tag == "Astroid" && shield <= 0)
+        {
+            hull -= 1;
+        }
+
     }
 }
