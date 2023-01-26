@@ -95,6 +95,9 @@ public class PlayerControl : MonoBehaviour
     [Header("UI Properties")]
     [SerializeField] LaserHeatUI laserUI;
     public TextMeshProUGUI speedIndicator;
+    public GameObject gameplayUI; // to toggle off for showing pause
+    public GameObject pauseUI;
+    private bool gamePaused = false;
 
     private Rigidbody rb;
     private Camera fpsCamera;
@@ -160,6 +163,17 @@ public class PlayerControl : MonoBehaviour
     }
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            gamePaused = !gamePaused;
+            pauseUI.active = gamePaused;
+            gameplayUI.active = (gamePaused == false);
+            Time.timeScale = (gamePaused ? 0.0f : 1.0f);
+        }
+
+        if(gamePaused) {
+            return; // no control input handling while paused other than P toggle key
+        }
+
         RefreshEngineVolume();
 
         if (turretControlMode == false) {
@@ -239,6 +253,9 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     { // using % per frame would be unsafe in variable framerate Update
+        if (gamePaused) {
+            return; // no updates while paused
+        }
         speedNow = speedNow * throttleKeptFromPrevFrame + throttleTarget * (1.0f - throttleKeptFromPrevFrame);
     }
 
