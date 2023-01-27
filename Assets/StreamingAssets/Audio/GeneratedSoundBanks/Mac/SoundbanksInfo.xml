@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../../../../../galaxy-breacher-2_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>../../../../../galaxy-breacher-2_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../../../galaxy-breacher-2_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{BE022371-5284-3125-FA03-C0F4BB50F4DA}">
+			<ShortName>GameSoundBank</ShortName>
+			<Path>GameSoundBank.bnk</Path>
+			<Media>
+				<File Id="47695177" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-005.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-005_10C4C929.wem</CachePath>
+				</File>
+				<File Id="66473765" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-001.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-001_10C4C929.wem</CachePath>
+				</File>
+				<File Id="82971873" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-007.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-007_10C4C929.wem</CachePath>
+				</File>
+				<File Id="97501355" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>explode-little-ship.wav</ShortName>
+					<CachePath>SFX/explode-little-ship_10C4C929.wem</CachePath>
+				</File>
+				<File Id="256741455" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-008.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-008_10C4C929.wem</CachePath>
+				</File>
+				<File Id="278353768" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>explode-hit.wav</ShortName>
+					<CachePath>SFX/explode-hit_10C4C929.wem</CachePath>
+				</File>
+				<File Id="334376500" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-004.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-004_10C4C929.wem</CachePath>
+				</File>
+				<File Id="530898062" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-002.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-002_10C4C929.wem</CachePath>
+				</File>
+				<File Id="786096630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-003.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-003_10C4C929.wem</CachePath>
+				</File>
+				<File Id="826186364" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>rocket-fire-player.wav</ShortName>
+					<CachePath>SFX/rocket-fire-player_10C4C929.wem</CachePath>
+				</File>
+				<File Id="992606838" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>galaxy_breacher_player_autocannon01-006.wav</ShortName>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-006_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3678545986" Name="MachineGun" DurationType="OneShot" DurationMin="0.32079366" DurationMax="0.41893423">
+					<MediaRefs>
+						<MediaRef Id="47695177"/>
+						<MediaRef Id="66473765"/>
+						<MediaRef Id="82971873"/>
+						<MediaRef Id="256741455"/>
+						<MediaRef Id="334376500"/>
+						<MediaRef Id="530898062"/>
+						<MediaRef Id="786096630"/>
+						<MediaRef Id="992606838"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3350296686" Name="PlayerMissile" DurationType="OneShot" DurationMin="2.1094332" DurationMax="2.1094332">
+					<MediaRefs>
+						<MediaRef Id="826186364"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="169528066" Name="ShipExplode" DurationType="OneShot" DurationMin="2.965669" DurationMax="2.965669">
+					<MediaRefs>
+						<MediaRef Id="97501355"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2174516238" Name="ShipHit" DurationType="OneShot" DurationMin="0.67070293" DurationMax="0.67070293">
+					<MediaRefs>
+						<MediaRef Id="278353768"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F56A610C-C7C4-F874-B68B-7ADDF94EBB7A}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{738370EF-1C7D-0240-619D-9102CB21A4A0}</FileHash>
+</SoundBanksInfo>

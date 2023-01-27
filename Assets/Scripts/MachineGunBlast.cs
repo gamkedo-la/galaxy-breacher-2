@@ -10,6 +10,7 @@ public class MachineGunBlast : MonoBehaviour
 
     private void Start()
     {
+        AkSoundEngine.PostEvent("MachineGun" ,gameObject);
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         Destroy(this.gameObject, maxLifetimeInSec);
     }

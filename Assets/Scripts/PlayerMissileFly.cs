@@ -13,6 +13,7 @@ public class PlayerMissileFly : MonoBehaviour
     private bool spawnedInShield = false;
 
     private void Start() {
+        AkSoundEngine.PostEvent("PlayerMissile", gameObject);
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, maxLifetimeInSec);
@@ -35,8 +36,10 @@ public class PlayerMissileFly : MonoBehaviour
         {
             return;
         }
+       
         GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
         Debug.Log("rocket hit " + collision.gameObject.name);
+        AkSoundEngine.PostEvent("ShipHit", gameObject);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
         effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
