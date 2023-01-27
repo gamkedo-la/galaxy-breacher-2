@@ -1,0 +1,19 @@
+Event	ID	Name			Wwise Object Path	Notes
+	169528066	ShipExplode			\Default Work Unit\ShipExplode	
+	2174516238	ShipHit			\Default Work Unit\ShipHit	
+	3350296686	PlayerMissile			\Default Work Unit\PlayerMissile	
+	3678545986	MachineGun			\Default Work Unit\MachineGun	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	47695177	galaxy_breacher_player_autocannon01-005	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-005_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-005		66320
+	66473765	galaxy_breacher_player_autocannon01-001	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-001		61120
+	82971873	galaxy_breacher_player_autocannon01-007	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-007_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-007		56684
+	97501355	explode-little-ship	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\explode-little-ship_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShipExplode\explode-little-ship		261668
+	256741455	galaxy_breacher_player_autocannon01-008	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-008_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-008		73996
+	278353768	explode-hit	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\explode-hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShipHit\explode-hit		59252
+	334376500	galaxy_breacher_player_autocannon01-004	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-004		67220
+	530898062	galaxy_breacher_player_autocannon01-002	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-002		66924
+	786096630	galaxy_breacher_player_autocannon01-003	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-003		67472
+	826186364	rocket-fire-player	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\rocket-fire-player_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerMissile\rocket-fire-player		186148
+	992606838	galaxy_breacher_player_autocannon01-006	Y:\Desktop\hometeamgames\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Linux\SFX\galaxy_breacher_player_autocannon01-006_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MachineGun\galaxy_breacher_player_autocannon01-006		68728
+
