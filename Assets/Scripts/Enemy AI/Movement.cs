@@ -1,41 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Navigation;
+
 
 public class Movement : MonoBehaviour, IAction
 {
     [SerializeField] float speed;
+    Ship ship;
     bool stopFollowing;
 
     private void Awake()
     {
         stopFollowing = false;
+        ship = GetComponent<Ship>();
     }
 
     public void StartMoveAction(Vector3 destination)
     {
+
         GetComponent<ActionSchedular>().StartAction(this);
         MoveTo(destination);
-        stopFollowing = false;
+
+
+
     }
 
     public void Cancel()
     {
-        stopFollowing = true;
+        ship.Stop();
     }
 
-    public void MoveTo(Vector3 destination)
+    public void MoveTo(Vector3 targetPosition)
     {
-        if (stopFollowing != true)
-        {
-            // Calculate the direction of the player ship
-            Vector3 direction = destination - transform.position;
 
-            // Normalize the direction
-            direction = direction.normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+        ship.NavigateTo(targetPosition, targetRotation, speed);
 
-            // Move the enemy ship towards the player ship
-            transform.position = Vector3.Lerp(transform.position, transform.position + (direction * speed * Time.deltaTime), Time.deltaTime * speed);
-        }
+
+
     }
 }
