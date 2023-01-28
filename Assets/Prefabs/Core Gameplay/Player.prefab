@@ -1101,7 +1101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0427eec4f4b4bdf8a191cb41b7bc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretControlMode: 0
+  turretYaw: 0
+  turretPitch: 45
   damageLighting: {fileID: 0}
+  invertPitchAxis: 0
   rollSpeed: 60
   pitchSpeed: 40
   strafeSpeed: 200
@@ -1116,8 +1120,8 @@ MonoBehaviour:
   maximumDistance: 2000
   radius: 5
   bigShip: {fileID: 0}
-  turretExplosion: {fileID: 0}
-  bigShipExplosion: {fileID: 0}
+  turretExplosion: {fileID: 582006024443609252, guid: f54302ecaf6339444aa3ceaad85c11c1, type: 3}
+  bigShipExplosion: {fileID: 2984125734496145145, guid: 4a45494c0f498fdbb8cf2a7db7a0f91e, type: 3}
   bigShipExplosionPosition: {fileID: 0}
   turrets: []
   laserLineRendererLeft: {fileID: 208666378843794823}
@@ -1138,6 +1142,8 @@ MonoBehaviour:
   laserAudioSource: {fileID: 7407397093904099725}
   laserUI: {fileID: 4529201896439806077}
   speedIndicator: {fileID: 0}
+  gameplayUI: {fileID: 0}
+  pauseUI: {fileID: 0}
 --- !u!82 &6301583218144241523
 AudioSource:
   m_ObjectHideFlags: 0
