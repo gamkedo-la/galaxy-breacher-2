@@ -9,6 +9,7 @@ TagManager:
   - BossPart
   - Destroyable
   - Shield
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

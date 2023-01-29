@@ -61,6 +61,8 @@ public class PlayerControl : MonoBehaviour
     GameObject bigShipExplosionPosition;
     [SerializeField] List<GameObject> turrets = new List<GameObject>();
     int turretCount;
+    [SerializeField] List<GameObject> spawnPoints = new List<GameObject>();
+    int spawnPointCount;
 
 
     [Space(10)]
@@ -401,7 +403,15 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log(turretCount);
             }
 
-            if (turretCount >= turrets.Count)
+            if (hit.transform.CompareTag("SpawnPoint"))
+            {
+                //Can be changed later to not to destroy but swap out with another object.
+                Destroy(hit.transform.parent.gameObject, 6f);
+                spawnPointCount++;
+                Debug.Log(spawnPointCount);
+            }
+
+            if (turretCount >= turrets.Count && spawnPointCount >= spawnPoints.Count)
             {
                 Instantiate(bigShipExplosion, bigShipExplosion.transform.position, Quaternion.identity);
                 Destroy(bigShip, 3f);
