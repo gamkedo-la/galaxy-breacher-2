@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{29F19A04-91C7-490A-A658-8730C40EA394}" SchemaVersion="110">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{29F19A04-91C7-490A-A658-8730C40EA394}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{29F19A04-91C7-490A-A658-8730C40EA394}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Health" ID="{EE952B5E-7053-4363-8C2D-23667FE73394}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Laser_Panning" ID="{F9F106C3-5B06-4E80-AAAC-4D58D220914E}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

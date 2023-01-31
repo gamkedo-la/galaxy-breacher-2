@@ -13,11 +13,19 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID LASER_OVERHEAT = 1417087857U;
         static const AkUniqueID MACHINEGUN = 3678545986U;
+        static const AkUniqueID PLAYER_LASER = 249456450U;
         static const AkUniqueID PLAYERMISSILE = 3350296686U;
         static const AkUniqueID SHIPEXPLODE = 169528066U;
         static const AkUniqueID SHIPHIT = 2174516238U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID HEALTH = 3677180323U;
+        static const AkUniqueID LASER_PANNING = 3969447912U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
@@ -27,6 +35,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID LASER = 3982605422U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
 

@@ -5,8 +5,10 @@
 			<PropertyList>
 				<Property Name="Event Action List\{18727A5B-DC5F-4D62-B817-FEF38D96F922}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{50522795-35CA-485C-AF7D-91C4989F5FB0}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{9508E439-9633-418A-BDB3-09C5A9609FAA}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{A12DCDAD-1DF7-4FA5-9A1C-85D8C027A4D2}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B3D45BC9-ADA5-4240-87DB-B8CAA001951B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{BF16C71A-FCEF-4E35-AEF7-AADB335EEBA1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="EventView\FilterMode2" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
@@ -28,7 +30,7 @@
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
 				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
-				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="Dq+e81ZLBkOUpO06blwpoFP4hMlLFk5Mu2Pkfn7/Be0="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="Q7FALmEqmkaDZDMCUls+hQ6vnvNWSwZDlKTtOm5cKaBT+ITJSxZOTLtj5H5+/wXt"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="MhhAChrNeUWfEgNKsG3pRQ=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
 				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="iin1JfGxSEy+2Xbvlt+gXwEAAAAAAAAAEJ7BCwAAAADgNQIMAAAAAKCQ2wEAAAAA4KStAQAAAAAEkkQAAAAAADBlvAsAAAAAoCbTCwAAAAAIAAAAAAAAAKjqIQAAAAAAAABZAAAAAAAfAVkAAAAAAAAAWQAAAAAAwKStAQAAAADApK0BAAAAAMjv3AEAAAAAAQAAACHiIY0RAMRPiXOr3CGAvPIBAAAAAAAAABCewQsAAAAA4DUCDAAAAACgkNsBAAAAAOCkrQEAAAAABJJEAAAAAAAwZbwLAAAAAKAm0wsAAAAACAAAAAAAAACo6iEAAAAAAAAAWQAAAAAAHwFZAAAAAAAAAFkAAAAAAMCkrQEAAAAAwKStAQAAAADI79wBAAAAAAEAAAA="/>

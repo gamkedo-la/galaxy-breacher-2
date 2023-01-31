@@ -3,194 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}" PersistMode="Standalone">
 			<ChildrenList>
-				<RandomSequenceContainer Name="MachineGun" ID="{881EEC4A-5B0D-44B0-BD57-1E8A13001CB6}" ShortID="734632666">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="galaxy_breacher_player_autocannon01-001" ID="{2A24DDB2-D75A-460C-A74E-2D7D2AB80526}" ShortID="283374206">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-001" ID="{01DB917E-DCCB-418A-A9DC-B39575096FAE}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-001.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="66473765"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-001" ID="{01DB917E-DCCB-418A-A9DC-B39575096FAE}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-002" ID="{1D41E1AE-B20F-4ECC-BBD5-DF164E9620D0}" ShortID="872225189">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-002" ID="{E8D8A2E7-9285-4D12-B87F-A4256B478A69}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-002.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="530898062"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-002" ID="{E8D8A2E7-9285-4D12-B87F-A4256B478A69}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-003" ID="{76A7E640-2310-458A-B09C-93AD65441D4F}" ShortID="992031339">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-003" ID="{5C527A0B-3F36-4B36-83A3-DE322A3CED56}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-003.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="786096630"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-003" ID="{5C527A0B-3F36-4B36-83A3-DE322A3CED56}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-004" ID="{0788FDD5-D287-4B34-9AAF-48DEB1D4DFDE}" ShortID="839672037">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-004" ID="{E8851C34-31D8-4B99-BD5F-FBE5F3C03FEF}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-004.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="334376500"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-004" ID="{E8851C34-31D8-4B99-BD5F-FBE5F3C03FEF}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-005" ID="{A850530B-1498-4180-BC41-FAFA4A8F5430}" ShortID="567835676">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-005" ID="{041E1C16-99F0-4BF6-AF22-1375A6945418}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-005.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="47695177"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-005" ID="{041E1C16-99F0-4BF6-AF22-1375A6945418}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-006" ID="{96BA8A15-AD54-43F1-BA4C-45A820603C96}" ShortID="258554115">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-006" ID="{BBB21724-926E-4ED0-A249-9B81C6D48CCA}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-006.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="992606838"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-006" ID="{BBB21724-926E-4ED0-A249-9B81C6D48CCA}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-007" ID="{B2C7228F-B309-4CD5-8E69-9E7CEABA1407}" ShortID="1067689696">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-007" ID="{0BB6F8CE-F25F-44D6-8418-221A54277C07}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-007.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="82971873"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-007" ID="{0BB6F8CE-F25F-44D6-8418-221A54277C07}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="galaxy_breacher_player_autocannon01-008" ID="{F9E1EAB1-E764-458F-A06A-0C309E678D7F}" ShortID="390725233">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="galaxy_breacher_player_autocannon01-008" ID="{4F2CEF0D-6B0D-49F3-ACF8-87EA01EBDECE}">
-									<Language>SFX</Language>
-									<AudioFile>galaxy_breacher_player_autocannon01-008.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="256741455"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="galaxy_breacher_player_autocannon01-008" ID="{4F2CEF0D-6B0D-49F3-ACF8-87EA01EBDECE}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="ShipExplode" ID="{A682F282-9656-4A86-8455-912581839D60}" ShortID="502132967">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -221,40 +33,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="explode-little-ship" ID="{B342EDC4-E15E-4F05-AF1E-BF46EDF1BA39}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
-				<RandomSequenceContainer Name="PlayerMissile" ID="{5E36268A-18B5-48D2-9730-AD2E1BAA4B02}" ShortID="135704369">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="rocket-fire-player" ID="{B0865EFE-4CDE-47DB-8828-A5136F14D17C}" ShortID="159134717">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="rocket-fire-player" ID="{46C300EE-8A28-4948-8068-B0BF65F64AE2}">
-									<Language>SFX</Language>
-									<AudioFile>rocket-fire-player.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="826186364"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="rocket-fire-player" ID="{46C300EE-8A28-4948-8068-B0BF65F64AE2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -293,6 +71,380 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Folder Name="Weapons" ID="{A5007983-2DCC-42DA-B227-6F411E2E868C}" ShortID="101199305">
+					<ChildrenList>
+						<RandomSequenceContainer Name="MachineGun" ID="{881EEC4A-5B0D-44B0-BD57-1E8A13001CB6}" ShortID="734632666">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="galaxy_breacher_player_autocannon01-001" ID="{2A24DDB2-D75A-460C-A74E-2D7D2AB80526}" ShortID="283374206">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-001" ID="{01DB917E-DCCB-418A-A9DC-B39575096FAE}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.135571489857204"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="66473765"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-001" ID="{01DB917E-DCCB-418A-A9DC-B39575096FAE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-002" ID="{1D41E1AE-B20F-4ECC-BBD5-DF164E9620D0}" ShortID="872225189">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-002" ID="{E8D8A2E7-9285-4D12-B87F-A4256B478A69}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="530898062"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-002" ID="{E8D8A2E7-9285-4D12-B87F-A4256B478A69}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-003" ID="{76A7E640-2310-458A-B09C-93AD65441D4F}" ShortID="992031339">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-003" ID="{5C527A0B-3F36-4B36-83A3-DE322A3CED56}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="786096630"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-003" ID="{5C527A0B-3F36-4B36-83A3-DE322A3CED56}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-004" ID="{0788FDD5-D287-4B34-9AAF-48DEB1D4DFDE}" ShortID="839672037">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-004" ID="{E8851C34-31D8-4B99-BD5F-FBE5F3C03FEF}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="334376500"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-004" ID="{E8851C34-31D8-4B99-BD5F-FBE5F3C03FEF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-005" ID="{A850530B-1498-4180-BC41-FAFA4A8F5430}" ShortID="567835676">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-005" ID="{041E1C16-99F0-4BF6-AF22-1375A6945418}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="47695177"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-005" ID="{041E1C16-99F0-4BF6-AF22-1375A6945418}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-006" ID="{96BA8A15-AD54-43F1-BA4C-45A820603C96}" ShortID="258554115">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-006" ID="{BBB21724-926E-4ED0-A249-9B81C6D48CCA}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-006.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="992606838"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-006" ID="{BBB21724-926E-4ED0-A249-9B81C6D48CCA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-007" ID="{B2C7228F-B309-4CD5-8E69-9E7CEABA1407}" ShortID="1067689696">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-007" ID="{0BB6F8CE-F25F-44D6-8418-221A54277C07}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-007.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="82971873"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-007" ID="{0BB6F8CE-F25F-44D6-8418-221A54277C07}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="galaxy_breacher_player_autocannon01-008" ID="{F9E1EAB1-E764-458F-A06A-0C309E678D7F}" ShortID="390725233">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="galaxy_breacher_player_autocannon01-008" ID="{4F2CEF0D-6B0D-49F3-ACF8-87EA01EBDECE}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.418601224273493"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>galaxy_breacher_player_autocannon01-008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="256741455"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="galaxy_breacher_player_autocannon01-008" ID="{4F2CEF0D-6B0D-49F3-ACF8-87EA01EBDECE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="PlayerMissile" ID="{5E36268A-18B5-48D2-9730-AD2E1BAA4B02}" ShortID="135704369">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="rocket-fire-player" ID="{B0865EFE-4CDE-47DB-8828-A5136F14D17C}" ShortID="159134717">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="rocket-fire-player" ID="{46C300EE-8A28-4948-8068-B0BF65F64AE2}">
+											<Language>SFX</Language>
+											<AudioFile>rocket-fire-player.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="826186364"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="rocket-fire-player" ID="{46C300EE-8A28-4948-8068-B0BF65F64AE2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Folder Name="Laser" ID="{872CF806-6C8F-4A83-9C1A-57788B66FBA9}" ShortID="86434208">
+							<ChildrenList>
+								<RandomSequenceContainer Name="Player_Laser" ID="{E623C3E9-6B28-40A2-836D-899911179EA3}" ShortID="521375866">
+									<PropertyList>
+										<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="PlayerLaser" ID="{4E5E8B25-BC66-4DF1-9550-16A7739C5A15}" ShortID="239621453">
+											<PropertyList>
+												<Property Name="IsStreamingEnabled" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PlayerLaser" ID="{FB254925-1C59-4077-88CB-9A11A76A39DC}">
+													<Language>SFX</Language>
+													<AudioFile>PlayerLaser.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="755712872"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{23EDDFDA-6C3F-425B-84AA-4E59473B06DD}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-38.8591800356506"/>
+														<Property Name="PanY" Type="Real64" Value="16.8905950095969"/>
+													</PropertyList>
+													<ObjectLists>
+														<ObjectList Name="RTPC">
+															<Reference>
+																<Local>
+																	<RTPC Name="" ID="{8FC127D8-739B-4C5E-95D2-09A7FC7F761A}" ShortID="907539007">
+																		<PropertyList>
+																			<Property Name="PropertyName" Type="string" Value="PanX"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="ControlInput">
+																				<ObjectRef Name="Laser_Panning" ID="{F9F106C3-5B06-4E80-AAAC-4D58D220914E}" WorkUnitID="{29F19A04-91C7-490A-A658-8730C40EA394}"/>
+																			</Reference>
+																			<Reference Name="Curve">
+																				<Custom>
+																					<Curve Name="" ID="{AF9B1D37-5059-4202-84CD-6F7EABDDA91F}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="1"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>-105.98291</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>99.1453</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</RTPC>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="PlayerLaser" ID="{FB254925-1C59-4077-88CB-9A11A76A39DC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{2671EC25-867B-4F5B-9B10-0D8017F48097}"/>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+								<Sound Name="Laser_OverHeat" ID="{FF5847C4-26C8-4716-94C2-CA2682167540}" ShortID="310425278">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="LaserOverheat" ID="{AB296EF4-5698-42CA-8070-8B3FF772841C}">
+											<Language>SFX</Language>
+											<AudioFile>LaserOverheat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="322653846"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="LaserOverheat" ID="{AB296EF4-5698-42CA-8070-8B3FF772841C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

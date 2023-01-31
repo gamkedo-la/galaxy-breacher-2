@@ -160,7 +160,7 @@ public class PlayerControl : MonoBehaviour
                     machinegunLoopSound.volume = 0.0f;
                 }
             }
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.175f);
         }
     }
 
@@ -323,11 +323,15 @@ public class PlayerControl : MonoBehaviour
                 {
                     laserAudioSource.panStereo = -.5f;
                     laserAudioSource.PlayOneShot(laserSFX);
+                    AkSoundEngine.SetRTPCValue("Laser_Panning", 25, gameObject);
+                    AkSoundEngine.PostEvent("Player_Laser", gameObject);
                 }
                 else
                 {
                     laserAudioSource.panStereo = .5f;
                     laserAudioSource.PlayOneShot(laserSFX);
+                    AkSoundEngine.SetRTPCValue("Laser_Panning", 75, gameObject);
+                    AkSoundEngine.PostEvent("Player_Laser", gameObject);
                 }
                 //increase laser heat
                 laserHeat += heatGainRate / laserFireRate;
@@ -336,6 +340,7 @@ public class PlayerControl : MonoBehaviour
                     laserOverHeated = true;
                     laserAudioSource.panStereo = 0f;
                     laserAudioSource.PlayOneShot(laserOverheatSFX);
+                    AkSoundEngine.PostEvent("Laser_OverHeat", gameObject);
                 }
             }
             //set laser end to hit target or max range

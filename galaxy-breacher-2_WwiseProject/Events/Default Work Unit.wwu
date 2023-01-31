@@ -3,28 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{CA6A6AE2-5C19-4C88-A839-5B6D44CFC559}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="MachineGun" ID="{18727A5B-DC5F-4D62-B817-FEF38D96F922}">
-					<ChildrenList>
-						<Action Name="" ID="{8D8A6F9A-C3AD-41B5-ACAA-BAE497CEE49A}" ShortID="432066044">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="MachineGun" ID="{881EEC4A-5B0D-44B0-BD57-1E8A13001CB6}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="PlayerMissile" ID="{A12DCDAD-1DF7-4FA5-9A1C-85D8C027A4D2}">
-					<ChildrenList>
-						<Action Name="" ID="{5A79C9AC-68A3-414F-938B-08D09868EC74}" ShortID="744841927">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="PlayerMissile" ID="{5E36268A-18B5-48D2-9730-AD2E1BAA4B02}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="ShipExplode" ID="{B3D45BC9-ADA5-4240-87DB-B8CAA001951B}">
 					<ChildrenList>
 						<Action Name="" ID="{E1B7E335-95B6-4B3D-AAD2-FE51CAC1F770}" ShortID="733183669">
@@ -47,6 +25,58 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Weapons" ID="{72468984-4F72-4728-A753-0A0070B3307D}" ShortID="920451949">
+					<ChildrenList>
+						<Event Name="MachineGun" ID="{18727A5B-DC5F-4D62-B817-FEF38D96F922}">
+							<ChildrenList>
+								<Action Name="" ID="{8D8A6F9A-C3AD-41B5-ACAA-BAE497CEE49A}" ShortID="432066044">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MachineGun" ID="{881EEC4A-5B0D-44B0-BD57-1E8A13001CB6}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PlayerMissile" ID="{A12DCDAD-1DF7-4FA5-9A1C-85D8C027A4D2}">
+							<ChildrenList>
+								<Action Name="" ID="{5A79C9AC-68A3-414F-938B-08D09868EC74}" ShortID="744841927">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="PlayerMissile" ID="{5E36268A-18B5-48D2-9730-AD2E1BAA4B02}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Folder Name="Laser" ID="{0287F09C-CFBC-4360-9CE2-0170DF464781}" ShortID="16654240">
+							<ChildrenList>
+								<Event Name="Player_Laser" ID="{BF16C71A-FCEF-4E35-AEF7-AADB335EEBA1}">
+									<ChildrenList>
+										<Action Name="" ID="{55E7121B-18CC-4A96-A4A8-DC5B007FD05A}" ShortID="760267184">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="PlayerLaser" ID="{4E5E8B25-BC66-4DF1-9550-16A7739C5A15}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Laser_OverHeat" ID="{7E24994F-501C-4356-BF03-515E38CCBC55}">
+									<ChildrenList>
+										<Action Name="" ID="{89EB1F47-458B-451E-8B1B-8F5093E9F269}" ShortID="660173183">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Laser_OverHeat" ID="{FF5847C4-26C8-4716-94C2-CA2682167540}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

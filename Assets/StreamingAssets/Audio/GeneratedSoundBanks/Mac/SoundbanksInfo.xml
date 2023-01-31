@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{BE022371-5284-3125-FA03-C0F4BB50F4DA}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{5ACE5E44-B22A-C0B6-70F7-C49BC1E8FD10}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -31,11 +31,15 @@
 				</File>
 				<File Id="256741455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-008.wav</ShortName>
-					<CachePath>SFX/galaxy_breacher_player_autocannon01-008_10C4C929.wem</CachePath>
+					<CachePath>SFX/galaxy_breacher_player_autocannon01-008_419490CE.wem</CachePath>
 				</File>
 				<File Id="278353768" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>explode-hit.wav</ShortName>
 					<CachePath>SFX/explode-hit_10C4C929.wem</CachePath>
+				</File>
+				<File Id="322653846" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LaserOverheat.wav</ShortName>
+					<CachePath>SFX/LaserOverheat_10C4C929.wem</CachePath>
 				</File>
 				<File Id="334376500" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-004.wav</ShortName>
@@ -44,6 +48,11 @@
 				<File Id="530898062" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-002.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-002_10C4C929.wem</CachePath>
+				</File>
+				<File Id="755712872" Language="SFX" Streaming="true" Location="Loose">
+					<ShortName>PlayerLaser.wav</ShortName>
+					<Path>Media/755712872.wem</Path>
+					<CachePath>SFX/PlayerLaser_10C4C929.wem</CachePath>
 				</File>
 				<File Id="786096630" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-003.wav</ShortName>
@@ -59,7 +68,12 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3678545986" Name="MachineGun" DurationType="OneShot" DurationMin="0.32079366" DurationMax="0.41893423">
+				<Event Id="1417087857" Name="Laser_OverHeat" DurationType="OneShot" DurationMin="0.7716327" DurationMax="0.7716327">
+					<MediaRefs>
+						<MediaRef Id="322653846"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3678545986" Name="MachineGun" DurationType="OneShot" DurationMin="0.32079366" DurationMax="0.4186012">
 					<MediaRefs>
 						<MediaRef Id="47695177"/>
 						<MediaRef Id="66473765"/>
@@ -69,6 +83,11 @@
 						<MediaRef Id="530898062"/>
 						<MediaRef Id="786096630"/>
 						<MediaRef Id="992606838"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="249456450" Name="Player_Laser" DurationType="OneShot" DurationMin="0.23913832" DurationMax="0.23913832">
+					<MediaRefs>
+						<MediaRef Id="755712872"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3350296686" Name="PlayerMissile" DurationType="OneShot" DurationMin="2.1094332" DurationMax="2.1094332">
@@ -87,8 +106,11 @@
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="3969447912" Name="Laser_Panning"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F56A610C-C7C4-F874-B68B-7ADDF94EBB7A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{32F7ECF4-B7DE-FCBF-E0B4-A5FA614CDF1E}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -99,8 +121,13 @@
 			</Plugins>
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3982605422" Name="Laser"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="3677180323" Name="Health"/>
+				<GameParameter Id="3969447912" Name="Laser_Panning"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{738370EF-1C7D-0240-619D-9102CB21A4A0}</FileHash>
+	<FileHash>{78247D95-35AD-9D7D-965D-F271F2615377}</FileHash>
 </SoundBanksInfo>
