@@ -106,12 +106,15 @@ public class PlayerControl : MonoBehaviour
     void Awake()
     {
         instance = this; // singleton for AI to aim etc
+    }
 
-        if(turretControlMode) {
+    void Start() { //after wwise gets initialized
+         // todo start engine sound Wwise event
+        AkSoundEngine.PostEvent("Player_Engine" ,gameObject);
+         if(turretControlMode) {
             turretUpward = transform.forward;
         }
 
-        // todo start engine sound Wwise event
         rb = GetComponent<Rigidbody>();
         color = Color.red;
         fpsCamera = Camera.main;
