@@ -8,6 +8,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3678545986	MachineGun			\Default Work Unit\Weapons\MachineGun	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	2596356677	Player_Engine_Strength			\Default Work Unit\Player_Engine_Strength	
 	3969447912	Laser_Panning			\Default Work Unit\Laser_Panning	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -21,9 +22,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	334376500	galaxy_breacher_player_autocannon01-004	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-004		67220
 	530898062	galaxy_breacher_player_autocannon01-002	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-002		66924
 	786096630	galaxy_breacher_player_autocannon01-003	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-003		67472
-	787249618	engine-strong	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\engine-strong_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-strong		1970604
+	787249618	engine-strong	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\engine-strong_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-strong		1970604
 	826186364	rocket-fire-player	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\rocket-fire-player_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\PlayerMissile\rocket-fire-player		186148
-	967934503	engine-weak	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\engine-weak_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-weak		1970604
+	967934503	engine-weak	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\engine-weak_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-weak		1970604
 	992606838	galaxy_breacher_player_autocannon01-006	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-006_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-006		68728
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes

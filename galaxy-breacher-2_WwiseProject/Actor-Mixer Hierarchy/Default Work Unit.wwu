@@ -456,6 +456,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="engine-strong" ID="{261B9318-7F30-49A0-BEDD-7E0FF50C180E}" ShortID="826433102">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
@@ -473,11 +476,53 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{EE0B5685-FDFA-4B76-B63A-FE386EDEA5BC}" ShortID="866785696">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Player_Engine_Strength" ID="{47742616-E3BD-4C13-888C-9FA7CC5800E2}" WorkUnitID="{29F19A04-91C7-490A-A658-8730C40EA394}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{58BF45BC-8888-43F7-A2C8-FDBFD27E00B8}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>14.91933</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 							<ActiveSourceList>
 								<ActiveSource Name="engine-strong" ID="{E1034E58-C279-44FE-B691-D5220880691A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="engine-weak" ID="{0C3C644B-BA30-47F8-AFD6-4873009387F1}" ShortID="257337676">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
@@ -495,6 +540,45 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{A7717DE3-8991-49C6-B7E0-7FE607596165}" ShortID="931824764">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Player_Engine_Strength" ID="{47742616-E3BD-4C13-888C-9FA7CC5800E2}" WorkUnitID="{29F19A04-91C7-490A-A658-8730C40EA394}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{A259DECB-7C8D-4215-8E1E-0F22E93EA056}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>16.75474</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 							<ActiveSourceList>
 								<ActiveSource Name="engine-weak" ID="{0416EEAE-712F-4BCF-B8BA-C43311269362}" Platform="Linked"/>
 							</ActiveSourceList>

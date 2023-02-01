@@ -139,7 +139,7 @@ public class PlayerControl : MonoBehaviour
 
             float forwardOrStrafeEngineBalance = 0.6f;
             enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
-
+            AkSoundEngine.SetRTPCValue("Player_Engine_Strength", enginePowerFade, gameObject);
             //set weak/strong param in wwise event based on engine power fade (0 to 1)
             //engineLoopWeak.volume = 1.0f - enginePowerFade;
             //engineLoopStrong.volume = enginePowerFade;

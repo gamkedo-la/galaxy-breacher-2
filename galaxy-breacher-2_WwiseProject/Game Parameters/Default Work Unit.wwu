@@ -13,7 +13,12 @@
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
-				<GameParameter Name="Player_Engine_Strength" ID="{47742616-E3BD-4C13-888C-9FA7CC5800E2}"/>
+				<GameParameter Name="Player_Engine_Strength" ID="{47742616-E3BD-4C13-888C-9FA7CC5800E2}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

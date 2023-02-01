@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{6F9D5EDE-48EE-0396-1975-EA765CC93316}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{DF25C97E-A57A-B6EF-E264-1AC57F69D64B}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -60,7 +60,7 @@
 				</File>
 				<File Id="787249618" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>engine-strong.wav</ShortName>
-					<CachePath>SFX/engine-strong_10C4C929.wem</CachePath>
+					<CachePath>SFX/engine-strong_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="826186364" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>rocket-fire-player.wav</ShortName>
@@ -68,7 +68,7 @@
 				</File>
 				<File Id="967934503" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>engine-weak.wav</ShortName>
-					<CachePath>SFX/engine-weak_10C4C929.wem</CachePath>
+					<CachePath>SFX/engine-weak_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="992606838" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-006.wav</ShortName>
@@ -93,7 +93,7 @@
 						<MediaRef Id="992606838"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3211629375" Name="Player_Engine" DurationType="OneShot" DurationMin="22.34136" DurationMax="22.34136">
+				<Event Id="3211629375" Name="Player_Engine" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="787249618"/>
 						<MediaRef Id="967934503"/>
@@ -121,10 +121,11 @@
 				</Event>
 			</Events>
 			<GameParameters>
+				<GameParameter Id="2596356677" Name="Player_Engine_Strength"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EFED056B-F119-4255-E9FA-698B32A1C746}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{273F9A21-D522-04FD-05A1-F8D0CA17B4E4}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -144,5 +145,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{68D25B95-1E1D-A05E-A839-8F09898B1B61}</FileHash>
+	<FileHash>{8E739D18-8623-4015-F4C1-C474787BE278}</FileHash>
 </SoundBanksInfo>
