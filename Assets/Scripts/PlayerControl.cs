@@ -83,10 +83,8 @@ public class PlayerControl : MonoBehaviour
 
     [Space(10)]
     [Header("Audio Properties")]
-    public AudioSource engineLoopWeak;
-    public AudioSource engineLoopStrong;
+    
     public AudioSource damageSound;
-    public AudioSource machinegunLoopSound;
 
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserOverheatSFX;
@@ -113,8 +111,7 @@ public class PlayerControl : MonoBehaviour
             turretUpward = transform.forward;
         }
 
-        engineLoopStrong.volume = 0.0f;
-        machinegunLoopSound.volume = 0.0f;
+        // todo start engine sound Wwise event
         rb = GetComponent<Rigidbody>();
         color = Color.red;
         fpsCamera = Camera.main;
@@ -127,8 +124,9 @@ public class PlayerControl : MonoBehaviour
     {
 
         if(turretControlMode) {
-            engineLoopWeak.volume = 1.0f;
-            engineLoopStrong.volume = 0f;
+            // player ship doesn't move at this level, have engine idle at low volume
+            //engineLoopWeak.volume = 1.0f;
+            //engineLoopStrong.volume = 0f;
         } else {
             float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
 
@@ -139,8 +137,9 @@ public class PlayerControl : MonoBehaviour
             float forwardOrStrafeEngineBalance = 0.6f;
             enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
 
-            engineLoopWeak.volume = 1.0f - enginePowerFade;
-            engineLoopStrong.volume = enginePowerFade;
+            //set weak/strong param in wwise event based on engine power fade (0 to 1)
+            //engineLoopWeak.volume = 1.0f - enginePowerFade;
+            //engineLoopStrong.volume = enginePowerFade;
 
         }
     }
@@ -152,13 +151,6 @@ public class PlayerControl : MonoBehaviour
             if (firingMG)
             {
                 ShootBlast();
-            }
-            else
-            {
-                if (machinegunLoopSound.volume > 0.0f)
-                {
-                    machinegunLoopSound.volume = 0.0f;
-                }
             }
             yield return new WaitForSeconds(0.175f);
         }
@@ -245,7 +237,6 @@ public class PlayerControl : MonoBehaviour
         if (firingMG && wasFiring == false)
         {
             ShootBlast(); // instant extra shot on click, separate from rate limited coroutine loop
-            machinegunLoopSound.volume = 1.0f; // start the sound loop
         }
 
 

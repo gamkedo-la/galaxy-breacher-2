@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID LASER_OVERHEAT = 1417087857U;
         static const AkUniqueID MACHINEGUN = 3678545986U;
+        static const AkUniqueID PLAYER_ENGINE = 3211629375U;
         static const AkUniqueID PLAYER_LASER = 249456450U;
         static const AkUniqueID PLAYERMISSILE = 3350296686U;
         static const AkUniqueID SHIPEXPLODE = 169528066U;
@@ -25,6 +26,7 @@ namespace AK
     {
         static const AkUniqueID HEALTH = 3677180323U;
         static const AkUniqueID LASER_PANNING = 3969447912U;
+        static const AkUniqueID PLAYER_ENGINE_STRENGTH = 2596356677U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

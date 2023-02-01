@@ -77,6 +77,17 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Player_Engine" ID="{056DF577-14BA-4152-BC0E-FAF9DE5AC97C}">
+					<ChildrenList>
+						<Action Name="" ID="{6E9F9349-2BFA-439B-B3E9-E71DEB98CAC0}" ShortID="781596140">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Engine" ID="{1ED2081F-9613-4E90-A5F6-54AA34402B10}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
