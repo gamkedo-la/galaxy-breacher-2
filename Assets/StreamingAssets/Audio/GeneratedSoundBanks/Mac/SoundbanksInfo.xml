@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{DF25C97E-A57A-B6EF-E264-1AC57F69D64B}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{015F5D71-9F10-CBD0-42DC-DB225310D14C}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -24,6 +24,10 @@
 				<File Id="82971873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-007.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-007_10C4C929.wem</CachePath>
+				</File>
+				<File Id="96576857" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>latch_release.wav</ShortName>
+					<CachePath>SFX/latch_release_10C4C929.wem</CachePath>
 				</File>
 				<File Id="97501355" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>explode-little-ship.wav</ShortName>
@@ -79,6 +83,11 @@
 				<Event Id="1417087857" Name="Laser_OverHeat" DurationType="OneShot" DurationMin="0.7716327" DurationMax="0.7716327">
 					<MediaRefs>
 						<MediaRef Id="322653846"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="219087556" Name="LatchRelease" DurationType="OneShot" DurationMin="1.1145579" DurationMax="1.1145579">
+					<MediaRefs>
+						<MediaRef Id="96576857"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3678545986" Name="MachineGun" DurationType="OneShot" DurationMin="0.32079366" DurationMax="0.4186012">
@@ -145,5 +154,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8E739D18-8623-4015-F4C1-C474787BE278}</FileHash>
+	<FileHash>{1CECD5BD-4BBA-D3F0-7F93-4FFE45372680}</FileHash>
 </SoundBanksInfo>
