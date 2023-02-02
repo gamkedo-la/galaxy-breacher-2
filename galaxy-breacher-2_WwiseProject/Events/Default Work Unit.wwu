@@ -88,6 +88,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="LatchRelease" ID="{1244D826-677B-4542-81EB-034C8CD5072B}">
+					<ChildrenList>
+						<Action Name="" ID="{FAF5BF93-E90A-4D0B-95AC-9F2DDDF3D1FC}" ShortID="319926173">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Latch_Release" ID="{EB106561-F549-4E06-B6F0-A2A058DD8099}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

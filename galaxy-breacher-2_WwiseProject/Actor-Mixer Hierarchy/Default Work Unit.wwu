@@ -585,6 +585,47 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Latch_Release" ID="{EB106561-F549-4E06-B6F0-A2A058DD8099}" ShortID="626086750">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="latch_release" ID="{53605E8A-2ECC-4B66-A654-152DDBE8A203}" ShortID="981166948">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7F0EC9D9-E839-48F5-9607-261F7F2A0569}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="latch_release" ID="{D5035FE5-A5BA-41FB-A9B0-0D1DD0B52C37}">
+									<Language>SFX</Language>
+									<AudioFile>latch_release.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="96576857"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="latch_release_01" ID="{A730E62A-0457-4E14-ABC5-1A160EE33C87}">
+									<Language>SFX</Language>
+									<AudioFile>latch_release.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="96576857"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="latch_release_01" ID="{A730E62A-0457-4E14-ABC5-1A160EE33C87}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
