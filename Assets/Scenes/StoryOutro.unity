@@ -5794,11 +5794,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "After the long battle the hero was victorious at stopping both the Alien
-    forces.\nBut space is never what it seems like. \n\nAfter the long battle Old
-    earth enjoyed peace for sometime until a breach was detected  with a massive
-    alien armada trying to pass though into our space and this time our hero was
-    prepared to take the battle to them. \n\nAnd so continuted the Journey of our
-    hero to become the legend he will one day become!"
+    forces.\nBut space is never ending. \n\nIt would be seven peacefull years before
+    the next breach would be detected in our solar system  with a massive alien armada
+    moving towards Old Earth. But, this time our hero was prepared to take the battle
+    to them as was Old Earth. \n\nAnd so continuted the Journey of our hero to become
+    the legend he will one day become!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -5825,7 +5825,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.7
+  m_fontSize: 41.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

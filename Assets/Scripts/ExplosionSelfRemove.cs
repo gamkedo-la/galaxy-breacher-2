@@ -9,6 +9,10 @@ public class ExplosionSelfRemove : MonoBehaviour
     [SerializeField] Transform ExplosionPosition;
     public EnemyShipSpawnContoller enemyShipSpawnContoller;
 
+    public void Start() {
+        HierarchyTrashSingleton.instance.GroupTempJunk(transform);
+    }
+
     public void Remove()
     {
         AkSoundEngine.PostEvent("ShipExplode",gameObject);

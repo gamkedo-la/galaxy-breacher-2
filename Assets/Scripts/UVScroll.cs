@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UVScroll : MonoBehaviour {
-    float scrollSpeed = 0.05f;
+    float scrollSpeed = 0.95f;
     Renderer rend;
 
     void Start() {
