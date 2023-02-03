@@ -17,10 +17,11 @@ public class MagneticLatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.M)){
+        if(Input.GetKeyDown(KeyCode.R)){
             constrainedRigidBody.constraints = 0b00;
             constrainedRigidBody.isKinematic = false;
             constrainedRigidBody.AddForce(constrainedRigidBody.transform.TransformVector(releaseForce), ForceMode.Impulse);
+            AkSoundEngine.PostEvent("LatchRelease", gameObject);
         }
     }
 }
