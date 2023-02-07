@@ -269,6 +269,8 @@ public class PlayerControl : MonoBehaviour
     void ShootBlast()
     {
         GameObject shotGO1 = GameObject.Instantiate(blastPrefab, fireFromMachine1.position, transform.rotation);
+        AkSoundEngine.PostEvent("MachineGun" ,gameObject);
+      
         GameObject shotGO2 = GameObject.Instantiate(blastPrefab, fireFromMachine2.position, transform.rotation);
 
 
