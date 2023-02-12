@@ -10,7 +10,8 @@ public class MachineGunBlast : MonoBehaviour
 
     private void Start()
     {
-        HierarchyTrashSingleton.instance.GroupTempJunk(transform);
+        // instead of grouptempjunk it parents under player to match roll movement
+        //HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         Destroy(this.gameObject, maxLifetimeInSec);
     }
 
