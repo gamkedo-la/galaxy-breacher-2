@@ -26,6 +26,9 @@ public class NavigateToTask : Task
 
     public override void Start()
     {
+        if(ship == null) {
+            return;
+        }
         base.Start();
         ship.NavigateTo(targetPosition, targetOrientation, maxSpeed);
     }

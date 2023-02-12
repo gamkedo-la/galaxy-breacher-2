@@ -22,16 +22,19 @@ public class AIController : MonoBehaviour
 
     private void MoveWhenOutOfRange()
     {
-
+        Movement moveScript = GetComponent<Movement>();
+        if(moveScript == null || target == null) {
+            return; // suppress constant error from missing script/target
+        }
         if (!GetIsInRange())
         {
-            GetComponent<Movement>().StartMoveAction(target.position);
+            moveScript.StartMoveAction(target.position);
         }
 
         else
         {
 
-            GetComponent<Movement>().Cancel();
+            moveScript.Cancel();
         }
 
     }

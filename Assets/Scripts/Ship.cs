@@ -345,6 +345,10 @@ public class Ship : MonoBehaviour
 
     public void NavigateTo(Vector3 targetPosition, Quaternion targetRotation, float speed)
     {
+        if(NavigationManager.instance == null) {
+            Debug.Log("NavigationManager.instance not found");
+            return;
+        }
         currentMaxSpeed = speed;
         UpdateMinTurnRadius();
 

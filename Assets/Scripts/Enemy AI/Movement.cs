@@ -33,6 +33,9 @@ public class Movement : MonoBehaviour, IAction
 
     public void MoveTo(Vector3 targetPosition)
     {
+        if(ship == null) {
+            return;
+        }
 
         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
         ship.NavigateTo(targetPosition, targetRotation, speed);

@@ -18,6 +18,9 @@ public class ChaseTask : Task
 
     public override void Start()
     {
+        if (ship == null || target == null) {
+            return;
+        }
         base.Start();
         currentNavigateTask = new NavigateToTask(ship, target.position, Quaternion.identity);
         currentNavigateTask.Start();
