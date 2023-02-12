@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerShipUI : MonoBehaviour
 {
     //Player Health and Shield
-    public int shield = 8;
-    public int hull = 8;
     public TextMeshProUGUI hullText;
     public TextMeshProUGUI shieldText;
-    bool Recharge = false;
+
+    private static int SHIELD_MAX = 8;
+    private static int HEALTH_MAX = 8;
+    private int shield = SHIELD_MAX;
+    private int hull = HEALTH_MAX;
 
     //Player Weapon Select
     public GameObject weaponSelect;
-    private bool on = false;
 
     //Boss Part Count
     private int bossPartsNumber;
@@ -24,83 +26,59 @@ public class PlayerShipUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(ShieldRecharge());
+        UpdateInterfaceReadout();
+    }
+
+    void UpdateInterfaceReadout() { // moved out of update code, can only update when it changes
+        shield = Mathf.Clamp(shield, 0, 8);
+        shieldText.text = new string('|', shield);
+        hullText.text = new string('|', hull);
+
+                //Boss Part Count
+        parts = GameObject.FindGameObjectsWithTag("BossPart").Length;
+        partsNumber.GetComponent<TextMeshProUGUI>().text = "Boss Parts: " + parts;
+    }
+    public void TakeDamage() {
+        if(shield > 0) {
+            shield--;
+        } else {
+            hull--;
+            if (hull < 0) {
+                hull = 0;
+                SceneManager.LoadScene("PlayerLost");
+            }
+        }
+        UpdateInterfaceReadout();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Player Health and Shield Recharge
-        shieldText.text = new string('|', shield);
-        hullText.text = new string('|', hull);
-        shield = Mathf.Clamp(shield, 0, 8);
         if (Input.GetKeyDown(KeyCode.T))
         {
-            shield -= 1;
+            TakeDamage();
         }
-        if (Input.GetKeyDown(KeyCode.T) && shield <= 0)
-        {
-            hull -= 1;
-        }
-        if (shield <= 0)
-        {
-            Recharge = true;
-
-            shield = 0;
-
-
-        }
-        if (shield <= 0)
-        {
-            StartCoroutine(ShieldRecharge());
-        }
-        if (hull < -0)
-        {
-            hull = 0;
-        }
-
-
 
         //Player Weapon Select
-        if (Input.GetKeyDown(KeyCode.M) && !on)
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            weaponSelect.SetActive(true);
-            on = true;
+            weaponSelect.SetActive(weaponSelect.activeSelf == false);
         }
-        else if (Input.GetKeyDown(KeyCode.M) && on)
-        {
-            weaponSelect.SetActive(false);
-            on = false;
-        }
-
-
-        //Boss Part Count
-        parts = GameObject.FindGameObjectsWithTag("BossPart").Length;
-        partsNumber.GetComponent<TextMeshProUGUI>().text = "Boss Parts: " + parts;
     }
     //Player Health and Shield Recharge
     IEnumerator ShieldRecharge()
     {
-        if (shield >= 0)
-        {
+        while(true) {
             yield return new WaitForSeconds(1f);
-            shield += 1;
+            if (shield < SHIELD_MAX)
+            {
+                shield++;
+            }
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "HullPickUp" && hull < 1)
-        {
-            hull = 8;
-        }
-        if (collision.gameObject.tag == "Astroid")
-        {
-            shield -= 1;
-        }
-        if (collision.gameObject.tag == "Astroid" && shield <= 0)
-        {
-            hull -= 1;
-        }
-
+    public void HealHull() {
+        hull = HEALTH_MAX;
     }
 }

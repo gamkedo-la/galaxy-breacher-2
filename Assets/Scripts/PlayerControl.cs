@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     public float turretPitch = 45.0f;
     private Vector3 turretUpward;
 
+    public PlayerShipUI healthShieldUI;
+
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
@@ -419,6 +421,16 @@ public class PlayerControl : MonoBehaviour
                 Instantiate(bigShipExplosion, bigShipExplosion.transform.position, Quaternion.identity);
                 Destroy(bigShip, 3f);
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        Debug.Log("hit player: " + collision.gameObject.name);
+        if (collision.gameObject.tag == "HullPickUp") {
+            healthShieldUI.HealHull();
+        }
+        if (collision.gameObject.tag == "Astroid") {
+            healthShieldUI.TakeDamage();
         }
     }
 }

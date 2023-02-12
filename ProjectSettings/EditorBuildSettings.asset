@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MidsizeIntroShipLevel.unity
     guid: 2d54a5c72e1e64e1a87699a65faaee8e
+  - enabled: 1
+    path: Assets/Scenes/PlayerLost.unity
+    guid: d7a03ad29284945d0abf092d208fdb1c
+  - enabled: 1
+    path: Assets/Scenes/PlayerAsTurretLevel.unity
+    guid: e7be92a5360eb4b49b2843c07628dd28
   m_configObjects: {}

@@ -5474,7 +5474,6 @@ GameObject:
   - component: {fileID: 5419811304274052817}
   - component: {fileID: 7789383474755071585}
   - component: {fileID: 7754018304155012476}
-  - component: {fileID: 1058251552021625980}
   - component: {fileID: 6106689469493478921}
   m_Layer: 0
   m_Name: moon
@@ -5548,20 +5547,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1058251552021625980
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199095794178168733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6106689469493478921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5919,7 +5904,6 @@ GameObject:
   - component: {fileID: 7197375044898710169}
   - component: {fileID: 9169812468808668838}
   - component: {fileID: 4533568609855284175}
-  - component: {fileID: 703894227460466538}
   - component: {fileID: 5337171679804539837}
   m_Layer: 0
   m_Name: asteroid
@@ -5993,20 +5977,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &703894227460466538
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888380439764751808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5337171679804539837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6523,7 +6493,6 @@ GameObject:
   - component: {fileID: 2859706090521704727}
   - component: {fileID: 9006967615588544054}
   - component: {fileID: 1464738138901709199}
-  - component: {fileID: 3396897398370354275}
   - component: {fileID: 8816870969510199779}
   m_Layer: 0
   m_Name: pluto
@@ -6597,20 +6566,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3396897398370354275
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2512215918827426721}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &8816870969510199779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6635,7 +6590,6 @@ GameObject:
   - component: {fileID: 6963626125792453572}
   - component: {fileID: 9007726326660455469}
   - component: {fileID: 68140727232652664}
-  - component: {fileID: 1367050463498628577}
   - component: {fileID: 8403303966008196129}
   m_Layer: 0
   m_Name: uranus
@@ -6709,20 +6663,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1367050463498628577
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2516100837417113946}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &8403303966008196129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6745,7 +6685,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2537831452187896872}
-  - component: {fileID: 8028207132101016100}
   - component: {fileID: 1620168602845284425}
   m_Layer: 0
   m_Name: WwiseGlobal
@@ -6769,31 +6708,6 @@ Transform:
   m_Father: {fileID: 2736260131050975637}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8028207132101016100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2577880698425419101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9968875cedc8498bbe9911be2518c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 9cd052fb55704400b90b70a982378533, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!114 &1620168602845284425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7112,8 +7026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec0cec0d22aee646b2278cbae147c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: 8
-  hull: 8
   hullText: {fileID: 8111761203544384200}
   shieldText: {fileID: 5580409774327608733}
   weaponSelect: {fileID: 3772591434321064061}
@@ -7403,7 +7315,6 @@ GameObject:
   - component: {fileID: 767852032692508501}
   - component: {fileID: 914733452018139997}
   - component: {fileID: 5948533681094333094}
-  - component: {fileID: 5073844872839685948}
   - component: {fileID: 4237204301664029983}
   m_Layer: 0
   m_Name: makemake
@@ -7477,20 +7388,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5073844872839685948
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3351893530075155477}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4237204301664029983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7553,7 +7450,6 @@ GameObject:
   - component: {fileID: 7432012286040335891}
   - component: {fileID: 984753222893760336}
   - component: {fileID: 4874032187358153066}
-  - component: {fileID: 459452297834350749}
   - component: {fileID: 1510087706155395840}
   m_Layer: 0
   m_Name: mars
@@ -7627,20 +7523,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &459452297834350749
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3657347342972694747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1510087706155395840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7745,7 +7627,6 @@ GameObject:
   - component: {fileID: 2600664816590590205}
   - component: {fileID: 4909679154843819893}
   - component: {fileID: 6793068759263944134}
-  - component: {fileID: 5418272885062520031}
   - component: {fileID: 5112663900670472222}
   m_Layer: 0
   m_Name: neptune
@@ -7819,20 +7700,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5418272885062520031
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3790796731002279112}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5112663900670472222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7992,7 +7859,6 @@ GameObject:
   - component: {fileID: 4534147885271203736}
   - component: {fileID: 2206703215770242260}
   - component: {fileID: 5674269926203799903}
-  - component: {fileID: 5744126390855519626}
   - component: {fileID: 5585449071944011543}
   m_Layer: 0
   m_Name: saturn
@@ -8066,20 +7932,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5744126390855519626
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203281949192050709}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5585449071944011543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8226,7 +8078,6 @@ GameObject:
   - component: {fileID: 8641936195611167063}
   - component: {fileID: 2129146663017517880}
   - component: {fileID: 9127767640498684669}
-  - component: {fileID: 2321128448509791979}
   - component: {fileID: 3984759863252776213}
   m_Layer: 0
   m_Name: venus
@@ -8300,20 +8151,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2321128448509791979
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796655788513350537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &3984759863252776213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8482,7 +8319,6 @@ GameObject:
   - component: {fileID: 4006894857716926113}
   - component: {fileID: 7240832825160020820}
   - component: {fileID: 2926658325168038913}
-  - component: {fileID: 1887061466742000742}
   - component: {fileID: 7390620402980902095}
   m_Layer: 0
   m_Name: jupiter
@@ -8556,20 +8392,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1887061466742000742
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5259436573258635139}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &7390620402980902095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8975,7 +8797,6 @@ GameObject:
   - component: {fileID: 8037172227695418178}
   - component: {fileID: 3443441640107569087}
   - component: {fileID: 5936432501691076973}
-  - component: {fileID: 266851932762505269}
   - component: {fileID: 1186406038628964029}
   m_Layer: 0
   m_Name: mercury
@@ -9049,20 +8870,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &266851932762505269
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6355469714793627325}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1186406038628964029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9347,7 +9154,6 @@ GameObject:
   - component: {fileID: 8689127283250303669}
   - component: {fileID: 530643798849993108}
   - component: {fileID: 7758814934167040361}
-  - component: {fileID: 8321477289422466915}
   - component: {fileID: 4322472705688938411}
   m_Layer: 0
   m_Name: ceres
@@ -9421,20 +9227,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8321477289422466915
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419955112948132247}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4322472705688938411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9806,7 +9598,6 @@ GameObject:
   - component: {fileID: 6426407675775497865}
   - component: {fileID: 4190982075915013516}
   - component: {fileID: 7386783128771598137}
-  - component: {fileID: 1675838808158282765}
   - component: {fileID: 6684962277350442177}
   m_Layer: 0
   m_Name: sun
@@ -9880,20 +9671,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1675838808158282765
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8726127178972558802}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6684962277350442177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9972,7 +9749,6 @@ GameObject:
   - component: {fileID: 2048673760824943730}
   - component: {fileID: 8661801926850431198}
   - component: {fileID: 4213498500764481606}
-  - component: {fileID: 2911976330318554848}
   - component: {fileID: 3096834006689039754}
   m_Layer: 0
   m_Name: earth
@@ -10046,20 +9822,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2911976330318554848
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9077965378232459042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &3096834006689039754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10185,7 +9947,6 @@ GameObject:
   - component: {fileID: 7105776121863047227}
   - component: {fileID: 2803997049633628728}
   - component: {fileID: 6553302029320258124}
-  - component: {fileID: 7177045872428873051}
   - component: {fileID: 5474356221897930047}
   m_Layer: 0
   m_Name: eris
@@ -10259,20 +10020,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7177045872428873051
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9216762190891514892}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5474356221897930047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10423,6 +10170,10 @@ PrefabInstance:
       propertyPath: damageLighting
       value: 
       objectReference: {fileID: 283856381}
+    - target: {fileID: 2201563381063365432, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
+      propertyPath: healthShieldUI
+      value: 
+      objectReference: {fileID: 2478993944085782431}
     - target: {fileID: 2201563381063365432, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
       propertyPath: speedIndicator
       value: 

@@ -24,6 +24,12 @@ public class TurretShotFly : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
+        Debug.Log("turret shot hit:" +collision.gameObject.name);
+        PlayerControl playerScript = collision.gameObject.GetComponent<PlayerControl>();
+        if(playerScript) {
+            Debug.Log("Player hit!");
+            playerScript.healthShieldUI.TakeDamage();
+        }
         // presumably need to set some damage here if it hits the player?
         // it's colliding with the turrent atm on launch
         //Destroy(gameObject);
