@@ -112,6 +112,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start() { //after wwise gets initialized
          // todo start engine sound Wwise event
+        AkSoundEngine.SetRTPCValue("Player_Engine_Strength", 0.5f, gameObject);
         AkSoundEngine.PostEvent("Player_Engine" ,gameObject);
          if(turretControlMode) {
             turretUpward = transform.forward;
@@ -141,7 +142,10 @@ public class PlayerControl : MonoBehaviour
 
             float forwardOrStrafeEngineBalance = 0.6f;
             enginePowerFade = forwardOrStrafeEngineBalance * enginePowerFade + (1.0f - forwardOrStrafeEngineBalance) * strafeEngineEffect;
+            enginePowerFade = Mathf.Clamp(enginePowerFade, 0.0f, 1.0f);
             AkSoundEngine.SetRTPCValue("Player_Engine_Strength", enginePowerFade, gameObject);
+            AkSoundEngine.SetRTPCValue("Player_Engine_Strength_2", enginePowerFade, gameObject);
+            
             //set weak/strong param in wwise event based on engine power fade (0 to 1)
             //engineLoopWeak.volume = 1.0f - enginePowerFade;
             //engineLoopStrong.volume = enginePowerFade;

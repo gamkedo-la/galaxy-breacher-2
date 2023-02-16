@@ -489,7 +489,7 @@
 												</PropertyList>
 												<ReferenceList>
 													<Reference Name="ControlInput">
-														<ObjectRef Name="Player_Engine_Strength" ID="{47742616-E3BD-4C13-888C-9FA7CC5800E2}" WorkUnitID="{29F19A04-91C7-490A-A658-8730C40EA394}"/>
+														<ObjectRef Name="Player_Engine_Strength_2" ID="{3BE50A1E-1B1D-4F62-9B2A-9C6DDF916C65}" WorkUnitID="{29F19A04-91C7-490A-A658-8730C40EA394}"/>
 													</Reference>
 													<Reference Name="Curve">
 														<Custom>
@@ -500,7 +500,7 @@
 																<PointList>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-200</YPos>
+																		<YPos>-11.26072</YPos>
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
@@ -580,7 +580,7 @@
 																	</Point>
 																	<Point>
 																		<XPos>1</XPos>
-																		<YPos>-200</YPos>
+																		<YPos>-16.25827</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>

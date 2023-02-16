@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{0522A876-4236-0D3E-830A-8A06A46E831F}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{12FF6AE3-AEA7-E267-5DD7-44DE13E776F1}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -130,11 +130,12 @@
 				</Event>
 			</Events>
 			<GameParameters>
+				<GameParameter Id="1986217074" Name="Player_Engine_Strength_2"/>
 				<GameParameter Id="2596356677" Name="Player_Engine_Strength"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FB9C3E59-B16F-F601-1DBD-25A1CF6D1C4A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{4DE6C991-23F2-A540-F3BE-1363FC380936}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -148,11 +149,12 @@
 				<Bus Id="3982605422" Name="Laser"/>
 			</Busses>
 			<GameParameters>
+				<GameParameter Id="1986217074" Name="Player_Engine_Strength_2"/>
 				<GameParameter Id="2596356677" Name="Player_Engine_Strength"/>
 				<GameParameter Id="3677180323" Name="Health"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DDF8C761-DEA9-EE99-226A-D9822DF91864}</FileHash>
+	<FileHash>{FC2C8D79-683E-3AC9-16B6-EE918CB11652}</FileHash>
 </SoundBanksInfo>
