@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{BE944D6B-15A9-4258-90CE-125E945C1C0A}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{0522A876-4236-0D3E-830A-8A06A46E831F}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -49,6 +49,14 @@
 					<ShortName>galaxy_breacher_player_autocannon01-004.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-004_10C4C929.wem</CachePath>
 				</File>
+				<File Id="369368021" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>10-Engine_Strong-230216_1425-glued.wav</ShortName>
+					<CachePath>SFX/10-Engine_Strong-230216_1425-glued_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="375497622" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Engine_Weak_looping.wav</ShortName>
+					<CachePath>SFX/Engine_Weak_looping_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="530898062" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-002.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-002_10C4C929.wem</CachePath>
@@ -62,17 +70,9 @@
 					<ShortName>galaxy_breacher_player_autocannon01-003.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-003_10C4C929.wem</CachePath>
 				</File>
-				<File Id="787249618" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>engine-strong.wav</ShortName>
-					<CachePath>SFX/engine-strong_D79FB2B7.wem</CachePath>
-				</File>
 				<File Id="826186364" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>rocket-fire-player.wav</ShortName>
 					<CachePath>SFX/rocket-fire-player_10C4C929.wem</CachePath>
-				</File>
-				<File Id="967934503" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>engine-weak.wav</ShortName>
-					<CachePath>SFX/engine-weak_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="992606838" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-006.wav</ShortName>
@@ -104,8 +104,8 @@
 				</Event>
 				<Event Id="3211629375" Name="Player_Engine" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="787249618"/>
-						<MediaRef Id="967934503"/>
+						<MediaRef Id="369368021"/>
+						<MediaRef Id="375497622"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="249456450" Name="Player_Laser" DurationType="OneShot" DurationMin="0.23913832" DurationMax="0.23913832">
@@ -154,5 +154,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{560B5CA2-BA0B-045E-7C3B-1FF02B8F9985}</FileHash>
+	<FileHash>{AD5642A6-4EC4-9CB1-FF02-694D64ED19B3}</FileHash>
 </SoundBanksInfo>

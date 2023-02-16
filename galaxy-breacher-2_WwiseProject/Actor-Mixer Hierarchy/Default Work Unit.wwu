@@ -471,11 +471,11 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="engine-strong" ID="{E1034E58-C279-44FE-B691-D5220880691A}">
+								<AudioFileSource Name="10-Engine_Strong-230216_1425-glued" ID="{BBBC5DA5-E5C3-4749-BBC3-F471C85F3320}">
 									<Language>SFX</Language>
-									<AudioFile>engine-strong.wav</AudioFile>
+									<AudioFile>10-Engine_Strong-230216_1425-glued.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="787249618"/>
+										<MediaID ID="369368021"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
@@ -519,12 +519,23 @@
 								</ObjectList>
 							</ObjectLists>
 							<ActiveSourceList>
-								<ActiveSource Name="engine-strong" ID="{E1034E58-C279-44FE-B691-D5220880691A}" Platform="Linked"/>
+								<ActiveSource Name="10-Engine_Strong-230216_1425-glued" ID="{BBBC5DA5-E5C3-4749-BBC3-F471C85F3320}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="engine-weak" ID="{0C3C644B-BA30-47F8-AFD6-4873009387F1}" ShortID="257337676">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsZeroLatency" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -535,11 +546,11 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="engine-weak" ID="{0416EEAE-712F-4BCF-B8BA-C43311269362}">
+								<AudioFileSource Name="Engine_Weak_looping" ID="{9FE789CE-564B-465F-A0CD-3C25B3936DDF}">
 									<Language>SFX</Language>
-									<AudioFile>engine-weak.wav</AudioFile>
+									<AudioFile>Engine_Weak_looping.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="967934503"/>
+										<MediaID ID="375497622"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
@@ -583,7 +594,7 @@
 								</ObjectList>
 							</ObjectLists>
 							<ActiveSourceList>
-								<ActiveSource Name="engine-weak" ID="{0416EEAE-712F-4BCF-B8BA-C43311269362}" Platform="Linked"/>
+								<ActiveSource Name="Engine_Weak_looping" ID="{9FE789CE-564B-465F-A0CD-3C25B3936DDF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
