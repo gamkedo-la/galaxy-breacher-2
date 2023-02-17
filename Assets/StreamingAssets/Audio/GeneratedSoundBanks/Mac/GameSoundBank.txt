@@ -9,7 +9,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	3678545986	MachineGun			\Default Work Unit\Weapons\MachineGun	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	1986217074	Player_Engine_Strength_2			\Default Work Unit\Player_Engine_Strength_2	
 	2596356677	Player_Engine_Strength			\Default Work Unit\Player_Engine_Strength	
 	3969447912	Laser_Panning			\Default Work Unit\Laser_Panning	
 

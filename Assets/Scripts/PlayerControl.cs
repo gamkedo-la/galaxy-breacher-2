@@ -112,7 +112,6 @@ public class PlayerControl : MonoBehaviour
 
     void Start() { //after wwise gets initialized
          // todo start engine sound Wwise event
-        AkSoundEngine.SetRTPCValue("Player_Engine_Strength", 0.5f, gameObject);
         AkSoundEngine.PostEvent("Player_Engine" ,gameObject);
          if(turretControlMode) {
             turretUpward = transform.forward;

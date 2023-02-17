@@ -28,7 +28,6 @@ namespace AK
         static const AkUniqueID HEALTH = 3677180323U;
         static const AkUniqueID LASER_PANNING = 3969447912U;
         static const AkUniqueID PLAYER_ENGINE_STRENGTH = 2596356677U;
-        static const AkUniqueID PLAYER_ENGINE_STRENGTH_2 = 1986217074U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
