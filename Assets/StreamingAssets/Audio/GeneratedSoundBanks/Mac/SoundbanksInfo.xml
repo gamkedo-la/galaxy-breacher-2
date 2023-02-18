@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{1029F3B4-9844-7490-9882-AEA39A8FCEDB}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{66C3F6E3-7A8A-6852-67E0-6FB0CFDD588B}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -36,10 +36,6 @@
 				<File Id="256741455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-008.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-008_EBAF0222.wem</CachePath>
-				</File>
-				<File Id="278353768" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>explode-hit.wav</ShortName>
-					<CachePath>SFX/explode-hit_10C4C929.wem</CachePath>
 				</File>
 				<File Id="322653846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LaserOverheat.wav</ShortName>
@@ -73,6 +69,10 @@
 				<File Id="826186364" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>rocket-fire-player.wav</ShortName>
 					<CachePath>SFX/rocket-fire-player_10C4C929.wem</CachePath>
+				</File>
+				<File Id="901428642" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>small_ship_explode.wav</ShortName>
+					<CachePath>SFX/small_ship_explode_10C4C929.wem</CachePath>
 				</File>
 				<File Id="992606838" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-006.wav</ShortName>
@@ -123,9 +123,9 @@
 						<MediaRef Id="97501355"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2174516238" Name="ShipHit" DurationType="OneShot" DurationMin="0.67070293" DurationMax="0.67070293">
+				<Event Id="2174516238" Name="ShipHit" DurationType="OneShot" DurationMin="1.6685715" DurationMax="1.6685715">
 					<MediaRefs>
-						<MediaRef Id="278353768"/>
+						<MediaRef Id="901428642"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -154,5 +154,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8E2FAD28-400A-1649-6C79-4AC402C6170B}</FileHash>
+	<FileHash>{6D77CDB6-A845-ADD8-9347-5E5B0C0B883F}</FileHash>
 </SoundBanksInfo>

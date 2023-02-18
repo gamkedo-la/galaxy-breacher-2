@@ -64,9 +64,16 @@
 										<MediaID ID="278353768"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}">
+									<Language>SFX</Language>
+									<AudioFile>small_ship_explode.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="901428642"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="explode-hit" ID="{621975CA-5DBA-4791-B588-B0778F33AACC}" Platform="Linked"/>
+								<ActiveSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -630,7 +637,7 @@
 																	</Point>
 																	<Point>
 																		<XPos>1</XPos>
-																		<YPos>2068</YPos>
+																		<YPos>887</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>
