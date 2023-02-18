@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{66C3F6E3-7A8A-6852-67E0-6FB0CFDD588B}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{A1E730FF-34E1-AD45-9528-C0311E780E51}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -29,13 +29,13 @@
 					<ShortName>latch_release.wav</ShortName>
 					<CachePath>SFX/latch_release_10C4C929.wem</CachePath>
 				</File>
-				<File Id="97501355" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>explode-little-ship.wav</ShortName>
-					<CachePath>SFX/explode-little-ship_10C4C929.wem</CachePath>
-				</File>
 				<File Id="256741455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-008.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-008_EBAF0222.wem</CachePath>
+				</File>
+				<File Id="278353768" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>explode-hit.wav</ShortName>
+					<CachePath>SFX/explode-hit_10C4C929.wem</CachePath>
 				</File>
 				<File Id="322653846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LaserOverheat.wav</ShortName>
@@ -118,14 +118,14 @@
 						<MediaRef Id="826186364"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="169528066" Name="ShipExplode" DurationType="OneShot" DurationMin="2.965669" DurationMax="2.965669">
-					<MediaRefs>
-						<MediaRef Id="97501355"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="2174516238" Name="ShipHit" DurationType="OneShot" DurationMin="1.6685715" DurationMax="1.6685715">
+				<Event Id="169528066" Name="ShipExplode" DurationType="OneShot" DurationMin="1.6685715" DurationMax="1.6685715">
 					<MediaRefs>
 						<MediaRef Id="901428642"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2174516238" Name="ShipHit" DurationType="OneShot" DurationMin="0.67070293" DurationMax="0.67070293">
+					<MediaRefs>
+						<MediaRef Id="278353768"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -154,5 +154,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6D77CDB6-A845-ADD8-9347-5E5B0C0B883F}</FileHash>
+	<FileHash>{22730A60-6EF8-736E-C76F-BB6AF8BB28D5}</FileHash>
 </SoundBanksInfo>

@@ -30,9 +30,21 @@
 										<MediaID ID="97501355"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3DAF7422-E714-4A09-80BD-69EF49165FC0}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>SFX</Language>
+									<AudioFile>small_ship_explode.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="901428642"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="explode-little-ship" ID="{B342EDC4-E15E-4F05-AF1E-BF46EDF1BA39}" Platform="Linked"/>
+								<ActiveSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -64,16 +76,9 @@
 										<MediaID ID="278353768"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}">
-									<Language>SFX</Language>
-									<AudioFile>small_ship_explode.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="901428642"/>
-									</MediaIDList>
-								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="small_ship_explode" ID="{E2F67B3E-4048-4C71-9E8D-294D92C6675B}" Platform="Linked"/>
+								<ActiveSource Name="explode-hit" ID="{621975CA-5DBA-4791-B588-B0778F33AACC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

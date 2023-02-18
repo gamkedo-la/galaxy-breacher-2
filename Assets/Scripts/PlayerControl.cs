@@ -110,8 +110,7 @@ public class PlayerControl : MonoBehaviour
         instance = this; // singleton for AI to aim etc
     }
 
-    void Start() { //after wwise gets initialized
-         // todo start engine sound Wwise event
+    void Start() { 
         AkSoundEngine.PostEvent("Player_Engine" ,gameObject);
          if(turretControlMode) {
             turretUpward = transform.forward;
