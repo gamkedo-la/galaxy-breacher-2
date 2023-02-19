@@ -168,6 +168,13 @@ public class PlayerControl : MonoBehaviour
             gamePaused = !gamePaused;
             pauseUI.active = gamePaused;
             gameplayUI.active = (gamePaused == false);
+            if(gamePaused) {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            } else {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
             Time.timeScale = (gamePaused ? 0.0f : 1.0f);
         }
 
@@ -178,8 +185,10 @@ public class PlayerControl : MonoBehaviour
         RefreshEngineVolume();
 
         if (turretControlMode == false) {
-            transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
-            transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
+            if (Cursor.lockState == CursorLockMode.Locked && Cursor.visible == false) {
+                transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
+            }
             if (Mathf.Abs(Input.GetAxis("Throttle")) > 0.15f)
             { // manual throttle overrides 1-4 presets
                 speedNow += Input.GetAxis("Throttle") * forwardAccel * Time.deltaTime;
@@ -243,6 +252,8 @@ public class PlayerControl : MonoBehaviour
         firingMG = Input.GetMouseButton(0); // no ammo etc check at this time
         if (firingMG && wasFiring == false)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             ShootBlast(); // instant extra shot on click, separate from rate limited coroutine loop
         }
 
