@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TradeInterdiction.unity
     guid: f6a17513b01167c46953a7ef4ed7bc29
   - enabled: 1
-    path: Assets/Scenes/MidsizeIntroShipLevel.unity
+    path: Assets/Scenes/WeaponTest.unity
     guid: 2d54a5c72e1e64e1a87699a65faaee8e
   - enabled: 1
     path: Assets/Scenes/PlayerLost.unity
