@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{603779C5-8B94-FEB2-90B5-86C3BC05D67F}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{7E85E3D1-2702-1C09-A71E-F828C1EE3EC2}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -57,6 +57,10 @@
 					<ShortName>galaxy_breacher_player_autocannon01-002.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-002_10C4C929.wem</CachePath>
 				</File>
+				<File Id="612687375" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>player_cabin_warning.wav</ShortName>
+					<CachePath>SFX/player_cabin_warning_10C4C929.wem</CachePath>
+				</File>
 				<File Id="755712872" Language="SFX" Streaming="true" Location="Loose">
 					<ShortName>PlayerLaser.wav</ShortName>
 					<Path>Media/755712872.wem</Path>
@@ -102,7 +106,11 @@
 						<MediaRef Id="992606838"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3399820685" Name="Player_Cabin_Warning" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3399820685" Name="Player_Cabin_Warning" DurationType="OneShot" DurationMin="1.1381406" DurationMax="1.1381406">
+					<MediaRefs>
+						<MediaRef Id="612687375"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3211629375" Name="Player_Engine" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="369368021"/>
@@ -155,5 +163,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BC2BD734-D8D3-2BE7-CC9E-4581796953B0}</FileHash>
+	<FileHash>{C2916EA1-E6C2-3162-06E0-46C383FC42EC}</FileHash>
 </SoundBanksInfo>

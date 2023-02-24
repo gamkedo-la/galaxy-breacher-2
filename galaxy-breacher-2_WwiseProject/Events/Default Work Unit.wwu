@@ -99,7 +99,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Player_Cabin_Warning" ID="{E7A07A86-589F-49F5-8741-E522A96C7B1F}"/>
+				<Event Name="Player_Cabin_Warning" ID="{E7A07A86-589F-49F5-8741-E522A96C7B1F}">
+					<ChildrenList>
+						<Action Name="" ID="{11692D1C-3F38-4BD0-AB12-EC60E7C6BF5D}" ShortID="113168639">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Cabin_Warning" ID="{67A4B0BD-174B-4BEA-8ACD-8FEE8E753FB6}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
