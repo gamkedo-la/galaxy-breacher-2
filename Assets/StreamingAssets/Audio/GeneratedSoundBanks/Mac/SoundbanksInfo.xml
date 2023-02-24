@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{A1E730FF-34E1-AD45-9528-C0311E780E51}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{603779C5-8B94-FEB2-90B5-86C3BC05D67F}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -102,6 +102,7 @@
 						<MediaRef Id="992606838"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3399820685" Name="Player_Cabin_Warning" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3211629375" Name="Player_Engine" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="369368021"/>
@@ -154,5 +155,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{22730A60-6EF8-736E-C76F-BB6AF8BB28D5}</FileHash>
+	<FileHash>{BC2BD734-D8D3-2BE7-CC9E-4581796953B0}</FileHash>
 </SoundBanksInfo>

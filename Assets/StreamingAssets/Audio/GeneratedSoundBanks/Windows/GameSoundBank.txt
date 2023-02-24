@@ -6,6 +6,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2174516238	ShipHit			\Default Work Unit\ShipHit	
 	3211629375	Player_Engine			\Default Work Unit\Player_Engine	
 	3350296686	PlayerMissile			\Default Work Unit\Weapons\PlayerMissile	
+	3399820685	Player_Cabin_Warning			\Default Work Unit\Player_Cabin_Warning	
 	3678545986	MachineGun			\Default Work Unit\Weapons\MachineGun	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes

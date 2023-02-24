@@ -243,6 +243,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            AkSoundEngine.PostEvent("Player_Cabin_Warning", gameObject);
             print("Take Damage Lights: Eventually move this to where player loses health");
             damageLighting.SetTrigger("Damage");
             damageSound.Play();

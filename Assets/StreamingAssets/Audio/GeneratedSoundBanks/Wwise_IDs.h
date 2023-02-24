@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID LASER_OVERHEAT = 1417087857U;
         static const AkUniqueID LATCHRELEASE = 219087556U;
         static const AkUniqueID MACHINEGUN = 3678545986U;
+        static const AkUniqueID PLAYER_CABIN_WARNING = 3399820685U;
         static const AkUniqueID PLAYER_ENGINE = 3211629375U;
         static const AkUniqueID PLAYER_LASER = 249456450U;
         static const AkUniqueID PLAYERMISSILE = 3350296686U;

@@ -99,6 +99,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Player_Cabin_Warning" ID="{E7A07A86-589F-49F5-8741-E522A96C7B1F}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
