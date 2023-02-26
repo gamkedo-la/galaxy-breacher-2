@@ -294,7 +294,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, machineRange))
         {
-            IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
+            IDamageable damageable = hit.collider.gameObject.GetComponentInParent<IDamageable>();
             if (damageable != null) {
                 Debug.Log(hit.transform.name + " taking damage from MG");
                 damageable.TakeDamage(1); // smallest damage increment
@@ -331,7 +331,7 @@ public class PlayerControl : MonoBehaviour
                 //Deal Damage
                 if (laserHit)
                 {
-                    IDamageable damageable = hitInfo.collider.gameObject.GetComponent<IDamageable>();
+                    IDamageable damageable = hitInfo.collider.gameObject.GetComponentInParent<IDamageable>();
                     if (damageable != null) {
                         Debug.Log(hitInfo.transform.name + " taking damage from laser");
                         damageable.TakeDamage(laserDamagePerSecond / laserFireRate);
