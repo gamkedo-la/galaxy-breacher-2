@@ -32,36 +32,42 @@ public class PlayerMissileFly : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision) {
-        // this part doesn't block the missile, it allows it through if fired from inside it
-        if(spawnedInShield && collision.gameObject.tag == "Shield") {
-            return;
+    void OnTriggerExit(Collider other) {
+        spawnedInShield = false; // if we fire rocket out from shield another shield should stop it
+        if (showWeaponDebug) {
+            Debug.Log("rocket exited the shield it was spawned in");
         }
-        GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
-        if(showWeaponDebug) {
-            Debug.Log("rocket hit " + collision.gameObject.name);
-        }
-        AkSoundEngine.PostEvent("ShipHit", gameObject);
-        HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
-        effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
-
-        if (collision.gameObject.tag == "Shield")
-        {
+    }
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Shield" && spawnedInShield == false) {
             if (showWeaponDebug) {
                 Debug.Log("blocked by shield");
             }
-            return;
-        } else {
-            IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
-            if (damageable != null) {
-                if (showWeaponDebug) {
-                    Debug.Log("Taking missile damage: " + collision.gameObject.name);
-                }
-                damageable.TakeDamage(damage);
-            } else if (showWeaponDebug) {
-                Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
-            }
+            ExplodeMissile();
         }
+    }
+
+    void ExplodeMissile() { // note: doesn't apply damage
+        GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
+        AkSoundEngine.PostEvent("ShipHit", gameObject);
+        HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
+        effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if(showWeaponDebug) {
+            Debug.Log("rocket hit " + collision.gameObject.name);
+        }
+
+        IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
+        if (damageable != null) {
+            if (showWeaponDebug) {
+                Debug.Log("Taking missile damage: " + collision.gameObject.name);
+            }
+            damageable.TakeDamage(damage);
+        } else if (showWeaponDebug) {
+            Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
+        }
     }
 }
