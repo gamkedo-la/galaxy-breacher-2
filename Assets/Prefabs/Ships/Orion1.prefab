@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2145203895}
   - component: {fileID: 2145203896}
   - component: {fileID: 2145203897}
+  - component: {fileID: 4886595961614537892}
   m_Layer: 8
   m_Name: Orion1
   m_TagString: Untagged
@@ -191,3 +192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3ba0f22cc7b624fb0e56e92614446a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4886595961614537892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659266504411781278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bef15e51399fce4e8a89d14dfd8205f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  deathExplosion: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}

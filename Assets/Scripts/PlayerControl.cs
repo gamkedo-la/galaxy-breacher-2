@@ -294,7 +294,12 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, machineRange))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.name + " hit by MG");
+            IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
+            if (damageable != null) {
+                Debug.Log("applying damage");
+                damageable.TakeDamage(1); // smallest damage increment
+            }
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.transform.position, hit.transform.rotation);
         }
     }

@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 1659556187}
   - component: {fileID: 1659556188}
   - component: {fileID: 1659556189}
+  - component: {fileID: 2510215218203985268}
   m_Layer: 8
   m_Name: alien ship organic
   m_TagString: Untagged
@@ -266,6 +267,20 @@ MonoBehaviour:
   target: {fileID: 0}
   chasingRange: 30
   rotationSpeed: 20
+--- !u!114 &2510215218203985268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536673237288436834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bef15e51399fce4e8a89d14dfd8205f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  deathExplosion: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
 --- !u!1 &7046923301033065432
 GameObject:
   m_ObjectHideFlags: 0

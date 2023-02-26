@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8404265150348588414}
   - component: {fileID: 7160836665180068872}
   - component: {fileID: 7160836665180068879}
+  - component: {fileID: 1210911765000207892}
   m_Layer: 8
   m_Name: ship
   m_TagString: Untagged
@@ -145,3 +146,18 @@ MonoBehaviour:
   destroyTimer: 2
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 7160836663792021526}
+  enemyShipSpawnContoller: {fileID: 0}
+--- !u!114 &1210911765000207892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043726697353663659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bef15e51399fce4e8a89d14dfd8205f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  deathExplosion: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}

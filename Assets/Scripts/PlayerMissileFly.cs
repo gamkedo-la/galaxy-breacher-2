@@ -42,7 +42,7 @@ public class PlayerMissileFly : MonoBehaviour
         AkSoundEngine.PostEvent("ShipHit", gameObject);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
         effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
         if (damageable != null)
         {
             damageable.TakeDamage(damage);
