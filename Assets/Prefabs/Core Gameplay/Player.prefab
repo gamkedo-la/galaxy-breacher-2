@@ -1102,6 +1102,7 @@ MonoBehaviour:
   turretControlMode: 0
   turretYaw: 0
   turretPitch: 45
+  healthShieldUI: {fileID: 0}
   damageLighting: {fileID: 0}
   invertPitchAxis: 0
   rollSpeed: 60
@@ -1131,10 +1132,7 @@ MonoBehaviour:
   laserMaxHeat: 100
   heatGainRate: 100
   heatLossRate: 50
-  engineLoopWeak: {fileID: 0}
-  engineLoopStrong: {fileID: 0}
   damageSound: {fileID: 0}
-  machinegunLoopSound: {fileID: 7407397093904099725}
   laserSFX: {fileID: 8300000, guid: 04bd742323f7289479ff510afb0b4072, type: 3}
   laserOverheatSFX: {fileID: 8300000, guid: 50a8ccea16a0ba54ca3f2443f1e7054b, type: 3}
   laserCooldownSFX: {fileID: 8300000, guid: e22b8747d64847a4da148ddfbf84811e, type: 3}
@@ -1369,7 +1367,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2039
+    m_Bits: 8183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

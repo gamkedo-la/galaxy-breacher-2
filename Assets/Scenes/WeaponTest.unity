@@ -4781,6 +4781,10 @@ PrefabInstance:
       propertyPath: bigShipExplosionPosition
       value: 
       objectReference: {fileID: 213094803}
+    - target: {fileID: 2736260131773347455, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260132777659543, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: far clip plane
       value: 20000

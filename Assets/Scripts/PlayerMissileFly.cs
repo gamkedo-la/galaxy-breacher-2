@@ -11,6 +11,7 @@ public class PlayerMissileFly : MonoBehaviour
     PlayerControl control;
 
     private bool spawnedInShield = false;
+    private bool showWeaponDebug = false;
 
     private void Start() {
         AkSoundEngine.PostEvent("PlayerMissile", gameObject);
@@ -32,23 +33,34 @@ public class PlayerMissileFly : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Shield" && spawnedInShield)
-        {
+        // this part doesn't block the missile, it allows it through if fired from inside it
+        if(spawnedInShield && collision.gameObject.tag == "Shield") {
             return;
         }
-       
         GameObject blastGO = GameObject.Instantiate(explosionToSpawn, transform.position, transform.rotation);
-        Debug.Log("rocket hit " + collision.gameObject.name);
+        if(showWeaponDebug) {
+            Debug.Log("rocket hit " + collision.gameObject.name);
+        }
         AkSoundEngine.PostEvent("ShipHit", gameObject);
         HierarchyTrashSingleton.instance.GroupTempJunk(effectTrailToRelease);
         effectTrailToRelease.GetComponent<ParticleSystem>().Stop();
-        IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
-        if (damageable != null)
+
+        if (collision.gameObject.tag == "Shield")
         {
-            Debug.Log("Taking missile damage: " + collision.gameObject.name);
-            damageable.TakeDamage(damage);
+            if (showWeaponDebug) {
+                Debug.Log("blocked by shield");
+            }
+            return;
         } else {
-            Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
+            IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
+            if (damageable != null) {
+                if (showWeaponDebug) {
+                    Debug.Log("Taking missile damage: " + collision.gameObject.name);
+                }
+                damageable.TakeDamage(damage);
+            } else if (showWeaponDebug) {
+                Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
+            }
         }
         Destroy(gameObject);
     }

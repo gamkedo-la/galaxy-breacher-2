@@ -16,6 +16,8 @@ public class PlayerControl : MonoBehaviour
 
     public PlayerShipUI healthShieldUI;
 
+    private bool showPlayerWeaponDebug = false;
+
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
@@ -277,8 +279,10 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, Rocketrange))
         {
-            Debug.Log(hit.transform.name);
-            shotGO.transform.Translate(hit.transform.position * Time.deltaTime);
+            if (showPlayerWeaponDebug) {
+                Debug.Log("Rocket tracking: " + hit.transform.name);
+            }
+            shotGO.transform.LookAt(hit.point);
         }
     }
 
@@ -296,12 +300,20 @@ public class PlayerControl : MonoBehaviour
         {
             IDamageable damageable = hit.collider.gameObject.GetComponentInParent<IDamageable>();
             if (damageable != null) {
-                Debug.Log(hit.transform.name + " taking damage from MG");
-                damageable.TakeDamage(1); // smallest damage increment
-            } else {
+                if (hit.collider.tag == "Shield") {
+                    if (showPlayerWeaponDebug) {
+                        Debug.Log("shield blocked MG");
+                    }
+                } else {
+                    if (showPlayerWeaponDebug) {
+                        Debug.Log(hit.transform.name + " taking damage from MG");
+                    }
+                    damageable.TakeDamage(1); // smallest damage increment
+                }
+            } else if(showPlayerWeaponDebug) {
                 Debug.Log("no damageable found for " + hit.transform.name);
             }
-            GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.transform.position, hit.transform.rotation);
+            GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.point, Quaternion.identity);
         }
     }
 
@@ -333,9 +345,17 @@ public class PlayerControl : MonoBehaviour
                 {
                     IDamageable damageable = hitInfo.collider.gameObject.GetComponentInParent<IDamageable>();
                     if (damageable != null) {
-                        Debug.Log(hitInfo.transform.name + " taking damage from laser");
-                        damageable.TakeDamage(laserDamagePerSecond / laserFireRate);
-                    } else {
+                        if (hitInfo.collider.tag == "Shield") {
+                            if (showPlayerWeaponDebug) {
+                                Debug.Log("shield blocked laser");
+                            }
+                        } else {
+                            if (showPlayerWeaponDebug) {
+                                Debug.Log(hitInfo.transform.name + " taking damage from laser");
+                            }
+                            damageable.TakeDamage(laserDamagePerSecond / laserFireRate);
+                        }
+                    } else if(showPlayerWeaponDebug) {
                         Debug.Log("no damageable found for " + hitInfo.transform.name);
                     }
                 }
@@ -427,7 +447,7 @@ public class PlayerControl : MonoBehaviour
             {
                 Destroy(hit.transform.parent.gameObject, 6f);
                 turretCount++;
-                Debug.Log(turretCount);
+                Debug.Log("turret count: " + turretCount);
             }
 
             if (hit.transform.CompareTag("SpawnPoint"))

@@ -13,6 +13,10 @@ public class HierarchyTrashSingleton : MonoBehaviour
 
     public void GroupTempJunk(Transform containThis)
     {
+        if(transform==null) {
+            Debug.Log("object already destroyed before it could go in group temp junk");
+            return;
+        }
         containThis.SetParent(transform);
     }
 }
