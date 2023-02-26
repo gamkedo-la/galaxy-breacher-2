@@ -278,7 +278,7 @@ public class PlayerControl : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, Rocketrange))
         {
             Debug.Log(hit.transform.name);
-            rocketPrefab.transform.Translate(hit.transform.position * Time.deltaTime);
+            shotGO.transform.Translate(hit.transform.position * Time.deltaTime);
         }
     }
 
@@ -294,11 +294,12 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, machineRange))
         {
-            Debug.Log(hit.transform.name + " hit by MG");
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null) {
-                Debug.Log("applying damage");
+                Debug.Log(hit.transform.name + " taking damage from MG");
                 damageable.TakeDamage(1); // smallest damage increment
+            } else {
+                Debug.Log("no damageable found for " + hit.transform.name);
             }
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.transform.position, hit.transform.rotation);
         }
@@ -330,10 +331,12 @@ public class PlayerControl : MonoBehaviour
                 //Deal Damage
                 if (laserHit)
                 {
-                    IDamageable damageableObject = hitInfo.collider.GetComponent<IDamageable>();
-                    if (damageableObject != null)
-                    {
-                        damageableObject.TakeDamage(laserDamagePerSecond / laserFireRate);
+                    IDamageable damageable = hitInfo.collider.gameObject.GetComponent<IDamageable>();
+                    if (damageable != null) {
+                        Debug.Log(hitInfo.transform.name + " taking damage from laser");
+                        damageable.TakeDamage(laserDamagePerSecond / laserFireRate);
+                    } else {
+                        Debug.Log("no damageable found for " + hitInfo.transform.name);
                     }
                 }
 

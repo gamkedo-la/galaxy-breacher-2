@@ -45,7 +45,10 @@ public class PlayerMissileFly : MonoBehaviour
         IDamageable damageable = collision.gameObject.GetComponentInParent<IDamageable>();
         if (damageable != null)
         {
+            Debug.Log("Taking missile damage: " + collision.gameObject.name);
             damageable.TakeDamage(damage);
+        } else {
+            Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
         }
         Destroy(gameObject);
     }
