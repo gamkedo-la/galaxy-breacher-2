@@ -34,7 +34,10 @@ public class Health : MonoBehaviour, IDamageable
         {
             Debug.LogWarning("No VFX for death of object: " + this.name);
         }
-
+        ExplosionSelfRemove esrScript = gameObject.GetComponent<ExplosionSelfRemove>();
+        if (esrScript) {
+            esrScript.Remove();
+        }
         Destroy(gameObject);
     }
 }
