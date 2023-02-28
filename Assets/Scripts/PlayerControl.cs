@@ -222,7 +222,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ShootRocket();
-            smallShipExplosionProcess();
             bigShipExplosionProcess();
         }
 
@@ -422,19 +421,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
         laserUI.SetHeatPercentage(laserHeat / laserMaxHeat);
-    }
-
-    private void smallShipExplosionProcess()
-    {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(fpsCamera.transform.position, radius, fpsCamera.transform.forward, out hit, maximumDistance))
-        {
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Destroyable"))
-            {
-                hit.transform.gameObject.GetComponentInParent<ExplosionSelfRemove>().Remove();
-            }
-        }
     }
 
     private void bigShipExplosionProcess()
