@@ -8,6 +8,7 @@ public class ExplosionSelfRemove : MonoBehaviour
     [SerializeField] GameObject ExplosionVFX;
     [SerializeField] Transform ExplosionPosition;
     public EnemyShipSpawnContoller enemyShipSpawnContoller;
+    public string soundToPlayWithVFX = "ShipExplode"; 
 
     public void Start() {
         HierarchyTrashSingleton.instance.GroupTempJunk(transform);
@@ -16,7 +17,7 @@ public class ExplosionSelfRemove : MonoBehaviour
     public void Remove()
     {
         if (ExplosionVFX != null) {
-            AkSoundEngine.PostEvent("ShipExplode",gameObject);
+            AkSoundEngine.PostEvent(soundToPlayWithVFX,gameObject);
             GameObject explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
         }
         

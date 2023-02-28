@@ -313,6 +313,8 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("no damageable found for " + hit.transform.name);
             }
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.point, Quaternion.identity);
+            ExplosionSelfRemove esrScript = blastGO.GetComponent<ExplosionSelfRemove>();
+            esrScript.Remove();
         }
     }
 
