@@ -15,8 +15,11 @@ public class ExplosionSelfRemove : MonoBehaviour
 
     public void Remove()
     {
-        AkSoundEngine.PostEvent("ShipExplode",gameObject);
-        GameObject explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
+        if (ExplosionVFX != null) {
+            AkSoundEngine.PostEvent("ShipExplode",gameObject);
+            GameObject explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
+        }
+        
         if (enemyShipSpawnContoller)
         {
             enemyShipSpawnContoller.RemoveShip();
