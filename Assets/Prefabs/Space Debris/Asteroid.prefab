@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccf38131c99c244a69098a61105ea173, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.729
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccf38131c99c244a69098a61105ea173, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccf38131c99c244a69098a61105ea173, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.417
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccf38131c99c244a69098a61105ea173, type: 3}
       propertyPath: m_LocalRotation.w
@@ -118,3 +118,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+--- !u!114 &86980176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169955808801722882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b02dac4c5fba49e6b5f912c50f06704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTimer: 2
+  ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
+  ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}

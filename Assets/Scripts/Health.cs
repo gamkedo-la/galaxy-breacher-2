@@ -6,7 +6,6 @@ using UnityEngine;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private GameObject deathExplosion;
     private float health;
 
     private void Start()
@@ -26,17 +25,12 @@ public class Health : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        if (deathExplosion)
-        {
-            Instantiate(deathExplosion, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning("No VFX for death of object: " + this.name);
-        }
         ExplosionSelfRemove esrScript = gameObject.GetComponent<ExplosionSelfRemove>();
         if (esrScript) {
             esrScript.Remove();
+        }
+        else {
+            Debug.LogWarning("no explosion self remove for effect on " + gameObject.name);
         }
         Destroy(gameObject);
     }
