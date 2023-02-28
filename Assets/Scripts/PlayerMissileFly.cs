@@ -69,5 +69,6 @@ public class PlayerMissileFly : MonoBehaviour
         } else if (showWeaponDebug) {
             Debug.Log("No Damageable for missile to affect: " + collision.gameObject.name);
         }
+        ExplodeMissile();
     }
 }
