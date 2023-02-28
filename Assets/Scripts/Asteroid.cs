@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Practice commit - will remove
 public class Asteroid : MonoBehaviour
 {
   public Vector3 velocity = Vector3.zero;
