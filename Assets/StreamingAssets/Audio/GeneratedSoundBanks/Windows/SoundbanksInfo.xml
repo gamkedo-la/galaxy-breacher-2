@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{A775B39D-A39B-FE83-8A7F-F10D5749300B}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{DE27D626-9888-0B86-8E57-B616C6D54DDE}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -88,7 +88,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="2099628641" Name="AsteroidExplode" DurationType="OneShot" DurationMin="1.0171201" DurationMax="1.0171201">
+				<Event Id="2099628641" Name="AsteroidExplode" DurationType="OneShot" DurationMin="0.80496067" DurationMax="1.047529">
 					<MediaRefs>
 						<MediaRef Id="44526342"/>
 					</MediaRefs>
@@ -172,5 +172,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3856820E-9BBD-AE48-EF05-AB93914C3CC9}</FileHash>
+	<FileHash>{7A6134AB-BB77-FD10-E524-7DAEE2A89ABA}</FileHash>
 </SoundBanksInfo>

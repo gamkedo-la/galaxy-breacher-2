@@ -721,6 +721,30 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Asteroid_Explode" ID="{1910B272-5ABC-4625-98B0-E8B8ABB6C048}" ShortID="45467885">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{B8B8E3E4-3652-4CF6-B3EA-8CCB462C9FC1}">
+										<PropertyList>
+											<Property Name="Max" Type="Real64" Value="34"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{CF8CF192-A5A6-442B-9D6E-EA62BA24E415}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="405"/>
+											<Property Name="Min" Type="Real64" Value="-51"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-3</Value>
