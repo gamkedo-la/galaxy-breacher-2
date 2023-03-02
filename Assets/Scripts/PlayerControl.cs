@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
-    private const float delayBetweenHarm = 0.3f;
+    private const float delayBetweenHarm = 0.15f;
     private float waitingBetweenDamage = 0.0f;
 
     [Space(10)]
@@ -249,10 +249,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            AkSoundEngine.PostEvent("Player_Cabin_Warning", gameObject);
-            print("Take Damage Lights: Eventually move this to where player loses health");
-            damageLighting.SetTrigger("Damage");
-            damageSound.Play();
+            ReceiveDamagePaced();
         }
 
         bool wasFiring = firingMG;
@@ -463,6 +460,10 @@ public class PlayerControl : MonoBehaviour
         if(waitingBetweenDamage>0.0f) {
             return;
         }
+        AkSoundEngine.PostEvent("Player_Cabin_Warning", gameObject);
+        damageLighting.SetTrigger("Damage");
+        damageSound.Play();
+
         waitingBetweenDamage = delayBetweenHarm;
         healthShieldUI.TakeDamage();
     }

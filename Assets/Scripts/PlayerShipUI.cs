@@ -10,8 +10,8 @@ public class PlayerShipUI : MonoBehaviour
     public TextMeshProUGUI hullText;
     public TextMeshProUGUI shieldText;
 
-    private static int SHIELD_MAX = 8;
-    private static int HEALTH_MAX = 8;
+    private static int SHIELD_MAX = 4;
+    private static int HEALTH_MAX = 4;
     private int shield = SHIELD_MAX;
     private int hull = HEALTH_MAX;
 
@@ -31,7 +31,7 @@ public class PlayerShipUI : MonoBehaviour
     }
 
     void UpdateInterfaceReadout() { // moved out of update code, can only update when it changes
-        shield = Mathf.Clamp(shield, 0, 8);
+        shield = Mathf.Clamp(shield, 0, SHIELD_MAX);
         shieldText.text = new string('|', shield);
         hullText.text = new string('|', hull);
 
@@ -55,13 +55,6 @@ public class PlayerShipUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Player Health and Shield Recharge
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage();
-        }
-
-        //Player Weapon Select
         if (Input.GetKeyDown(KeyCode.M))
         {
             weaponSelect.SetActive(weaponSelect.activeSelf == false);
