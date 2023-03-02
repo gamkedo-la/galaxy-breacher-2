@@ -9,10 +9,14 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{7E85E3D1-2702-1C09-A71E-F828C1EE3EC2}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{A775B39D-A39B-FE83-8A7F-F10D5749300B}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
+				<File Id="44526342" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AsteroidExplode.wav</ShortName>
+					<CachePath>SFX/AsteroidExplode_10C4C929.wem</CachePath>
+				</File>
 				<File Id="47695177" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-005.wav</ShortName>
 					<CachePath>SFX/galaxy_breacher_player_autocannon01-005_10C4C929.wem</CachePath>
@@ -84,6 +88,11 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2099628641" Name="AsteroidExplode" DurationType="OneShot" DurationMin="1.0171201" DurationMax="1.0171201">
+					<MediaRefs>
+						<MediaRef Id="44526342"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1417087857" Name="Laser_OverHeat" DurationType="OneShot" DurationMin="0.7716327" DurationMax="0.7716327">
 					<MediaRefs>
 						<MediaRef Id="322653846"/>
@@ -163,5 +172,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DCDC5C39-5825-B2B3-D180-AB152AB2EC21}</FileHash>
+	<FileHash>{3856820E-9BBD-AE48-EF05-AB93914C3CC9}</FileHash>
 </SoundBanksInfo>

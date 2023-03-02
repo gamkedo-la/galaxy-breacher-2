@@ -3,6 +3,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	219087556	LatchRelease			\Default Work Unit\LatchRelease	
 	249456450	Player_Laser			\Default Work Unit\Weapons\Laser\Player_Laser	
 	1417087857	Laser_OverHeat			\Default Work Unit\Weapons\Laser\Laser_OverHeat	
+	2099628641	AsteroidExplode			\Default Work Unit\AsteroidExplode	
 	2174516238	ShipHit			\Default Work Unit\ShipHit	
 	3211629375	Player_Engine			\Default Work Unit\Player_Engine	
 	3350296686	PlayerMissile			\Default Work Unit\Weapons\PlayerMissile	
@@ -14,6 +15,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	3969447912	Laser_Panning			\Default Work Unit\Laser_Panning	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	44526342	AsteroidExplode	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\AsteroidExplode_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Asteroid_Explode\AsteroidExplode		179516
 	47695177	galaxy_breacher_player_autocannon01-005	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-005_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-005		66320
 	66473765	galaxy_breacher_player_autocannon01-001	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-001		61120
 	82971873	galaxy_breacher_player_autocannon01-007	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-007_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-007		56684

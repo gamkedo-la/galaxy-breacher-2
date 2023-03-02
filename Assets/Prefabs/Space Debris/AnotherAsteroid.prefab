@@ -143,3 +143,4 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: AsteroidExplode

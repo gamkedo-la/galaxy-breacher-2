@@ -110,6 +110,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="AsteroidExplode" ID="{6DFBE572-7206-40AA-8614-1F6384FCA091}">
+					<ChildrenList>
+						<Action Name="" ID="{A647D22B-5CA8-4B2A-BCDE-3C779C96941C}" ShortID="37958335">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Asteroid_Explode" ID="{1910B272-5ABC-4625-98B0-E8B8ABB6C048}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
