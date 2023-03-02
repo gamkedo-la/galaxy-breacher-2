@@ -21,6 +21,8 @@ public class PlayerControl : MonoBehaviour
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
+    private const float delayBetweenHarm = 0.3f;
+    private float waitingBetweenDamage = 0.0f;
 
     [Space(10)]
     [Header("Movement Properties")]
@@ -166,6 +168,9 @@ public class PlayerControl : MonoBehaviour
     }
 
     void Update() {
+        if (waitingBetweenDamage > 0.0f) {
+            waitingBetweenDamage -= Time.deltaTime;
+        }
         if (Input.GetKeyDown(KeyCode.P)) {
             gamePaused = !gamePaused;
             pauseUI.active = gamePaused;
@@ -452,6 +457,14 @@ public class PlayerControl : MonoBehaviour
                 Destroy(bigShip, 3f);
             }
         }
+    }
+
+    public void ReceiveDamagePaced() {
+        if(waitingBetweenDamage>0.0f) {
+            return;
+        }
+        waitingBetweenDamage = delayBetweenHarm;
+        healthShieldUI.TakeDamage();
     }
 
     void OnCollisionEnter(Collision collision) {

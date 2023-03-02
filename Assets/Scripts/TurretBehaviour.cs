@@ -70,6 +70,13 @@ public class TurretBehaviour : MonoBehaviour
             if (firingLaserTimer > 0.0f) {
                 firingLaserTimer -= Time.deltaTime;
                 myLaserLine.SetPosition(1, myLaserLine.transform.position + myLaserLine.transform.forward * 3000.0f);
+                if (Physics.Raycast(myLaserLine.transform.position, myLaserLine.transform.forward, out RaycastHit hit, 3000.0f)) {
+                    PlayerControl playerScript = hit.collider.GetComponent<PlayerControl>();
+                    if(playerScript) {
+                        Debug.Log("player taking laser damage");
+                        playerScript.ReceiveDamagePaced();
+                    }
+                }
             } else {
                 myLaserLine.SetPosition(1, myLaserLine.transform.position);
             }

@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 876611681558507791}
   - component: {fileID: 3894345209001668807}
   - component: {fileID: 3691431144102352177}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TargettingSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
