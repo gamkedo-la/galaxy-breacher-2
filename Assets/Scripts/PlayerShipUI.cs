@@ -43,6 +43,7 @@ public class PlayerShipUI : MonoBehaviour
         if(shield > 0) {
             shield--;
         } else {
+            AkSoundEngine.PostEvent("Player_Cabin_Warning", gameObject);
             hull--;
             if (hull < 0) {
                 hull = 0;

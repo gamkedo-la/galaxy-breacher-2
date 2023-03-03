@@ -460,7 +460,6 @@ public class PlayerControl : MonoBehaviour
         if(waitingBetweenDamage>0.0f) {
             return;
         }
-        AkSoundEngine.PostEvent("Player_Cabin_Warning", gameObject);
         damageLighting.SetTrigger("Damage");
         damageSound.Play();
 
