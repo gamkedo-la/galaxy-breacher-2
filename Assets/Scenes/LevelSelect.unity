@@ -153,6 +153,7 @@ RectTransform:
   m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1137157346}
   - {fileID: 1558885207}
   m_Father: {fileID: 1665806359}
   m_RootOrder: 1
@@ -1027,6 +1028,173 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1137157345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137157346}
+  - component: {fileID: 1137157348}
+  - component: {fileID: 1137157347}
+  m_Layer: 5
+  m_Name: Credits text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1137157346
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137157345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 48800751}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1137157347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137157345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "-Chris DeLeon: Project lead, core gameplay, main controls, fueler and
+    midsize ship level designs, level select, shield generator functionality, debugging
+    visualizations, overall game flow\n-Syed Daniyal Ali: Player guided missile functionality,
+    machine gun functionality and visual effects, big and small ship collision/damage
+    setups, AI ship movement additional integration, control inversion menu hookup\n-Paul
+    Naser: Audio lead, WWISE technical integration, sound effects authoring and implementation
+    (including autocannon, player missile firing, explosions, ship engines, shield
+    generator), music looping, linux support fixes and webGL compatibility experiments,
+    machine gun spark effect improvements, rocket collision fix, support for more
+    explosion audio variations, asteroid explosion randomizations\n-Patrick Moffett:
+    Cockpit model with animated buttons, player laser (including overhead UI and
+    functionality), laser related sounds, enemy destroyability functionality, collision
+    fixes, missile improvements, forcefield shield handling\n-Neil Urwin: Freighter
+    boss scene (including models, functionality, latch sound, mission hookups), targeting
+    HUD\n-Joshua Yee: Shield and hull damage functionality with related UI, health
+    pickups, boss completion counter functionality and display, weapon UI, asteroid
+    collision damage\n-Maxim Kulkin: Enemy ship movement AI main functionality (formations,
+    chase, avoidance, path tracking with speed controls), decision level and navigation
+    logic, fueler boss physics fixes\n-Simon J Hoffiz: Ominous Gameplay Music\n-Abhishek
+    @akhmin_ak: Menu music\n-Cassidy Noble: Hard surface ship models (Orion, Spider),
+    damage alert light effect, satellite\n-FightEXP: Story and in-game writing\n-Rob
+    Kayson: Ally ship (model and code), generated asteroid model, nebula shader,
+    sprite billboarding\n-Cooper Willis: Turret functionality\n-Gabriel Cornish:
+    Ship explosions (small and giant), gas clouds, modular ship turret\n-Ian Cherabier:
+    Intro cutscene animation, particle explosion bug fix\n-Michael \"Misha\" Fewkes:
+    HUD, ship barometer display\n-Christer \"McFunkypants\" Kaitila: Greeble generator,
+    celestial planets, hull materials\n-Tyler Funk: Organic ship model\n-Bar\u0131\u015F
+    K\xF6kl\xFC: Ship dock spawner functionality\n-Jonathan Peterson: Turret mode,
+    invert vertical input support\n-Sergio Ferrer: Asteroid model variant, including
+    integration\n-Jared Rigby: Asteroid model variant\n-Patrick McKeown: Additional
+    sound effects (enemy shot misses, lock acquired)\n-Ryan Gaillard: Pitch/roll
+    support for mouse and gamepad\n-Rodrigo Bonzerr Lopez: Turret firing sound\n-Erin
+    Weaver: Practice commit\n"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15.85
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 6
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1137157348
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137157345}
+  m_CullTransparentMesh: 0
 --- !u!1 &1138015543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,13 +2330,13 @@ RectTransform:
   m_Children:
   - {fileID: 1655263437}
   m_Father: {fileID: 48800751}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 721.5369, y: -656.7329}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1558885208
 MonoBehaviour:
   m_ObjectHideFlags: 0
