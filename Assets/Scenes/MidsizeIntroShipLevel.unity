@@ -265,6 +265,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!114 &77081313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +282,51 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
+--- !u!1 &132892446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132892448}
+  - component: {fileID: 132892447}
+  m_Layer: 0
+  m_Name: ToggleSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &132892447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132892446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb5f9fafbb5474448b78bd8c2306dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &132892448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132892446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &201828363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,6 +1061,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!1 &487040188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2926952704039944314, guid: 2fdfaaab198098b4ab0d06d8d44e2242, type: 3}
@@ -2169,6 +2216,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!65 &1021325912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2218,6 +2266,24 @@ Transform:
   m_Father: {fileID: 883853332}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1088094015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1129072660536437488, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+  m_PrefabInstance: {fileID: 5444891241871291480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1088094018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088094015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e32375af2f5e714aa2cf046422d1da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControl: {fileID: 5444891241871291485}
 --- !u!1001 &1224565760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2919,6 +2985,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!114 &1659492457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2935,6 +3002,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!224 &1710227790 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736260131321166365, guid: 7167d83941222425fa4151b7033023c4, type: 3}
@@ -3428,7 +3496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2064630353
 PrefabInstance:
@@ -3570,6 +3638,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 0}
   ExplosionPosition: {fileID: 0}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!1 &2138736124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3872,6 +3941,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 3829779331374165189}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!54 &1655127124689798315
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4482,6 +4552,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 4618264568876610761}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!114 &4801196279796754644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4498,6 +4569,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 4618264568492866333}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!33 &4821635815543710909
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4645,6 +4717,34 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Astroid
       objectReference: {fileID: 0}
+    - target: {fileID: 1129072660536437488, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_Name
+      value: Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 132892446}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139033342620579177, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2514567956912682142, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4714,8 +4814,16 @@ PrefabInstance:
       value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: invertPitchAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: maximumDistance
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: turretControlMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: turrets.Array.size
@@ -4789,13 +4897,33 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5022254788367092066, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022254788367092066, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022254788367092066, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 88
+      objectReference: {fileID: 0}
     - target: {fileID: 5438400498411590713, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6418654736577625731, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6575920455855036510, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.12230315
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200153724366535145, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2736260132777659542, guid: 7167d83941222425fa4151b7033023c4, type: 3}
@@ -4806,6 +4934,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2736260131773347448, guid: 7167d83941222425fa4151b7033023c4, type: 3}
   m_PrefabInstance: {fileID: 5444891241871291480}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5444891241871291485 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2736260131773347449, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+  m_PrefabInstance: {fileID: 5444891241871291480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0427eec4f4b4bdf8a191cb41b7bc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5505267550764975415
 Transform:
   m_ObjectHideFlags: 0
@@ -5375,6 +5514,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 7160836664449760438}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!4 &7271869176263951025
 Transform:
   m_ObjectHideFlags: 0
@@ -5408,6 +5548,7 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 7388796890308770861}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!1 &7388796890308770860
 GameObject:
   m_ObjectHideFlags: 0
