@@ -11,7 +11,7 @@ public class ToggleSettings : MonoBehaviour
     private void Start()
     {
         if(inversionToggle == null) {
-            Debug.LogWarning("inversionToggle was not set?");
+            // Debug.LogWarning("inversionToggle was not found");
             return;
         }
         if ((PlayerPrefs.GetInt(checkInversionToggle) == 1))
@@ -33,7 +33,7 @@ public class ToggleSettings : MonoBehaviour
     private static void SetInversion()
     {
         if (inversionToggle == null) {
-            Debug.LogWarning("inversionToggle was not set?");
+            //Debug.LogWarning("inversionToggle was not found");
             return;
         }
         if (inversionToggle.isOn == true)
