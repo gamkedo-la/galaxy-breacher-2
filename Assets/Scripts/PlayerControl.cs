@@ -129,6 +129,7 @@ public class PlayerControl : MonoBehaviour
         turretCount = -1;
         StartCoroutine(MGFireCheck());
         Cursor.lockState = CursorLockMode.Locked;
+        SetPauseState(false); // hide panel if open at start
     }
 
     void RefreshEngineVolume()
@@ -173,6 +174,20 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void SetPauseState(bool isPaused) {
+        gamePaused = isPaused;
+        pauseUI.active = gamePaused;
+        gameplayUI.active = (gamePaused == false);
+        if (gamePaused) {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        } else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        Time.timeScale = (gamePaused ? 0.0f : 1.0f);
+    }
+
     void Update()
     {
         if (waitingBetweenDamage > 0.0f)
@@ -181,20 +196,7 @@ public class PlayerControl : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            gamePaused = !gamePaused;
-            pauseUI.active = gamePaused;
-            gameplayUI.active = (gamePaused == false);
-            if (gamePaused)
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            Time.timeScale = (gamePaused ? 0.0f : 1.0f);
+            SetPauseState(!gamePaused);
         }
 
         if (gamePaused)
