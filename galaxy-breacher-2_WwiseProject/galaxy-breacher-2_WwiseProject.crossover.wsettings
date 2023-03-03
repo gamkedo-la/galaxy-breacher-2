@@ -13,6 +13,7 @@
 				<Property Name="Event Action List\{B3D45BC9-ADA5-4240-87DB-B8CAA001951B}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{BF16C71A-FCEF-4E35-AEF7-AADB335EEBA1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{E7A07A86-589F-49F5-8741-E522A96C7B1F}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F1EAC989-CFB0-4887-B696-80CFAEE51DE2}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="EventView\FilterMode2" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
@@ -38,6 +39,8 @@
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="MhhAChrNeUWfEgNKsG3pRQ=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
 				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups_v2" Type="string" Value="iin1JfGxSEy+2Xbvlt+gXwEAAAAAAAAAwB+NDQAAAADA8SsNAAAAAMCRZwIAAAAA4KQCAgAAAAAEkkQAAAAAAABCmQ0AAAAAAHmKDQAAAAAIAAAAAAAAAMjlIQAAAAAAAABZAAAAAAAfAVkAAAAAAAAAWQAAAAAAwKQCAgAAAADApAICAAAAAIgEaQIAAAAAAQAAACHiIY0RAMRPiXOr3CGAvPIBAAAAAAAAAMAfjQ0AAAAAwPErDQAAAADAkWcCAAAAAOCkAgIAAAAABJJEAAAAAAAAQpkNAAAAAAB5ig0AAAAACAAAAAAAAADI5SEAAAAAAAAAWQAAAAAAHwFZAAAAAAAAAFkAAAAAAMCkAgIAAAAAwKQCAgAAAACIBGkCAAAAAAEAAAA="/>
+				<Property Name="Interactive Music\x64_{0324121B-E2A6-4991-AA64-96FBE9CBB685} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwP8RB/6EMREVAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
+				<Property Name="Interactive Music\x64_{ECE4E878-9A06-4935-B9BF-F76ABFCFC787} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwPwAAAAAA7HdAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>
@@ -48,6 +51,18 @@
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFilterVersion" Type="int32" Value="1"/>
 				<Property Name="MonitoringManager\GameObjectFilter\GameObjectFiltersEnable" Type="bool" Value="True"/>
 				<Property Name="MonitoringManager\GameObjectFilter\x64_GameObjectFilters" Type="string" Value=""/>
+				<Property Name="Music Transition List\{17BBB270-F153-4A33-A432-2330F1638A46}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{17BBB270-F153-4A33-A432-2330F1638A46}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{1924A8E8-9D36-477A-BFA4-9BFF9525DE34}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{1924A8E8-9D36-477A-BFA4-9BFF9525DE34}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{1FAB915E-79E2-4C49-A4E9-A3CE75F1FE72}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{1FAB915E-79E2-4C49-A4E9-A3CE75F1FE72}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{92B4F398-F1E3-4B27-8CAC-37D77A4F5E6C}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{92B4F398-F1E3-4B27-8CAC-37D77A4F5E6C}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{D41CD4AD-8FE1-4B1E-80DF-694026773796}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{D41CD4AD-8FE1-4B1E-80DF-694026773796}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{EB13D523-A5E2-4012-A57C-0CBC5A582E46}\Scroll Position" Type="int32" Value="0"/>
+				<Property Name="Music Transition List\{EB13D523-A5E2-4012-A57C-0CBC5A582E46}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{031E1E2C-DC25-4332-80C3-FFCC371AC803}" Type="string" Value=""/>
 				<Property Name="ObjectTabPanel\x64_CurrentObjects_{D5805147-985E-4C5B-B817-369AF1B7184D}" Type="string" Value="ewBDAEEANgBBADYAQQBFADIALQA1AEMAMQA5AC0ANABDADgAOAAtAEEAOAAzADkALQA1AEIANgBEADQANABDAEYAQwA1ADUAOQB9AAAAAAE="/>
 				<Property Name="OverrideCacheFolder\Active" Type="bool" Value="False"/>

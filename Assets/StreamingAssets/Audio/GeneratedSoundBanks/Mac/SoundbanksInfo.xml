@@ -161,7 +161,7 @@
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{273F9A21-D522-04FD-05A1-F8D0CA17B4E4}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{82F5F4A9-6D03-8C80-398D-8FFB15461C65}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -179,7 +179,23 @@
 				<GameParameter Id="3677180323" Name="Health"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="762757699" Name="Gameplay_State">
+					<States>
+						<State Id="89505537" Name="Gameplay"/>
+						<State Id="2607556080" Name="Menu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2702523344" Name="Gameplay_Switch">
+					<Switches>
+						<Switch Id="89505537" Name="Gameplay"/>
+						<Switch Id="2607556080" Name="Menu"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{281F0352-FD4D-4D02-7A0D-914BB37A928B}</FileHash>
+	<FileHash>{5AF67E3B-E21F-024F-BF24-B78911C0DE55}</FileHash>
 </SoundBanksInfo>

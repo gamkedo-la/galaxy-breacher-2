@@ -26,6 +26,36 @@ namespace AK
         static const AkUniqueID SHIPHIT = 2174516238U;
     } // namespace EVENTS
 
+    namespace STATES
+    {
+        namespace GAMEPLAY_STATE
+        {
+            static const AkUniqueID GROUP = 762757699U;
+
+            namespace STATE
+            {
+                static const AkUniqueID GAMEPLAY = 89505537U;
+                static const AkUniqueID MENU = 2607556080U;
+            } // namespace STATE
+        } // namespace GAMEPLAY_STATE
+
+    } // namespace STATES
+
+    namespace SWITCHES
+    {
+        namespace GAMEPLAY_SWITCH
+        {
+            static const AkUniqueID GROUP = 2702523344U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID GAMEPLAY = 89505537U;
+                static const AkUniqueID MENU = 2607556080U;
+            } // namespace SWITCH
+        } // namespace GAMEPLAY_SWITCH
+
+    } // namespace SWITCHES
+
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID HEALTH = 3677180323U;

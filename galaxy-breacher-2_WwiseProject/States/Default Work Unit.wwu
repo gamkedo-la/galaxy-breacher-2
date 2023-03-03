@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9ACAA1B6-E076-438A-B448-75EDA90915BF}" SchemaVersion="110">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{9ACAA1B6-E076-438A-B448-75EDA90915BF}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9ACAA1B6-E076-438A-B448-75EDA90915BF}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Gameplay_State" ID="{D9D5B92F-D678-4BFD-8C46-9F8F67925D21}">
+					<ChildrenList>
+						<State Name="Menu" ID="{017C75A7-8E03-4A59-9A04-169F64ED5543}"/>
+						<State Name="Gameplay" ID="{B43FB0D3-2FBB-429A-9FB9-9BB1A6F33412}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="Menu" ID="{017C75A7-8E03-4A59-9A04-169F64ED5543}"/>
+							<EndState Name="Gameplay" ID="{B43FB0D3-2FBB-429A-9FB9-9BB1A6F33412}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Gameplay" ID="{B43FB0D3-2FBB-429A-9FB9-9BB1A6F33412}"/>
+							<EndState Name="Menu" ID="{017C75A7-8E03-4A59-9A04-169F64ED5543}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
