@@ -89,7 +89,7 @@ public class PlayerControl : MonoBehaviour
 
     [Space(10)]
     [Header("Audio Properties")]
-    
+
     public AudioSource damageSound;
 
     [SerializeField] AudioClip laserSFX;
@@ -109,14 +109,17 @@ public class PlayerControl : MonoBehaviour
     private Camera fpsCamera;
     Color color;
 
+
     void Awake()
     {
         instance = this; // singleton for AI to aim etc
     }
 
-    void Start() { 
-        AkSoundEngine.PostEvent("Player_Engine" ,gameObject);
-         if(turretControlMode) {
+    void Start()
+    {
+        AkSoundEngine.PostEvent("Player_Engine", gameObject);
+        if (turretControlMode)
+        {
             turretUpward = transform.forward;
         }
 
@@ -126,16 +129,20 @@ public class PlayerControl : MonoBehaviour
         turretCount = -1;
         StartCoroutine(MGFireCheck());
         Cursor.lockState = CursorLockMode.Locked;
+        SetPauseState(false); // hide panel if open at start
     }
 
     void RefreshEngineVolume()
     {
 
-        if(turretControlMode) {
+        if (turretControlMode)
+        {
             // player ship doesn't move at this level, have engine idle at low volume
             //engineLoopWeak.volume = 1.0f;
             //engineLoopStrong.volume = 0f;
-        } else {
+        }
+        else
+        {
             float enginePowerFade = Mathf.Abs(speedNow / maxForwardSpeed); // velocity as main component
 
             float strafeEngineEffect = 0.55f * (
@@ -147,7 +154,7 @@ public class PlayerControl : MonoBehaviour
             enginePowerFade = Mathf.Clamp(enginePowerFade, 0.0f, 1.0f);
             AkSoundEngine.SetRTPCValue("Player_Engine_Strength", enginePowerFade, gameObject);
             AkSoundEngine.SetRTPCValue("Player_Engine_Strength_2", enginePowerFade, gameObject);
-            
+
             //set weak/strong param in wwise event based on engine power fade (0 to 1)
             //engineLoopWeak.volume = 1.0f - enginePowerFade;
             //engineLoopStrong.volume = enginePowerFade;
@@ -167,32 +174,42 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void Update() {
-        if (waitingBetweenDamage > 0.0f) {
+    void SetPauseState(bool isPaused) {
+        gamePaused = isPaused;
+        pauseUI.active = gamePaused;
+        gameplayUI.active = (gamePaused == false);
+        if (gamePaused) {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        } else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        Time.timeScale = (gamePaused ? 0.0f : 1.0f);
+    }
+
+    void Update()
+    {
+        if (waitingBetweenDamage > 0.0f)
+        {
             waitingBetweenDamage -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.P)) {
-            gamePaused = !gamePaused;
-            pauseUI.active = gamePaused;
-            gameplayUI.active = (gamePaused == false);
-            if(gamePaused) {
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
-            } else {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            Time.timeScale = (gamePaused ? 0.0f : 1.0f);
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SetPauseState(!gamePaused);
         }
 
-        if(gamePaused) {
+        if (gamePaused)
+        {
             return; // no control input handling while paused other than P toggle key
         }
 
         RefreshEngineVolume();
 
-        if (turretControlMode == false) {
-            if (Cursor.lockState == CursorLockMode.Locked && Cursor.visible == false) {
+        if (turretControlMode == false)
+        {
+            if (Cursor.lockState == CursorLockMode.Locked && Cursor.visible == false)
+            {
                 transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
                 transform.Rotate(Vector3.right, (invertPitchAxis ? 1.0f : -1.0f) * Input.GetAxis("Pitch") * pitchSpeed * Time.deltaTime);
             }
@@ -213,13 +230,15 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = moveVec;
 
             speedIndicator.text = "Speed: " + Mathf.Round(speedNow * 100.0f);
-        } else {
+        }
+        else
+        {
             turretYaw += Input.GetAxis("Roll");
-            turretYaw = Mathf.Clamp(turretYaw,-90f,90f);
+            turretYaw = Mathf.Clamp(turretYaw, -90f, 90f);
             turretPitch += Input.GetAxis("Pitch") * (invertPitchAxis ? 1.0f : -1.0f);
             turretPitch = Mathf.Clamp(turretPitch, -90f, 90f);
             transform.rotation = Quaternion.LookRotation(turretUpward)
-                                 * Quaternion.AngleAxis(turretYaw,Vector3.up)
+                                 * Quaternion.AngleAxis(turretYaw, Vector3.up)
                                  * Quaternion.AngleAxis(turretPitch, Vector3.right);
             speedIndicator.text = "TURRET";
         }
@@ -268,7 +287,8 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     { // using % per frame would be unsafe in variable framerate Update
-        if (gamePaused) {
+        if (gamePaused)
+        {
             return; // no updates while paused
         }
         speedNow = speedNow * throttleKeptFromPrevFrame + throttleTarget * (1.0f - throttleKeptFromPrevFrame);
@@ -280,7 +300,8 @@ public class PlayerControl : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, Rocketrange))
         {
-            if (showPlayerWeaponDebug) {
+            if (showPlayerWeaponDebug)
+            {
                 Debug.Log("Rocket tracking: " + hit.transform.name);
             }
             shotGO.transform.LookAt(hit.point);
@@ -291,8 +312,8 @@ public class PlayerControl : MonoBehaviour
     {
         GameObject shotGO1 = GameObject.Instantiate(blastPrefab, fireFromMachine1.position, transform.rotation);
         shotGO1.transform.SetParent(transform);
-        AkSoundEngine.PostEvent("MachineGun" ,gameObject);
-      
+        AkSoundEngine.PostEvent("MachineGun", gameObject);
+
         GameObject shotGO2 = GameObject.Instantiate(blastPrefab, fireFromMachine2.position, transform.rotation);
         shotGO2.transform.SetParent(transform);
 
@@ -300,18 +321,26 @@ public class PlayerControl : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, machineRange))
         {
             IDamageable damageable = hit.collider.gameObject.GetComponentInParent<IDamageable>();
-            if (damageable != null) {
-                if (hit.collider.tag == "Shield") {
-                    if (showPlayerWeaponDebug) {
+            if (damageable != null)
+            {
+                if (hit.collider.tag == "Shield")
+                {
+                    if (showPlayerWeaponDebug)
+                    {
                         Debug.Log("shield blocked MG");
                     }
-                } else {
-                    if (showPlayerWeaponDebug) {
+                }
+                else
+                {
+                    if (showPlayerWeaponDebug)
+                    {
                         Debug.Log(hit.transform.name + " taking damage from MG");
                     }
                     damageable.TakeDamage(1); // smallest damage increment
                 }
-            } else if(showPlayerWeaponDebug) {
+            }
+            else if (showPlayerWeaponDebug)
+            {
                 Debug.Log("no damageable found for " + hit.transform.name);
             }
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.point, Quaternion.identity);
@@ -347,18 +376,26 @@ public class PlayerControl : MonoBehaviour
                 if (laserHit)
                 {
                     IDamageable damageable = hitInfo.collider.gameObject.GetComponentInParent<IDamageable>();
-                    if (damageable != null) {
-                        if (hitInfo.collider.tag == "Shield") {
-                            if (showPlayerWeaponDebug) {
+                    if (damageable != null)
+                    {
+                        if (hitInfo.collider.tag == "Shield")
+                        {
+                            if (showPlayerWeaponDebug)
+                            {
                                 Debug.Log("shield blocked laser");
                             }
-                        } else {
-                            if (showPlayerWeaponDebug) {
+                        }
+                        else
+                        {
+                            if (showPlayerWeaponDebug)
+                            {
                                 Debug.Log(hitInfo.transform.name + " taking damage from laser");
                             }
                             damageable.TakeDamage(laserDamagePerSecond / laserFireRate);
                         }
-                    } else if(showPlayerWeaponDebug) {
+                    }
+                    else if (showPlayerWeaponDebug)
+                    {
                         Debug.Log("no damageable found for " + hitInfo.transform.name);
                     }
                 }
@@ -456,8 +493,10 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void ReceiveDamagePaced() {
-        if(waitingBetweenDamage>0.0f) {
+    public void ReceiveDamagePaced()
+    {
+        if (waitingBetweenDamage > 0.0f)
+        {
             return;
         }
         damageLighting.SetTrigger("Damage");
@@ -467,17 +506,21 @@ public class PlayerControl : MonoBehaviour
         healthShieldUI.TakeDamage();
     }
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collision)
+    {
         Debug.Log("hit player: " + collision.gameObject.name);
-        if (collision.gameObject.tag == "HullPickUp") {
+        if (collision.gameObject.tag == "HullPickUp")
+        {
             healthShieldUI.HealHull();
         }
-        if (collision.gameObject.tag == "Astroid") {
+        if (collision.gameObject.tag == "Astroid")
+        {
             healthShieldUI.TakeDamage();
         }
     }
 
-    public void PauseGame(){
-        gamePaused = true;
+    public void SetInversion(bool inversion)
+    {
+        invertPitchAxis = inversion;
     }
 }
