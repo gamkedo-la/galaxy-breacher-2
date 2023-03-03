@@ -9,6 +9,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3350296686	PlayerMissile			\Default Work Unit\Weapons\PlayerMissile	
 	3399820685	Player_Cabin_Warning			\Default Work Unit\Player_Cabin_Warning	
 	3678545986	MachineGun			\Default Work Unit\Weapons\MachineGun	
+	4277599612	ShieldGeneratorExplode			\Default Work Unit\ShieldGeneratorExplode	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2596356677	Player_Engine_Strength			\Default Work Unit\Player_Engine_Strength	
@@ -20,6 +21,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	66473765	galaxy_breacher_player_autocannon01-001	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-001		61120
 	82971873	galaxy_breacher_player_autocannon01-007	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-007_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-007		56684
 	96576857	latch_release	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\latch_release_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Latch_Release\latch_release		98400
+	220302731	ShieldGeneratorExplode	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\ShieldGeneratorExplode_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShieldGeneratorExplode\ShieldGeneratorExplode		314096
 	256741455	galaxy_breacher_player_autocannon01-008	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\galaxy_breacher_player_autocannon01-008_EBAF0222.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-008		73936
 	278353768	explode-hit	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\explode-hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShipHit\explode-hit		59252
 	322653846	Laser_OverHeat	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Windows\SFX\LaserOverheat_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Laser\Laser_OverHeat		68154

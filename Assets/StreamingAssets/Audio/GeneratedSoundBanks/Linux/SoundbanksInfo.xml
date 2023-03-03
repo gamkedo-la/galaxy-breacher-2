@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{DE27D626-9888-0B86-8E57-B616C6D54DDE}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{C57F90B9-DC81-89F6-F694-E2CBE0018B6A}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -32,6 +32,10 @@
 				<File Id="96576857" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>latch_release.wav</ShortName>
 					<CachePath>SFX/latch_release_10C4C929.wem</CachePath>
+				</File>
+				<File Id="220302731" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ShieldGeneratorExplode.wav</ShortName>
+					<CachePath>SFX/ShieldGeneratorExplode_10C4C929.wem</CachePath>
 				</File>
 				<File Id="256741455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-008.wav</ShortName>
@@ -136,6 +140,11 @@
 						<MediaRef Id="826186364"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4277599612" Name="ShieldGeneratorExplode" DurationType="OneShot" DurationMin="1.7800454" DurationMax="1.7800454">
+					<MediaRefs>
+						<MediaRef Id="220302731"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="169528066" Name="ShipExplode" DurationType="OneShot" DurationMin="1.6685715" DurationMax="1.6685715">
 					<MediaRefs>
 						<MediaRef Id="901428642"/>
@@ -172,5 +181,5 @@
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6306E4BD-F701-6FCC-01B2-EB0580FCBFC7}</FileHash>
+	<FileHash>{79A8BB4C-41D6-9CA7-59FA-2AF8E363997E}</FileHash>
 </SoundBanksInfo>

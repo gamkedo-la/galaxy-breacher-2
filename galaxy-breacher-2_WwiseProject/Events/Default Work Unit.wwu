@@ -121,6 +121,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="ShieldGeneratorExplode" ID="{F1EAC989-CFB0-4887-B696-80CFAEE51DE2}">
+					<ChildrenList>
+						<Action Name="" ID="{2F9B5B35-0C62-4D15-B80C-9718949A5AC1}" ShortID="1066141229">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ShieldGeneratorExplode" ID="{7DC585AB-B1E5-4557-90FE-5C6E50CA8F7D}" WorkUnitID="{9C1D78CE-9548-4FD4-B4C3-B856F25A2E50}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

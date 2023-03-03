@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID PLAYER_ENGINE = 3211629375U;
         static const AkUniqueID PLAYER_LASER = 249456450U;
         static const AkUniqueID PLAYERMISSILE = 3350296686U;
+        static const AkUniqueID SHIELDGENERATOREXPLODE = 4277599612U;
         static const AkUniqueID SHIPEXPLODE = 169528066U;
         static const AkUniqueID SHIPHIT = 2174516238U;
     } // namespace EVENTS
