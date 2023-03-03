@@ -7,21 +7,13 @@ public class MagneticLatch : MonoBehaviour
 
     [SerializeField] Rigidbody constrainedRigidBody;
     [SerializeField] Vector3 releaseForce;
+    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R)){
-            constrainedRigidBody.constraints = 0b00;
+    public void Release(){
+        constrainedRigidBody.constraints = 0b00;
             constrainedRigidBody.isKinematic = false;
-            constrainedRigidBody.AddForce(constrainedRigidBody.transform.TransformVector(releaseForce), ForceMode.Impulse);
+            constrainedRigidBody.AddExplosionForce(releaseForce.y, transform.parent.position, 1000f,0f, ForceMode.Impulse);
+            //constrainedRigidBody.AddForce(constrainedRigidBody.transform.TransformVector(releaseForce), ForceMode.Impulse);
             AkSoundEngine.PostEvent("LatchRelease", gameObject);
-        }
     }
 }

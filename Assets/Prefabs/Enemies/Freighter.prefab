@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6971229413955470302}
   - component: {fileID: 5898460553312903419}
   - component: {fileID: 9000257615569946229}
+  - component: {fileID: 1175518857970648279}
+  - component: {fileID: 1551946109975155871}
   m_Layer: 0
   m_Name: Freighter
   m_TagString: Untagged
@@ -188,6 +190,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1175518857970648279
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29035828852976807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1551946109975155871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29035828852976807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfbe9973b3b05b4a954a776b32e31c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 50
 --- !u!1 &366905903384283180
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,8 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 72954335178646056}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &471457572292524024
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3262412819768561934}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &919233998190691386
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,8 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3796312673107650792}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &1056359163384190287
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,8 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 8589494245572903526}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &2800910329942674116
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,8 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 6468707574586669673}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &2936611969592851744
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,8 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454059582891183}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3177810600820226627
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,8 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 6929610688474540753}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3327771384399700367
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,8 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3504159281394741963}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3366725966718024411
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,8 +961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 4895495212062044508}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3389979204212532288
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,8 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 4107283822669033958}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3568929224426155110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,8 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 655567235243044774}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &3880569249987343093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,8 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 1438176386091970060}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4407283587570857350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,8 +1480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454058408322923}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4713708977090984857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,8 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454058171278831}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4713708977831473417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,8 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454058111165800}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4713708978253761538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,8 +1742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454057832360171}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4713708978572874827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,8 +1789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3675454059763138350}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &4834724335123755847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,8 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3806011724160632486}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &5551112058471428322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,8 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 8945769144687794303}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &5630413171579065367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,8 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 5969010616270823277}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &5901459148231721046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,8 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 2984923064151950831}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &6335159248041487596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,8 +2531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 3758170217300902847}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &7474895142280183370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,8 +2649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 902756427141552754}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1 &8911000383920573331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,8 +2696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constrainedRigidBody: {fileID: 1669942729223945522}
-  releaseForce: {x: 0, y: 10, z: 0}
-  latchAudioSource: {fileID: 9000257615569946229}
+  releaseForce: {x: 0, y: 100, z: 0}
 --- !u!1001 &74829629282762283
 PrefabInstance:
   m_ObjectHideFlags: 0

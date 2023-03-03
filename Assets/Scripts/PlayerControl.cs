@@ -476,4 +476,8 @@ public class PlayerControl : MonoBehaviour
             healthShieldUI.TakeDamage();
         }
     }
+
+    public void PauseGame(){
+        gamePaused = true;
+    }
 }

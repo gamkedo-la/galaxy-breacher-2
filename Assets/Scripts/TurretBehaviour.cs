@@ -23,6 +23,8 @@ public class TurretBehaviour : MonoBehaviour
 
     private bool canShoot;
 
+    bool deactivate = false;
+
 
 
     void Start()
@@ -38,6 +40,10 @@ public class TurretBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(deactivate){
+            return;
+        }
+
         // do a bunch of work to a get a valid range for shooting
         heading = transform.forward;
         playerInRange = false;        
@@ -93,6 +99,10 @@ public class TurretBehaviour : MonoBehaviour
 
     void FixedUpdate() // slerp uses % so can't be in update which is framerate dependent
     {
+        if(deactivate){
+            return;
+        }
+
         Vector3 dirToPlayer = PlayerControl.instance.transform.position - transform.position;
         if (Vector3.Angle(dirToPlayer, originalCenterOrientation) > 85.0f) {
             // Debug.Log("outside shootable range");
@@ -101,6 +111,11 @@ public class TurretBehaviour : MonoBehaviour
         Quaternion targetAng = Quaternion.LookRotation(dirToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetAng, aimSpeed);
 
+    }
+
+    public void Deactivate(){
+        deactivate = true;
+        myLaserLine.enabled = false;
     }
 }
 

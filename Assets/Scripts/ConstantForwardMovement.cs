@@ -9,7 +9,9 @@ public class ConstantForwardMovement : MonoBehaviour
     PlayerControl playerControl;
 
     [SerializeField] float speed = 5f;
-    
+
+    public float Speed { get => speed; set => speed = value; }
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
     }
