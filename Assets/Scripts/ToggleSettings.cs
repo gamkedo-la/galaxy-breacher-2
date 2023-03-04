@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class ToggleSettings : MonoBehaviour
 {
-    static Toggle inversionToggle;
+    public Toggle inversionToggle;
     const string checkInversionToggle = "INVERSION";
 
-    private void Start()
+    private void Awake()
     {
-        if(inversionToggle == null) {
-            // Debug.LogWarning("inversionToggle was not found");
+        if (inversionToggle == null)
+        {
             return;
         }
-        if ((PlayerPrefs.GetInt(checkInversionToggle) == 1))
+
+        if (PlayerPrefs.GetInt(checkInversionToggle) == 1)
         {
             inversionToggle.isOn = true;
         }
@@ -24,18 +25,13 @@ public class ToggleSettings : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void SetInversion()
     {
-        SetInversion();
-    }
-
-
-    private static void SetInversion()
-    {
-        if (inversionToggle == null) {
-            //Debug.LogWarning("inversionToggle was not found");
+        if (inversionToggle == null)
+        {
             return;
         }
+
         if (inversionToggle.isOn == true)
         {
             PlayerPrefs.SetInt(checkInversionToggle, 1);
@@ -45,5 +41,6 @@ public class ToggleSettings : MonoBehaviour
             PlayerPrefs.SetInt(checkInversionToggle, 0);
         }
 
+        PlayerPrefs.Save();
     }
 }
