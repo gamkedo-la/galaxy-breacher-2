@@ -113,6 +113,10 @@ GameObject:
   - component: {fileID: 703635127182010983}
   - component: {fileID: 1505860693399542595}
   - component: {fileID: 1505860693399542596}
+  - component: {fileID: 4228002197123020118}
+  - component: {fileID: 4228002197123020113}
+  - component: {fileID: 4228002197123020112}
+  - component: {fileID: 1717982621546196546}
   - component: {fileID: 2919953312978569386}
   m_Layer: 7
   m_Name: Spider
@@ -128,8 +132,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3277320421210441670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: -9.479537, y: -11.17421, z: 16.159042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -229,6 +233,62 @@ MonoBehaviour:
   ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
   ExplosionPosition: {fileID: 3829779331442743941}
   enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
+--- !u!114 &4228002197123020118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277320421210441670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa573113c022c0a4d90e7f51abb9d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+--- !u!114 &4228002197123020113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277320421210441670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3ba0f22cc7b624fb0e56e92614446a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4228002197123020112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277320421210441670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e13040f7399de47ad16c60d18d3e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  chasingRange: 130
+  rotationSpeed: 20
+--- !u!114 &1717982621546196546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277320421210441670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b887536cca2439e4c9904f137a321e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heading: {x: 0, y: 0, z: 0}
+  maxTurretAngle: 90
+  turretShotPrefab: {fileID: 5220101905546762837, guid: 44b5f3a9d369441499834283af1e5c81, type: 3}
 --- !u!114 &2919953312978569386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bef15e51399fce4e8a89d14dfd8205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  deathExplosion: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
+  maxHealth: 50
 --- !u!1 &5048484534689343551
 GameObject:
   m_ObjectHideFlags: 0
