@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="GameSoundBank" ID="{0A401832-CD1A-4579-9F12-034AB06DE945}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Default Work Unit" ID="{41FC167C-CCFE-47F7-9B5F-E90724E192E9}" WorkUnitID="{41FC167C-CCFE-47F7-9B5F-E90724E192E9}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Default Work Unit" ID="{CA6A6AE2-5C19-4C88-A839-5B6D44CFC559}" WorkUnitID="{CA6A6AE2-5C19-4C88-A839-5B6D44CFC559}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

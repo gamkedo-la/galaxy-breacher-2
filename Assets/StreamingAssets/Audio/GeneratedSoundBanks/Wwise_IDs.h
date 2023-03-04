@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ASTEROIDEXPLODE = 2099628641U;
+        static const AkUniqueID GAME_MUSIC = 258110631U;
         static const AkUniqueID LASER_OVERHEAT = 1417087857U;
         static const AkUniqueID LATCHRELEASE = 219087556U;
         static const AkUniqueID MACHINEGUN = 3678545986U;
@@ -25,21 +26,6 @@ namespace AK
         static const AkUniqueID SHIPEXPLODE = 169528066U;
         static const AkUniqueID SHIPHIT = 2174516238U;
     } // namespace EVENTS
-
-    namespace STATES
-    {
-        namespace GAMEPLAY_STATE
-        {
-            static const AkUniqueID GROUP = 762757699U;
-
-            namespace STATE
-            {
-                static const AkUniqueID GAMEPLAY = 89505537U;
-                static const AkUniqueID MENU = 2607556080U;
-            } // namespace STATE
-        } // namespace GAMEPLAY_STATE
-
-    } // namespace STATES
 
     namespace SWITCHES
     {

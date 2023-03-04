@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	169528066	ShipExplode			\Default Work Unit\ShipExplode	
 	219087556	LatchRelease			\Default Work Unit\LatchRelease	
 	249456450	Player_Laser			\Default Work Unit\Weapons\Laser\Player_Laser	
+	258110631	Game_Music			\Default Work Unit\Game_Music	
 	1417087857	Laser_OverHeat			\Default Work Unit\Weapons\Laser\Laser_OverHeat	
 	2099628641	AsteroidExplode			\Default Work Unit\AsteroidExplode	
 	2174516238	ShipHit			\Default Work Unit\ShipHit	
@@ -10,6 +11,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	3399820685	Player_Cabin_Warning			\Default Work Unit\Player_Cabin_Warning	
 	3678545986	MachineGun			\Default Work Unit\Weapons\MachineGun	
 	4277599612	ShieldGeneratorExplode			\Default Work Unit\ShieldGeneratorExplode	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2702523344	Gameplay_Switch			\Default Work Unit\Gameplay_Switch	
+
+Switch	ID	Name	Switch Group			Notes
+	89505537	Gameplay	Gameplay_Switch			
+	2607556080	Menu	Gameplay_Switch			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2596356677	Player_Engine_Strength			\Default Work Unit\Player_Engine_Strength	
@@ -21,10 +29,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	66473765	galaxy_breacher_player_autocannon01-001	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-001		61120
 	82971873	galaxy_breacher_player_autocannon01-007	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-007_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-007		56684
 	96576857	latch_release	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\latch_release_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Latch_Release\latch_release		98400
+	139789681	Ominous Star_v01	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\Ominous Star_v01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Game_Music_Switch_container\Gameplay_Music\Gameplay_Music_Segment\Ominous Star_v01		7060312
 	220302731	ShieldGeneratorExplode	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\ShieldGeneratorExplode_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShieldGeneratorExplode\ShieldGeneratorExplode		314096
 	256741455	galaxy_breacher_player_autocannon01-008	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-008_EBAF0222.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-008		73936
 	278353768	explode-hit	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\explode-hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ShipHit\explode-hit		59252
 	322653846	Laser_OverHeat	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\LaserOverheat_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Laser\Laser_OverHeat		68154
+	334265296	rock&ahardplace_cleaned_trimmed_for_looping	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\rock&ahardplace_cleaned_trimmed_for_looping_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Game_Music_Switch_container\Menu_Music\Menu_Music_segment\rock&ahardplace_cleaned_trimmed_for_looping		5748908
 	334376500	galaxy_breacher_player_autocannon01-004	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\galaxy_breacher_player_autocannon01-004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\MachineGun\galaxy_breacher_player_autocannon01-004		67220
 	369368021	engine-strong	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\10-Engine_Strong-230216_1425-glued_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-strong		773484
 	375497622	engine-weak	Y:\Desktop\SFX_SESSIONS\HomeTeam GameDev\galaxy-breacher-2\galaxy-breacher-2_WwiseProject\.cache\Mac\SFX\Engine_Weak_looping_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Engine\engine-weak		560808

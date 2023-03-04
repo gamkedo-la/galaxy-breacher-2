@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{C57F90B9-DC81-89F6-F694-E2CBE0018B6A}">
+		<SoundBank Id="460270446" Type="User" Language="SFX" Hash="{3867CB26-9C14-7E68-71D6-DFAD28E9F4D2}">
 			<ShortName>GameSoundBank</ShortName>
 			<Path>GameSoundBank.bnk</Path>
 			<Media>
@@ -33,6 +33,10 @@
 					<ShortName>latch_release.wav</ShortName>
 					<CachePath>SFX/latch_release_10C4C929.wem</CachePath>
 				</File>
+				<File Id="139789681" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ominous Star_v01.wav</ShortName>
+					<CachePath>SFX/Ominous Star_v01_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="220302731" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ShieldGeneratorExplode.wav</ShortName>
 					<CachePath>SFX/ShieldGeneratorExplode_10C4C929.wem</CachePath>
@@ -48,6 +52,10 @@
 				<File Id="322653846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LaserOverheat.wav</ShortName>
 					<CachePath>SFX/LaserOverheat_10C4C929.wem</CachePath>
+				</File>
+				<File Id="334265296" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>rock&amp;ahardplace_cleaned_trimmed_for_looping.wav</ShortName>
+					<CachePath>SFX/rock&amp;ahardplace_cleaned_trimmed_for_looping_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="334376500" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>galaxy_breacher_player_autocannon01-004.wav</ShortName>
@@ -96,6 +104,34 @@
 					<MediaRefs>
 						<MediaRef Id="44526342"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="258110631" Name="Game_Music" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2702523344" Id="89505537"/>
+							<MediaRefs>
+								<MediaRef Id="139789681"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2702523344" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="334265296"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2702523344" Id="89505537"/>
+							<MediaRefs>
+								<MediaRef Id="139789681"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2702523344" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="334265296"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="1417087857" Name="Laser_OverHeat" DurationType="OneShot" DurationMin="0.7716327" DurationMax="0.7716327">
 					<MediaRefs>
@@ -160,8 +196,16 @@
 				<GameParameter Id="2596356677" Name="Player_Engine_Strength"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="2702523344" Name="Gameplay_Switch">
+					<Switches>
+						<Switch Id="89505537" Name="Gameplay"/>
+						<Switch Id="2607556080" Name="Menu"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{82F5F4A9-6D03-8C80-398D-8FFB15461C65}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{273F9A21-D522-04FD-05A1-F8D0CA17B4E4}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -179,14 +223,6 @@
 				<GameParameter Id="3677180323" Name="Health"/>
 				<GameParameter Id="3969447912" Name="Laser_Panning"/>
 			</GameParameters>
-			<StateGroups>
-				<StateGroup Id="762757699" Name="Gameplay_State">
-					<States>
-						<State Id="89505537" Name="Gameplay"/>
-						<State Id="2607556080" Name="Menu"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="2702523344" Name="Gameplay_Switch">
 					<Switches>
@@ -197,5 +233,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5AF67E3B-E21F-024F-BF24-B78911C0DE55}</FileHash>
+	<FileHash>{07113C9A-00A1-2CDD-6F65-527D415AA712}</FileHash>
 </SoundBanksInfo>
