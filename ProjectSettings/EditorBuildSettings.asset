@@ -6,24 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/IntroCutScene.unity
+    path: Assets/Scenes/MenuAndStory/IntroCutScene.unity
     guid: 8355bdd0d071652499be726bc3f3091f
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
+    path: Assets/Scenes/MenuAndStory/LevelSelect.unity
     guid: e297e0f76ad22480bb9b01d2988438d0
   - enabled: 1
-    path: Assets/Scenes/FirstBigShipLevel.unity
+    path: Assets/Scenes/Levels/FirstBigShipLevel.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/TradeInterdiction.unity
+    path: Assets/Scenes/Levels/TradeInterdiction.unity
     guid: f6a17513b01167c46953a7ef4ed7bc29
   - enabled: 1
-    path: Assets/Scenes/WeaponTest.unity
+    path: Assets/Scenes/HelperScenes/WeaponTest.unity
     guid: 2d54a5c72e1e64e1a87699a65faaee8e
   - enabled: 1
-    path: Assets/Scenes/PlayerLost.unity
+    path: Assets/Scenes/MenuAndStory/PlayerLost.unity
     guid: d7a03ad29284945d0abf092d208fdb1c
   - enabled: 1
-    path: Assets/Scenes/PlayerAsTurretLevel.unity
+    path: Assets/Scenes/Levels/PlayerAsTurretLevel.unity
     guid: e7be92a5360eb4b49b2843c07628dd28
+  - enabled: 1
+    path: Assets/Scenes/MenuAndStory/StoryIntro.unity
+    guid: b170b72dce79b40a0a9b7108f6b9a129
+  - enabled: 1
+    path: Assets/Scenes/MenuAndStory/StoryOutro.unity
+    guid: 23eb97121d9d6a943aeaec2e4a0dfa96
+  - enabled: 1
+    path: Assets/Scenes/Levels/MidsizeIntroShipLevel.unity
+    guid: f6628759bb4c14dd6a2ecdc6a9da2ff8
   m_configObjects: {}
