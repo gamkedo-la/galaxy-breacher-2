@@ -6,6 +6,8 @@ using TMPro;
 
 public class PlayerShipUI : MonoBehaviour
 {
+    public static PlayerShipUI instance;
+
     //Player Health and Shield
     public TextMeshProUGUI hullText;
     public TextMeshProUGUI shieldText;
@@ -23,6 +25,10 @@ public class PlayerShipUI : MonoBehaviour
     int parts;
     public TextMeshProUGUI partsNumber;
 
+    private void Awake() {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +36,27 @@ public class PlayerShipUI : MonoBehaviour
         UpdateInterfaceReadout();
     }
 
+    public void UpdateBossPartCount() {
+        GameObject[] partsInScene = GameObject.FindGameObjectsWithTag("BossPart");
+        parts = partsInScene.Length;
+        for(int i=0;i<parts;i++) {
+            ExplosionSelfRemove esr = partsInScene[i].GetComponentInParent<ExplosionSelfRemove>();
+            if(esr) {
+                if(esr.AlreadyRemoved()) {
+                    parts--;
+                    Debug.Log(esr.gameObject.name + " was recently removed, removing from tally");
+                }
+            }
+        }
+        partsNumber.GetComponent<TextMeshProUGUI>().text = "Boss Parts: " + parts;
+    }
+
     void UpdateInterfaceReadout() { // moved out of update code, can only update when it changes
         shield = Mathf.Clamp(shield, 0, SHIELD_MAX);
         shieldText.text = new string('|', shield);
         hullText.text = new string('|', hull);
 
-                //Boss Part Count
-        parts = GameObject.FindGameObjectsWithTag("BossPart").Length;
-        partsNumber.GetComponent<TextMeshProUGUI>().text = "Boss Parts: " + parts;
+        UpdateBossPartCount();
     }
     public void TakeDamage() {
         if(shield > 0) {

@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 1597034052542566786}
   - component: {fileID: 4023143135256029523}
   - component: {fileID: 923624134140120349}
+  - component: {fileID: 1470819822862383177}
   m_Layer: 9
   m_Name: Turret
   m_TagString: BossPart
@@ -257,6 +258,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+--- !u!114 &1470819822862383177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926952704039944314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b02dac4c5fba49e6b5f912c50f06704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTimer: 2
+  ExplosionVFX: {fileID: 5106747085247207235, guid: 4b53960c80422d37cac0c8c3fe947972, type: 3}
+  ExplosionPosition: {fileID: 0}
+  enemyShipSpawnContoller: {fileID: 0}
+  soundToPlayWithVFX: ShipExplode
 --- !u!1 &6834842702114153905
 GameObject:
   m_ObjectHideFlags: 0

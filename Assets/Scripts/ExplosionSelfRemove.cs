@@ -8,14 +8,26 @@ public class ExplosionSelfRemove : MonoBehaviour
     [SerializeField] GameObject ExplosionVFX;
     [SerializeField] Transform ExplosionPosition;
     public EnemyShipSpawnContoller enemyShipSpawnContoller;
-    public string soundToPlayWithVFX = "ShipExplode"; 
+    public string soundToPlayWithVFX = "ShipExplode";
+
+    private bool alreadyDestroyedButNotRemovedYet = false; // helps boss tally update before GameObject is erased
 
     public void Start() {
-        HierarchyTrashSingleton.instance.GroupTempJunk(transform);
+        if(HierarchyTrashSingleton.instance) {
+            HierarchyTrashSingleton.instance.GroupTempJunk(transform);
+        }
+    }
+
+    public bool AlreadyRemoved() {
+        return alreadyDestroyedButNotRemovedYet;
     }
 
     public void Remove()
     {
+        if(alreadyDestroyedButNotRemovedYet) {
+            return; // prevent this somehow getting reached more than once (shouldn't)
+        }
+        alreadyDestroyedButNotRemovedYet = true;
         if (ExplosionVFX != null) {
             AkSoundEngine.PostEvent(soundToPlayWithVFX,gameObject);
             GameObject explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
@@ -26,5 +38,12 @@ public class ExplosionSelfRemove : MonoBehaviour
             enemyShipSpawnContoller.RemoveShip();
         }
         Destroy(gameObject, destroyTimer);
+
+        if(transform.tag == "BossPart" ||transform.tag == "SpawnPoint") {
+            Debug.Log("updating boss part count:");
+            if (PlayerShipUI.instance) {
+                PlayerShipUI.instance.UpdateBossPartCount();
+            }
+        }
     }
 }
