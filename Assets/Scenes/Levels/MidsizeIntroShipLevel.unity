@@ -1563,6 +1563,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 132892449}
+    - target: {fileID: 2205560962422865294, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 2736260131050975636, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_Name
       value: EveryLevelCoreStuff
