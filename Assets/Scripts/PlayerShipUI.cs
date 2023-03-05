@@ -36,6 +36,10 @@ public class PlayerShipUI : MonoBehaviour
         UpdateInterfaceReadout();
     }
 
+    public bool IsBossPartCountZero() {
+        return (parts == 0);
+    }
+
     public void UpdateBossPartCount() {
         GameObject[] partsInScene = GameObject.FindGameObjectsWithTag("BossPart");
         parts = partsInScene.Length;

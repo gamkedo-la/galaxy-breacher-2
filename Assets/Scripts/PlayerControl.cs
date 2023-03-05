@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerControl : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     public float turretYaw = 0.0f;
     public float turretPitch = 45.0f;
     private Vector3 turretUpward;
+
+    public GameObject winMessage;
 
     public PlayerShipUI healthShieldUI;
 
@@ -33,7 +36,7 @@ public class PlayerControl : MonoBehaviour
     float speedNow = 0.0f;
     float maxNegativeSpeed = -20.0f;
     float maxForwardSpeed = 60.0f;
-    float forwardAccel = 9.0f; // affects Q/E manual adjustment
+    float forwardAccel = 29.0f; // affects Q/E manual adjustment
     float throttleKeptFromPrevFrame = 0.985f; // affects 1-4 presets
     float throttleTarget = 0.0f;
 
@@ -192,10 +195,6 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (waitingBetweenDamage > 0.0f)
-        {
-            waitingBetweenDamage -= Time.deltaTime;
-        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             SetPauseState(!gamePaused);
@@ -206,10 +205,16 @@ public class PlayerControl : MonoBehaviour
             return; // no control input handling while paused other than P toggle key
         }
 
+        if (waitingBetweenDamage > 0.0f) {
+            waitingBetweenDamage -= Time.deltaTime;
+        }
+
         RefreshEngineVolume();
 
         if (turretControlMode == false)
         {
+            bigShipExplosionProcess(); // all enemy parts removed? (ideally only checking after it changes, but, don't want to risk missing due to a bug)
+
             if (Cursor.lockState == CursorLockMode.Locked && Cursor.visible == false)
             {
                 transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
@@ -465,36 +470,24 @@ public class PlayerControl : MonoBehaviour
         laserUI.SetHeatPercentage(laserHeat / laserMaxHeat);
     }
 
-    /*// this approach was causing objects to be removed prematurely when others got damaged
+    private bool bigShipExplodedYet = false;
     private void bigShipExplosionProcess()
     {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(fpsCamera.transform.position, radius, fpsCamera.transform.forward, out hit, maximumDistance))
+        if (bigShipExplodedYet == false &&
+            PlayerShipUI.instance.IsBossPartCountZero())
         {
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Turret"))
-            {
-                Destroy(hit.transform.parent.gameObject, 6f);
-                turretCount++;
-                Debug.Log("turret count: " + turretCount);
-            }
-
-            if (hit.transform.CompareTag("SpawnPoint"))
-            {
-                //Can be changed later to not to destroy but swap out with another object.
-                Destroy(hit.transform.parent.gameObject, 6f);
-                spawnPointCount++;
-                Debug.Log(spawnPointCount);
-            }
-
-            if (turretCount >= turrets.Count && spawnPointCount >= spawnPoints.Count)
-            {
-                Instantiate(bigShipExplosion, bigShipExplosion.transform.position, Quaternion.identity);
-                Destroy(bigShip, 3f);
-            }
+            bigShipExplodedYet = true; // prevents call more than once, especially to not stack coroutines
+            Instantiate(bigShipExplosion, bigShipExplosionPosition.transform.position, Quaternion.identity);
+            Destroy(bigShip, 3f);
+            StartCoroutine(ReturnAfterSuccess());
         }
     }
-    */
+
+    IEnumerator ReturnAfterSuccess() {
+        winMessage.SetActive(true);
+        yield return new WaitForSeconds(4.0f);
+        SceneManager.LoadScene("LevelSelect");
+    }
 
     public void ReceiveDamagePaced()
     {

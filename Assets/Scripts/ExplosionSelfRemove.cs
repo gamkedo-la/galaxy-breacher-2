@@ -28,7 +28,6 @@ public class ExplosionSelfRemove : MonoBehaviour
 
     public void ExplodeAndRemove()
     {
-        Debug.Log(gameObject.name + " reached ExplodeAndRemove");
         if(alreadyDestroyedButNotRemovedYet) {
             return; // prevent this somehow getting reached more than once (shouldn't)
         }
@@ -46,7 +45,6 @@ public class ExplosionSelfRemove : MonoBehaviour
         Destroy(gameObject, destroyTimer);
 
         if(transform.tag == "BossPart" ||transform.tag == "SpawnPoint") {
-            Debug.Log("updating boss part count:");
             if (PlayerShipUI.instance) {
                 PlayerShipUI.instance.UpdateBossPartCount();
             }
