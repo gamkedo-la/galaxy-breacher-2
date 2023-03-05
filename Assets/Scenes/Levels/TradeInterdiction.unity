@@ -2012,6 +2012,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736260131773347448, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 446
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347448, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -81
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347448, guid: 7167d83941222425fa4151b7033023c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736260131773347448, guid: 7167d83941222425fa4151b7033023c4, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.93102694
       objectReference: {fileID: 0}
