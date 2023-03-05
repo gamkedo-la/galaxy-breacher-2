@@ -337,7 +337,7 @@ public class PlayerControl : MonoBehaviour
                     {
                         Debug.Log(hit.transform.name + " taking damage from MG");
                     }
-                    damageable.TakeDamage(1); // smallest damage increment
+                    damageable.TakeDamage(3); // careful, rapid fire, so small number difference is significant
                 }
             }
             else if (showPlayerWeaponDebug)
