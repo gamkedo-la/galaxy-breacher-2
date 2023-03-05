@@ -118,6 +118,8 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         AkSoundEngine.PostEvent("Player_Engine", gameObject);
+        AkSoundEngine.PostEvent("Game_Music", gameObject);
+        AkSoundEngine.SetSwitch("Gameplay_Switch","Gameplay", gameObject);
         if (turretControlMode)
         {
             turretUpward = transform.forward;
