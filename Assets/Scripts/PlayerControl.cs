@@ -195,6 +195,9 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("LevelSelect");
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             SetPauseState(!gamePaused);
