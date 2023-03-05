@@ -16,6 +16,7 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damageToTake)
     {
+        Debug.Log(gameObject.name + " IS TAKING DAMAGE");
         health -= damageToTake;
         if (health < 0)
         {
@@ -27,7 +28,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         ExplosionSelfRemove esrScript = gameObject.GetComponent<ExplosionSelfRemove>();
         if (esrScript) {
-            esrScript.Remove();
+            esrScript.ExplodeAndRemove();
         }
         else {
             Debug.LogWarning("no explosion self remove for effect on " + gameObject.name);

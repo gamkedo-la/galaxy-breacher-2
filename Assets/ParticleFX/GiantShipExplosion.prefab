@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2984125734496145147}
   - component: {fileID: 2984125734496145146}
   - component: {fileID: -4459737111564540741}
+  - component: {fileID: -2925042334844961555}
   m_Layer: 0
   m_Name: GiantShipExplosion
   m_TagString: Untagged
@@ -4886,6 +4887,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: GiantShipExplosion
+--- !u!114 &-2925042334844961555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984125734496145145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5439900e375bf44809054917b0bf170c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeAfterSec: 10
 --- !u!1 &2984125735244654652
 GameObject:
   m_ObjectHideFlags: 0

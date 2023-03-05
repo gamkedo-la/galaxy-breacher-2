@@ -22,7 +22,7 @@ public class ExplosionSelfRemove : MonoBehaviour
         return alreadyDestroyedButNotRemovedYet;
     }
 
-    public void Remove()
+    public void ExplodeAndRemove()
     {
         if(alreadyDestroyedButNotRemovedYet) {
             return; // prevent this somehow getting reached more than once (shouldn't)

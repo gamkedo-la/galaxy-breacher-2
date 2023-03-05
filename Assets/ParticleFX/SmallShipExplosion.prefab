@@ -4881,6 +4881,7 @@ GameObject:
   - component: {fileID: 5106747085247207246}
   - component: {fileID: 5106747085247207233}
   - component: {fileID: 5106747085247207232}
+  - component: {fileID: 5743270837859378097}
   m_Layer: 0
   m_Name: SmallShipExplosion
   m_TagString: Untagged
@@ -9742,6 +9743,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5743270837859378097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5106747085247207235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5439900e375bf44809054917b0bf170c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeAfterSec: 5
 --- !u!1 &5106747085853471110
 GameObject:
   m_ObjectHideFlags: 0

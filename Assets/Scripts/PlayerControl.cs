@@ -347,7 +347,7 @@ public class PlayerControl : MonoBehaviour
             }
             GameObject blastGO = GameObject.Instantiate(explosionToSpawn, hit.point, Quaternion.identity);
             ExplosionSelfRemove esrScript = blastGO.GetComponent<ExplosionSelfRemove>();
-            esrScript.Remove();
+            esrScript.ExplodeAndRemove();
         }
     }
 
