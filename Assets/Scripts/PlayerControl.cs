@@ -248,7 +248,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ShootRocket();
-            bigShipExplosionProcess();
         }
 
         if (Input.GetButtonDown("Engine-Off"))
@@ -466,6 +465,7 @@ public class PlayerControl : MonoBehaviour
         laserUI.SetHeatPercentage(laserHeat / laserMaxHeat);
     }
 
+    /*// this approach was causing objects to be removed prematurely when others got damaged
     private void bigShipExplosionProcess()
     {
         RaycastHit hit;
@@ -494,6 +494,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+    */
 
     public void ReceiveDamagePaced()
     {

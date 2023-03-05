@@ -16,6 +16,10 @@ public class ExplosionSelfRemove : MonoBehaviour
         if(HierarchyTrashSingleton.instance) {
             HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         }
+        ExplosionSelfRemove[] allESR = gameObject.GetComponents<ExplosionSelfRemove>();
+        if(allESR.Length > 1) {
+            Debug.LogWarning("INSTANCE HAS MORE THAN 1 ESR ON IT: " + gameObject.name);
+        }
     }
 
     public bool AlreadyRemoved() {
@@ -24,9 +28,11 @@ public class ExplosionSelfRemove : MonoBehaviour
 
     public void ExplodeAndRemove()
     {
+        Debug.Log(gameObject.name + " reached ExplodeAndRemove");
         if(alreadyDestroyedButNotRemovedYet) {
             return; // prevent this somehow getting reached more than once (shouldn't)
         }
+
         alreadyDestroyedButNotRemovedYet = true;
         if (ExplosionVFX != null) {
             AkSoundEngine.PostEvent(soundToPlayWithVFX,gameObject);
