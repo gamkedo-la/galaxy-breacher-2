@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayMenuSong : MonoBehaviour
-{
-    void Start()
-    {
-        AkSoundEngine.SetSwitch("Gameplay_Switch","Menu", gameObject);
-        AkSoundEngine.PostEvent("Game_Music", gameObject);
-        
+public class PlayMenuSong : MonoBehaviour {
+    private static uint menuSongID = 0; // static so this survives between scene changes
+
+    void Start() {
+        SaveGameMusicAndPlayOneSongAtATime(AkSoundEngine.PostEvent("Game_Music", gameObject));
+        AkSoundEngine.SetSwitch("Gameplay_Switch", "Menu", gameObject);
+    }
+
+    static void ForceEndMenuMusicIfItsPlaying() {
+        if (menuSongID != 0) {
+            AkSoundEngine.StopPlayingID(menuSongID, 500, AkCurveInterpolation.AkCurveInterpolation_Constant);
+            menuSongID = 0;
+        }
+    }
+
+    public static void SaveGameMusicAndPlayOneSongAtATime(uint songID) {
+        ForceEndMenuMusicIfItsPlaying();
+        menuSongID = songID;
     }
 }

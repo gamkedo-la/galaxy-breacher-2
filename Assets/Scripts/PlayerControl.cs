@@ -121,7 +121,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         AkSoundEngine.PostEvent("Player_Engine", gameObject);
-        AkSoundEngine.PostEvent("Game_Music", gameObject);
+        PlayMenuSong.SaveGameMusicAndPlayOneSongAtATime(AkSoundEngine.PostEvent("Game_Music", gameObject));
         AkSoundEngine.SetSwitch("Gameplay_Switch","Gameplay", gameObject);
         if (turretControlMode)
         {
