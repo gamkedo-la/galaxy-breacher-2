@@ -474,7 +474,7 @@ public class PlayerControl : MonoBehaviour
     private void bigShipExplosionProcess()
     {
         if (bigShipExplodedYet == false &&
-            PlayerShipUI.instance.IsBossPartCountZero())
+            (PlayerShipUI.instance.IsBossPartCountZero() || Input.GetKeyDown(KeyCode.U)))
         {
             Debug.Log("end of level!");
             bigShipExplodedYet = true; // prevents call more than once, especially to not stack coroutines

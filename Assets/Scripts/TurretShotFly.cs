@@ -24,7 +24,7 @@ public class TurretShotFly : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-        Debug.Log(collision.gameObject.name);
+        // Debug.Log(collision.gameObject.name);
         PlayerControl playerScript = collision.gameObject.GetComponent<PlayerControl>();
         if(playerScript) {
             Debug.Log("Player hit!");
