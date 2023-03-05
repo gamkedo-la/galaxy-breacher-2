@@ -21,7 +21,7 @@ public class AsteroidSpawner : MonoBehaviour
 
         int numberOfAsteriods = Random.Range(minAsteroids, maxAsteroids);
 
-        Debug.Log("Spawining Asteroids");
+        Debug.Log("Spawning Asteroids");
         Debug.Log("Number of Asteroids to Spawn: " + numberOfAsteriods);
 
         for (int i = 0; i < numberOfAsteriods; i++)

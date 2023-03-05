@@ -85,7 +85,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2736260131773347448}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1434580563
 GameObject:
@@ -9145,10 +9145,6 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2500231978275249122, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2575828424703220735, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -9219,7 +9215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168667934483797248, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8816904807486141931, guid: 37b5c7087aa9940cab1501f713e7ab8c, type: 3}
       propertyPath: m_RootOrder

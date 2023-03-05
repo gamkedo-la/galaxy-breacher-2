@@ -48,7 +48,7 @@ public class PlayerShipUI : MonoBehaviour
             if(esr) {
                 if(esr.AlreadyRemoved()) {
                     parts--;
-                    Debug.Log(esr.gameObject.name + " was recently removed, removing from tally");
+                    // Debug.Log(esr.gameObject.name + " was recently removed, removing from tally");
                 }
             }
         }

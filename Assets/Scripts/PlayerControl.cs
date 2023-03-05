@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
     [Space(10)]
     [Header("Health Properties")]
     public Animator damageLighting;
-    private const float delayBetweenHarm = 0.15f;
+    private const float delayBetweenHarm = 0.6f;
     private float waitingBetweenDamage = 0.0f;
 
     [Space(10)]
@@ -211,10 +211,10 @@ public class PlayerControl : MonoBehaviour
 
         RefreshEngineVolume();
 
+        bigShipExplosionProcess(); // all enemy parts removed? (ideally only checking after it changes, but, don't want to risk missing due to a bug)
+
         if (turretControlMode == false)
         {
-            bigShipExplosionProcess(); // all enemy parts removed? (ideally only checking after it changes, but, don't want to risk missing due to a bug)
-
             if (Cursor.lockState == CursorLockMode.Locked && Cursor.visible == false)
             {
                 transform.Rotate(Vector3.forward, Input.GetAxis("Roll") * -rollSpeed * Time.deltaTime);
@@ -476,17 +476,24 @@ public class PlayerControl : MonoBehaviour
         if (bigShipExplodedYet == false &&
             PlayerShipUI.instance.IsBossPartCountZero())
         {
+            Debug.Log("end of level!");
             bigShipExplodedYet = true; // prevents call more than once, especially to not stack coroutines
-            Instantiate(bigShipExplosion, bigShipExplosionPosition.transform.position, Quaternion.identity);
-            Destroy(bigShip, 3f);
             StartCoroutine(ReturnAfterSuccess());
         }
     }
 
     IEnumerator ReturnAfterSuccess() {
+        string sceneToLoadAfter;
         winMessage.SetActive(true);
+        if (bigShipExplosion != null) {
+            Instantiate(bigShipExplosion, bigShipExplosionPosition.transform.position, Quaternion.identity);
+            Destroy(bigShip, 3f);
+            sceneToLoadAfter = "LevelSelect";
+        } else {
+            sceneToLoadAfter = "StoryOutro";
+        }
         yield return new WaitForSeconds(4.0f);
-        SceneManager.LoadScene("LevelSelect");
+        SceneManager.LoadScene(sceneToLoadAfter);
     }
 
     public void ReceiveDamagePaced()
