@@ -1102,6 +1102,7 @@ MonoBehaviour:
   turretControlMode: 0
   turretYaw: 0
   turretPitch: 45
+  winMessage: {fileID: 0}
   healthShieldUI: {fileID: 0}
   damageLighting: {fileID: 0}
   invertPitchAxis: 0
@@ -1896,8 +1897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Laser Heat
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0528261cfe07c442181aefc489ed517b, type: 2}
+  m_sharedMaterial: {fileID: -1968344475078971995, guid: 0528261cfe07c442181aefc489ed517b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2091,7 +2092,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63a2a837fff644424940701957b3ef3f, type: 2}
+  - {fileID: 2100000, guid: 58ae2d2b872424162aea425144e35ad3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2359,7 +2360,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63a2a837fff644424940701957b3ef3f, type: 2}
+  - {fileID: 2100000, guid: 58ae2d2b872424162aea425144e35ad3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -236,7 +236,11 @@ public class PlayerControl : MonoBehaviour
             // remember: no  * Time.deltaTime here since the .velocity of rb already handles that
             rb.velocity = moveVec;
 
-            speedIndicator.text = "Engine: " + Mathf.Round(speedNow / maxForwardSpeed * 100.0f) + "%";
+            if (Mathf.Abs(speedNow) <= 1.0f) {
+                speedIndicator.text = "E: Speed up / Q: Slow down";
+            } else {
+                speedIndicator.text = "Engine: " + Mathf.Round(speedNow / maxForwardSpeed * 100.0f) + "%";
+            }
         }
         else
         {
