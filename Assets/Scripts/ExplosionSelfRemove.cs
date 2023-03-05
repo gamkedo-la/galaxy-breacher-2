@@ -10,10 +10,12 @@ public class ExplosionSelfRemove : MonoBehaviour
     public EnemyShipSpawnContoller enemyShipSpawnContoller;
     public string soundToPlayWithVFX = "ShipExplode";
 
+    public bool dontChangeHierarchyParent = false;
+
     private bool alreadyDestroyedButNotRemovedYet = false; // helps boss tally update before GameObject is erased
 
     public void Start() {
-        if(HierarchyTrashSingleton.instance) {
+        if(dontChangeHierarchyParent == false && HierarchyTrashSingleton.instance) {
             HierarchyTrashSingleton.instance.GroupTempJunk(transform);
         }
         ExplosionSelfRemove[] allESR = gameObject.GetComponents<ExplosionSelfRemove>();

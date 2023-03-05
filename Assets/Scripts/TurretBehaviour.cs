@@ -79,7 +79,7 @@ public class TurretBehaviour : MonoBehaviour
                 if (Physics.Raycast(myLaserLine.transform.position, myLaserLine.transform.forward, out RaycastHit hit, 3000.0f)) {
                     PlayerControl playerScript = hit.collider.GetComponent<PlayerControl>();
                     if(playerScript) {
-                        Debug.Log("player taking laser damage");
+                        // Debug.Log("player taking laser damage");
                         playerScript.ReceiveDamagePaced();
                     }
                 }
@@ -114,8 +114,12 @@ public class TurretBehaviour : MonoBehaviour
     }
 
     public void Deactivate(){
+        transform.parent.tag = "Untagged"; // by removing BossTag it'll count towards completion
         deactivate = true;
         myLaserLine.enabled = false;
+        if (PlayerShipUI.instance) {
+            PlayerShipUI.instance.UpdateBossPartCount();
+        }
     }
 }
 
