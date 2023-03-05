@@ -70,6 +70,7 @@ public class PlayerShipUI : MonoBehaviour
             hull--;
             if (hull < 0) {
                 hull = 0;
+                PlayerControl.StopEngineLoopIfPlaying();
                 SceneManager.LoadScene("PlayerLost");
             }
         }

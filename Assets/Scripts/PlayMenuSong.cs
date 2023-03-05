@@ -6,6 +6,7 @@ public class PlayMenuSong : MonoBehaviour {
     private static uint menuSongID = 0; // static so this survives between scene changes
 
     void Start() {
+        PlayerControl.StopEngineLoopIfPlaying(); // no matter how we got here, we don't want to hear this
         SaveGameMusicAndPlayOneSongAtATime(AkSoundEngine.PostEvent("Game_Music", gameObject));
         AkSoundEngine.SetSwitch("Gameplay_Switch", "Menu", gameObject);
     }

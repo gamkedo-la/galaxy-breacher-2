@@ -112,15 +112,23 @@ public class PlayerControl : MonoBehaviour
     private Camera fpsCamera;
     Color color;
 
+    private static uint engineSoundLoopID = 0;
 
     void Awake()
     {
         instance = this; // singleton for AI to aim etc
     }
 
+    public static void StopEngineLoopIfPlaying() {
+        if(engineSoundLoopID != 0) {
+            AkSoundEngine.StopPlayingID(engineSoundLoopID, 500, AkCurveInterpolation.AkCurveInterpolation_Constant);
+            engineSoundLoopID = 0;
+        }
+    }
+
     void Start()
     {
-        AkSoundEngine.PostEvent("Player_Engine", gameObject);
+        engineSoundLoopID = AkSoundEngine.PostEvent("Player_Engine", gameObject);
         PlayMenuSong.SaveGameMusicAndPlayOneSongAtATime(AkSoundEngine.PostEvent("Game_Music", gameObject));
         AkSoundEngine.SetSwitch("Gameplay_Switch","Gameplay", gameObject);
         if (turretControlMode)
@@ -196,6 +204,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
+            StopEngineLoopIfPlaying();
             SceneManager.LoadScene("LevelSelect");
         }
         if (Input.GetKeyDown(KeyCode.P))
@@ -500,6 +509,7 @@ public class PlayerControl : MonoBehaviour
             sceneToLoadAfter = "StoryOutro";
         }
         yield return new WaitForSeconds(4.0f);
+        StopEngineLoopIfPlaying();
         SceneManager.LoadScene(sceneToLoadAfter);
     }
 
