@@ -842,6 +842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InEveryMenuScenePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4973750522350682140, guid: f684d137ceea1401c8654b7b3cf7b44a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f684d137ceea1401c8654b7b3cf7b44a, type: 3}
 --- !u!1 &829564538
